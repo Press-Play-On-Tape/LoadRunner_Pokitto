@@ -1,0 +1,1777 @@
+{
+	"lastBuffer": "main.cpp",
+	"PNGFlags": {
+		"ALL": [
+			"palette=${appPath}/PokittoLib/Pokitto/POKITTO_CORE/PALETTES/palCGA.cpp"
+		]
+	},
+	"libs": {
+		"Pokitto": [
+			{
+				"recurse": "${appPath}/PokittoLib/Pokitto",
+				"ignore": "POKITTO_SIM|POKITTO_XTERNALS|Documentation|examples?|Physics|(?:.*_SIM.*)|main.cpp"
+			}
+		]
+	},
+	"SFlags": {
+		"Pokitto": [
+			"-I${projectPath}",
+			"-mcpu=cortex-m0plus",
+			"-mthumb"
+		]
+	},
+	"CPPFlags": {
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"RELEASE": [
+			"-O3"
+		],
+		"Pokitto": [
+			"-DPROJ_FPS=60",
+			"-I${projectPath}",
+			"-DPOKITTO",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks",
+			"-fomit-frame-pointer",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wno-psabi",
+			"-Wno-conversion-null",
+			"-Wno-narrowing",
+			"-Wno-write-strings",
+			"-DTARGET_LPC11U68",
+			"-D__MBED__=1",
+			"-DDEVICE_I2CSLAVE=1",
+			"-DTARGET_LIKE_MBED",
+			"-DTARGET_NXP",
+			"-D__MBED_CMSIS_RTOS_CM",
+			"-DDEVICE_RTC=1",
+			"-DTOOLCHAIN_object",
+			"-D__CMSIS_RTOS",
+			"-DTOOLCHAIN_GCC",
+			"-DTARGET_CORTEX_M",
+			"-DTARGET_M0P",
+			"-DTARGET_UVISOR_UNSUPPORTED",
+			"-DDEVICE_SERIAL=1",
+			"-DDEVICE_INTERRUPTIN=1",
+			"-DTARGET_LPCTarget",
+			"-DTARGET_CORTEX",
+			"-DDEVICE_I2C=1",
+			"-D__CORTEX_M0PLUS",
+			"-DTARGET_FF_ARDUINO",
+			"-DTARGET_RELEASE",
+			"-DMBED_BUILD_TIMESTAMP=1526394586.66",
+			"-DARM_MATH_CM0PLUS",
+			"-DTARGET_LPC11U6X",
+			"-DDEVICE_SLEEP=1",
+			"-DTOOLCHAIN_GCC_ARM",
+			"-DDEVICE_SPI=1",
+			"-DDEVICE_ANALOGIN=1",
+			"-DDEVICE_PWMOUT=1",
+			"-DTARGET_LIKE_CORTEX_M0"
+		],
+		"Desktop": [
+			"-I${projectPath}",
+			"-DDESKTOP",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks"
+		],
+		"ALL": [
+			"-std=c++14"
+		]
+	},
+	"CFlags": {
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"RELEASE": [
+			"-O3"
+		],
+		"Pokitto": [
+			"-I${projectPath}",
+			"-DPOKITTO",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks",
+			"-fomit-frame-pointer",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wno-psabi",
+			"-Wwrite-strings",
+			"-DTARGET_LPC11U68",
+			"-D__MBED__=1",
+			"-DDEVICE_I2CSLAVE=1",
+			"-DTARGET_LIKE_MBED",
+			"-DTARGET_NXP",
+			"-D__MBED_CMSIS_RTOS_CM",
+			"-DDEVICE_RTC=1",
+			"-DTOOLCHAIN_object",
+			"-D__CMSIS_RTOS",
+			"-DTOOLCHAIN_GCC",
+			"-DTARGET_CORTEX_M",
+			"-DTARGET_M0P",
+			"-DTARGET_UVISOR_UNSUPPORTED",
+			"-DDEVICE_SERIAL=1",
+			"-DDEVICE_INTERRUPTIN=1",
+			"-DTARGET_LPCTarget",
+			"-DTARGET_CORTEX",
+			"-DDEVICE_I2C=1",
+			"-D__CORTEX_M0PLUS",
+			"-DTARGET_FF_ARDUINO",
+			"-DTARGET_RELEASE",
+			"-DMBED_BUILD_TIMESTAMP=1526394586.66",
+			"-DARM_MATH_CM0PLUS",
+			"-DTARGET_LPC11U6X",
+			"-DDEVICE_SLEEP=1",
+			"-DTOOLCHAIN_GCC_ARM",
+			"-DDEVICE_SPI=1",
+			"-DDEVICE_ANALOGIN=1",
+			"-DDEVICE_PWMOUT=1",
+			"-DTARGET_LIKE_CORTEX_M0"
+		],
+		"Desktop": [
+			"-I${projectPath}",
+			"-DDESKTOP",
+			"-fno-rtti",
+			"-Wno-pointer-arith",
+			"-c",
+			"-fno-exceptions",
+			"-fno-builtin",
+			"-ffunction-sections",
+			"-fdata-sections",
+			"-funsigned-char",
+			"-MMD",
+			"-fno-delete-null-pointer-checks"
+		],
+		"ALL": []
+	},
+	"GDBFlags": {
+		"Pokitto": [
+			"${projectPath}/${projectName}.elf"
+		]
+	},
+	"emuFlags": {
+		"Pokitto": [
+			"${projectPath}/${projectName}.bin"
+		]
+	},
+	"ELF2BINFlags": {
+		"Pokitto": [
+			"-O",
+			"binary",
+			"${projectPath}/${projectName}.elf",
+			"${projectPath}/${projectName}.bin"
+		]
+	},
+	"LDFlags": {
+		"RELEASE": [
+			"-O3"
+		],
+		"DEBUG": [
+			"-Og",
+			"-g3",
+			"-ggdb"
+		],
+		"Pokitto": [
+			"-Wl,--gc-sections",
+			"-Wl,-n",
+			"--specs=nano.specs",
+			"-mcpu=cortex-m0plus",
+			"-mthumb",
+			"-Wl,--undefined=g_pfnVectors",
+			"-Wl,--undefined=boot",
+			"-T",
+			"${appPath}/PokittoLib/Pokitto/mbed-pokitto/targets/cmsis/TARGET_NXP/TARGET_LPC11U6X/TOOLCHAIN_GCC_ARM/TARGET_LPC11U68/LPC11U68.ld",
+			"--output",
+			"${projectPath}/${projectName}.elf",
+			"$objectFiles",
+			"-Wl,--start-group",
+			"-lstdc++",
+			"-lsupc++",
+			"-lm",
+			"-lc",
+			"-lgcc",
+			"-lnosys",
+			"-Wl,--end-group"
+		]
+	},
+	"target": "Pokitto",
+	"pipelines": {
+		"Pokitto": [
+			"img-to-c",
+			"compile-cpp",
+			"compile-ld",
+			"compile-bin",
+			"make-img"
+		],
+		"Desktop": [
+			"compile-cpp",
+			"compile-ld",
+			"compile-bin"
+		]
+	},
+	"meta": {
+		"": {},
+		"/Bacon.png": {
+			"sdcard": false
+		},
+		"/Hello CPP.bin": {
+			"sdcard": false
+		},
+		"/File.cpp": {
+			"sdcard": false
+		},
+		"/Hello CPP.elf": {
+			"sdcard": false
+		},
+		"/My_settings.h": {
+			"sdcard": false
+		},
+		"/Smile.h": {
+			"sdcard": false
+		},
+		"/Smile.png": {
+			"sdcard": false
+		},
+		"/Test.h": {
+			"sdcard": false
+		},
+		"/Test.png": {
+			"sdcard": true
+		},
+		"/main.cpp": {
+			"sdcard": false
+		},
+		"/project.json": {
+			"sdcard": false
+		},
+		"/.vscode": {},
+		"/distributable": {},
+		"/Images": {},
+		"/Levels": {},
+		"/LICENSE": {
+			"sdcard": false
+		},
+		"/LodeRunner_EnemyMovements.ino": {
+			"sdcard": false
+		},
+		"/LodeRunner_PlayerMovements.ino": {
+			"sdcard": false
+		},
+		"/LodeRunner_Render.ino": {
+			"sdcard": false
+		},
+		"/LodeRunner_Utils.ino": {
+			"sdcard": false
+		},
+		"/LodeRunner.ino": {
+			"sdcard": false
+		},
+		"/src": {},
+		"/.vscode/settings.json": {
+			"sdcard": false
+		},
+		"/.vscode/arduino.json": {
+			"sdcard": false
+		},
+		"/.vscode/c_cpp_properties.json": {
+			"sdcard": false
+		},
+		"/.vscode/tasks.json": {
+			"sdcard": false
+		},
+		"/distributable/LodeRunner.V104.Levels.041-080.hex": {
+			"sdcard": false
+		},
+		"/distributable/LodeRunner.gif": {
+			"sdcard": false
+		},
+		"/distributable/game.ini": {
+			"sdcard": false
+		},
+		"/distributable/LodeRunner.V104.Levels.001-040.hex": {
+			"sdcard": false
+		},
+		"/Images/Man13Rebirth.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowML_Small.png": {
+			"sdcard": false
+		},
+		"/Images/Gold_SC.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_4.png": {
+			"sdcard": false
+		},
+		"/Images/Men.png": {
+			"sdcard": false
+		},
+		"/Images/CompleteGameBlank.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowBM_Small.png": {
+			"sdcard": false
+		},
+		"/Images/Levels.xlsx": {
+			"sdcard": false
+		},
+		"/Images/.DS_Store": {
+			"sdcard": false
+		},
+		"/Images/Brick_3.png": {
+			"sdcard": false
+		},
+		"/Images/CompleteGameBlank2.png": {
+			"sdcard": false
+		},
+		"/Images/TryAgain.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_2.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_4 copy.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowMR_Small.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowTM_Small.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_1.png": {
+			"sdcard": false
+		},
+		"/Images/MenuOptionShow.png": {
+			"sdcard": false
+		},
+		"/Images/Banner.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowTR_Small.png": {
+			"sdcard": false
+		},
+		"/Images/Banner2.png": {
+			"sdcard": false
+		},
+		"/Images/Blank.png": {
+			"sdcard": false
+		},
+		"/Images/Victory.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowTL.png": {
+			"sdcard": false
+		},
+		"/Images/Number5.png": {
+			"sdcard": false
+		},
+		"/Images/Number4.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_2 copy.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_3 copy.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowTM.png": {
+			"sdcard": false
+		},
+		"/Images/Man9.png": {
+			"sdcard": false
+		},
+		"/Images/Number6.png": {
+			"sdcard": false
+		},
+		"/Images/Number7.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowML.png": {
+			"sdcard": false
+		},
+		"/Images/Man8.png": {
+			"sdcard": false
+		},
+		"/Images/MenuOption2.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowBL_Small.png": {
+			"sdcard": false
+		},
+		"/Images/Arrow.png": {
+			"sdcard": false
+		},
+		"/Images/Number3.png": {
+			"sdcard": false
+		},
+		"/Images/Number2.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowBR_Small.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowTL_Small.png": {
+			"sdcard": false
+		},
+		"/Images/Number0.png": {
+			"sdcard": false
+		},
+		"/Images/Number1.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowBR.png": {
+			"sdcard": false
+		},
+		"/Images/Ladder.png": {
+			"sdcard": false
+		},
+		"/Images/Man12Burn.png": {
+			"sdcard": false
+		},
+		"/Images/MenuOptionHide.png": {
+			"sdcard": false
+		},
+		"/Images/Man15.png": {
+			"sdcard": false
+		},
+		"/Images/ArrowTR.png": {
+			"sdcard": false
+		},
+		"/Images/CompleteGame.png": {
+			"sdcard": false
+		},
+		"/Images/Man3.png": {
+			"sdcard": false
+		},
+		"/Images/Brick_Close_1.png": {
+			"sdcard": false
+		},
+		"/Images/Man2.png": {
+			"sdcard": false
+		},
+		"/Images/Man14.png": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level102.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level116.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level25.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level30.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level24.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level117.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level103.gif": {
+			"sdcard": false
+		},
+		"/Levels/~$Levels.xlsm": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level115.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level101.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level129.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level33.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level128.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level100.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level37.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level23.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level22.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level36.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level113.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level20.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level34.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level21.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level112.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level106.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level149.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level85.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level91.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level46.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level52.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level53.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level47.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level90.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level84.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level148.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level92.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level86.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level51.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level45.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level79.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level78.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level44.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level50.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level87.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level93.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level97.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level83.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level68.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level54.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level40.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level41.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level55.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level69.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level82.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level96.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level8.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level80.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level94.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level43.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level57.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level56.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level42.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level95.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level81.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level9.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level4.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level140.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level98.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level67.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level73.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level72.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level66.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level99.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level141.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level5.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level135.gif": {
+			"sdcard": false
+		},
+		"/Levels/Custom": {},
+		"/Levels/Custom/Brick3.png": {
+			"sdcard": false
+		},
+		"/Levels/Custom/Brick1.png": {
+			"sdcard": false
+		},
+		"/Levels/Custom/Ladder3.png": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level28.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level14.gif": {
+			"sdcard": false
+		},
+		"/Levels/Lode_Runner_level133.gif": {
+			"sdcard": false
+		},
+		"/src/utils": {},
+		"/src/images": {},
+		"/src/characters": {},
+		"/src/levels": {},
+		"/src/utils/Arduboy2Ext.h": {
+			"sdcard": false
+		},
+		"/src/utils/Arduboy2Ext.cpp": {
+			"sdcard": false
+		},
+		"/src/utils/EEPROM_Utils.h": {
+			"sdcard": false
+		},
+		"/src/utils/Queue.h": {
+			"sdcard": false
+		},
+		"/src/utils/Enums.h": {
+			"sdcard": false
+		},
+		"/src/utils/Utils.h": {
+			"sdcard": false
+		},
+		"/src/images/Images.h": {
+			"sdcard": false
+		},
+		"/src/images/sounds.h": {
+			"sdcard": false
+		},
+		"/src/characters/Player.h": {
+			"sdcard": false
+		},
+		"/src/characters/Enemy.h": {
+			"sdcard": false
+		},
+		"/src/levels/Level.h": {
+			"sdcard": false
+		},
+		"/src/levels/Levels.h": {
+			"sdcard": false
+		},
+		"/.DS_Store": {
+			"sdcard": false
+		},
+		"/Levels/.DS_Store": {
+			"sdcard": false
+		},
+		"/src/images/Arrow.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBL.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBL_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBM_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBM.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBR_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBR.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowML_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowML.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowMR_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowMR.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTL_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_2.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_3 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_3.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_4 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_4.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_1.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_2.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_3.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_4.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick.png": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGame.png": {
+			"sdcard": false
+		},
+		"/src/images/Ladder.png": {
+			"sdcard": false
+		},
+		"/src/images/LevelLadder.png": {
+			"sdcard": false
+		},
+		"/src/images/LevelChange.png": {
+			"sdcard": false
+		},
+		"/src/images/Level.png": {
+			"sdcard": false
+		},
+		"/src/images/Levels.xlsx": {
+			"sdcard": false
+		},
+		"/src/images/LoadNextGame.png": {
+			"sdcard": false
+		},
+		"/src/images/Man0.png": {
+			"sdcard": false
+		},
+		"/src/images/Man1.png": {
+			"sdcard": false
+		},
+		"/src/images/Man2.png": {
+			"sdcard": false
+		},
+		"/src/images/Man3.png": {
+			"sdcard": false
+		},
+		"/src/images/Man15.png": {
+			"sdcard": false
+		},
+		"/src/images/Men.png": {
+			"sdcard": false
+		},
+		"/src/images/MenuOption.png": {
+			"sdcard": false
+		},
+		"/src/images/MenuOption2.png": {
+			"sdcard": false
+		},
+		"/src/images/MenuOptionHide.png": {
+			"sdcard": false
+		},
+		"/src/images/MenuOptionShow.png": {
+			"sdcard": false
+		},
+		"/src/images/MenuOptionStart.png": {
+			"sdcard": false
+		},
+		"/src/images/Number0.png": {
+			"sdcard": false
+		},
+		"/src/images/Number1.png": {
+			"sdcard": false
+		},
+		"/src/images/Number2.png": {
+			"sdcard": false
+		},
+		"/src/images/Soild.png": {
+			"sdcard": false
+		},
+		"/src/images/TryAgain.png": {
+			"sdcard": false
+		},
+		"/src/images/Victory.png": {
+			"sdcard": false
+		},
+		"/src/Game.cpp": {
+			"sdcard": false
+		},
+		"/src/Game.h": {
+			"sdcard": false
+		},
+		"/src/Game copy.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Utils.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Utils copy.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Utils copy 2.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Utils copy 3.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Utils copy 4.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_EnemyMovements.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_PlayerMovements.cpp": {
+			"sdcard": false
+		},
+		"/src/Game_Render.cpp": {
+			"sdcard": false
+		},
+		"/src/.DS_Store": {
+			"sdcard": false
+		},
+		"/src/images/ArrowML_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/Arrow.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBR_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBR.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowMR_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTL_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowMR.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_3 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBL_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_4.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_2.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBM.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_1.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_2.h": {
+			"sdcard": false
+		},
+		"/src/images/LevelChange.h": {
+			"sdcard": false
+		},
+		"/src/images/LoadNextGame.h": {
+			"sdcard": false
+		},
+		"/src/images/Level.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_3.h": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGame.h": {
+			"sdcard": false
+		},
+		"/src/images/Men.h": {
+			"sdcard": false
+		},
+		"/src/images/LevelLadder.h": {
+			"sdcard": false
+		},
+		"/src/images/MenuOption.h": {
+			"sdcard": false
+		},
+		"/src/images/Man15.h": {
+			"sdcard": false
+		},
+		"/src/images/MenuOption2.h": {
+			"sdcard": false
+		},
+		"/src/images/MenuOptionStart.h": {
+			"sdcard": false
+		},
+		"/src/images/MenuOptionHide.h": {
+			"sdcard": false
+		},
+		"/src/images/MenuOptionShow.h": {
+			"sdcard": false
+		},
+		"/src/images/Number0.h": {
+			"sdcard": false
+		},
+		"/src/images/Number2.h": {
+			"sdcard": false
+		},
+		"/src/images/TryAgain.h": {
+			"sdcard": false
+		},
+		"/src/images/Number1.h": {
+			"sdcard": false
+		},
+		"/src/images/Victory.h": {
+			"sdcard": false
+		},
+		"/src/images/Soild.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBL.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowBM_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowML.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTL.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTM.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTM_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTR.png": {
+			"sdcard": false
+		},
+		"/src/images/Banner.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTR_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/Banner2.png": {
+			"sdcard": false
+		},
+		"/src/images/Blank.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_1.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_2 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/Brick_3.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_4 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_Close_4.h": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGame1.png": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGame2.png": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGameBlank.png": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGame3.png": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGameBlank2.png": {
+			"sdcard": false
+		},
+		"/src/images/FallThrough.png": {
+			"sdcard": false
+		},
+		"/src/images/Gold.png": {
+			"sdcard": false
+		},
+		"/src/images/GameOver.png": {
+			"sdcard": false
+		},
+		"/src/images/Gold_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/Ladder.h": {
+			"sdcard": false
+		},
+		"/src/images/Man0.h": {
+			"sdcard": false
+		},
+		"/src/images/Man1.h": {
+			"sdcard": false
+		},
+		"/src/images/Man11.png": {
+			"sdcard": false
+		},
+		"/src/images/Man12Burn.png": {
+			"sdcard": false
+		},
+		"/src/images/Man14.png": {
+			"sdcard": false
+		},
+		"/src/images/Man13Rebirth.png": {
+			"sdcard": false
+		},
+		"/src/images/Man2.h": {
+			"sdcard": false
+		},
+		"/src/images/Man3.h": {
+			"sdcard": false
+		},
+		"/src/images/Man5.png": {
+			"sdcard": false
+		},
+		"/src/images/Man6.png": {
+			"sdcard": false
+		},
+		"/src/images/Man7.png": {
+			"sdcard": false
+		},
+		"/src/images/Man8.png": {
+			"sdcard": false
+		},
+		"/src/images/Man9.png": {
+			"sdcard": false
+		},
+		"/src/images/Number3.png": {
+			"sdcard": false
+		},
+		"/src/images/Number4.png": {
+			"sdcard": false
+		},
+		"/src/images/Number5.png": {
+			"sdcard": false
+		},
+		"/src/images/Number6.png": {
+			"sdcard": false
+		},
+		"/src/images/Number8.png": {
+			"sdcard": false
+		},
+		"/src/images/Number7.png": {
+			"sdcard": false
+		},
+		"/src/images/Number9.png": {
+			"sdcard": false
+		},
+		"/src/images/Rail.png": {
+			"sdcard": false
+		},
+		"/src/images/Score.png": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTL.h": {
+			"sdcard": false
+		},
+		"/src/images/Blank.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTR_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTM.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTR.h": {
+			"sdcard": false
+		},
+		"/src/images/ArrowTM_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_1 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/Banner.h": {
+			"sdcard": false
+		},
+		"/src/images/Banner2.h": {
+			"sdcard": false
+		},
+		"/src/images/FallThrough.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_1.h": {
+			"sdcard": false
+		},
+		"/src/images/Brick_2 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/Gold_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/Man14.h": {
+			"sdcard": false
+		},
+		"/src/images/Man13Rebirth.h": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGame3.h": {
+			"sdcard": false
+		},
+		"/src/images/GameOver.h": {
+			"sdcard": false
+		},
+		"/src/images/Man12Burn.h": {
+			"sdcard": false
+		},
+		"/src/images/CompleteGameBlank.h": {
+			"sdcard": false
+		},
+		"/src/images/Man5.h": {
+			"sdcard": false
+		},
+		"/src/images/Man11.h": {
+			"sdcard": false
+		},
+		"/src/images/Man6.h": {
+			"sdcard": false
+		},
+		"/src/images/Man7.h": {
+			"sdcard": false
+		},
+		"/src/images/Man8.h": {
+			"sdcard": false
+		},
+		"/src/images/Number8.h": {
+			"sdcard": false
+		},
+		"/src/images/Man9.h": {
+			"sdcard": false
+		},
+		"/src/images/Score.h": {
+			"sdcard": false
+		},
+		"/src/images/Number3.h": {
+			"sdcard": false
+		},
+		"/src/images/Number5.h": {
+			"sdcard": false
+		},
+		"/src/images/Number4.h": {
+			"sdcard": false
+		},
+		"/src/images/Number6.h": {
+			"sdcard": false
+		},
+		"/src/images/Rail.h": {
+			"sdcard": false
+		},
+		"/src/images/Number7.h": {
+			"sdcard": false
+		},
+		"/src/images/Number9.h": {
+			"sdcard": false
+		},
+		"/src/utils/.DS_Store": {
+			"sdcard": false
+		},
+		"/src/images/untitled folder": {},
+		"/src/images/arrows": {},
+		"/src/images/arrows/Arrow.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBL_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/Arrow.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBL_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBL.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBL.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBM_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBM_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBM.h": {
+			"sdcard": false
+		},
+		"/src/images/.DS_Store": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowMR_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowMR_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowMR.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowMR.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTL_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTL_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTL.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTL.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTM_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTM_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTM.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTM.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTR_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTR_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTR.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowTR.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers": {},
+		"/src/images/numbers/Number0.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number0.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number1.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number1.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number2.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number2.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number3.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number3.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number4.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number4.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number5.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number5.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number6.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number6.png": {
+			"sdcard": false
+		},
+		"/src/images/complete": {},
+		"/src/images/complete/CompleteGame.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame.png": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame1.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame1.png": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame2.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame2.png": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame3.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGame3.png": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGameBlank.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGameBlank.png": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGameBlank2.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/LoadNextGame.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/LoadNextGame.png": {
+			"sdcard": false
+		},
+		"/src/images/Gold.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBM.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBR_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBR.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBR.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowBR_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowML.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowML_Small.h": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowML.png": {
+			"sdcard": false
+		},
+		"/src/images/arrows/ArrowML_Small.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number7.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number7.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number8.h": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number8.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number9.png": {
+			"sdcard": false
+		},
+		"/src/images/numbers/Number9.h": {
+			"sdcard": false
+		},
+		"/src/images/complete/CompleteGameBlank2.png": {
+			"sdcard": false
+		},
+		"/src/images/man": {},
+		"/src/images/man/Man0.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man1.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man0.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man1.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man11.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man11.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man12Burn.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man12Burn.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man13Rebirth.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man13Rebirth.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man14.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man15.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man15.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man14.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man2.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man2.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man3.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man3.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man5.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man5.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man6.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man6.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man7.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man7.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man8.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man9.h": {
+			"sdcard": false
+		},
+		"/src/images/man/Man9.png": {
+			"sdcard": false
+		},
+		"/src/images/man/Man8.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements": {},
+		"/src/images/levelElements/Blank.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_1 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_1.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_2.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_2 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_3 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_3.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_4 copy.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_4.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_1.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_2.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_3.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_4.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/FallThrough.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Ladder.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Soild.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Rail.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Gold.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/LevelLadder.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Blank.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_2.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_1 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_1.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_3 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_3.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_2 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_1.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_4.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_3.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_2.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_Close_4.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_4 copy.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Soild.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/FallThrough.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Ladder.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Rail.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Gold.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/LevelLadder.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Solid.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/.DS_Store": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Solid.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_1_Debri.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_2_Debri.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_3_Debri.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_4_Debri.png": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_1_Debri.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_2_Debri.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_3_Debri.h": {
+			"sdcard": false
+		},
+		"/src/images/levelElements/Brick_4_Debri.h": {
+			"sdcard": false
+		},
+		"/LodeRunner.elf": {
+			"sdcard": false
+		},
+		"/src/characters/Enemy.cpp": {
+			"sdcard": false
+		},
+		"/src/characters/Player.cpp": {
+			"sdcard": false
+		},
+		"/src/utils/Actions.h": {
+			"sdcard": false
+		},
+		"/src/levels/Level.cpp": {
+			"sdcard": false
+		},
+		"/LodeRunner.bin": {
+			"sdcard": false
+		},
+		"/src/utils/GameCookie.h": {
+			"sdcard": false
+		}
+	}
+}
