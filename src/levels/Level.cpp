@@ -80,7 +80,7 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
   uint16_t dataOffset = 0;
   uint8_t goldLeft = 0;
-printf("%i, %i\n",this->levelNumber, LEVEL_OFFSET);
+
   const uint8_t *levelToLoad = levels[this->levelNumber - LEVEL_OFFSET];
   player->setStance(PlayerStance::Running_Right1);
 
@@ -95,7 +95,7 @@ printf("%i, %i\n",this->levelNumber, LEVEL_OFFSET);
 
   // Determine player's X Pos and level offset ..
 
-  if (playerX < (128/*WIDTH*/ / 2) - 5) {
+  if (playerX < (220 / 2) - 5) {
 
     this->xOffset = 0;
     player->setX(playerX);
@@ -103,16 +103,16 @@ printf("%i, %i\n",this->levelNumber, LEVEL_OFFSET);
   }
   else {
 
-    if (playerX >= (128/*WIDTH*/ / 2) - 5 && playerX <= (this->width * GRID_SIZE * 2) - 128/*WIDTH*/) {
+    if (playerX >= (220 / 2) - 5 && playerX <= (this->width * GRID_SIZE * 2) - 220) {
 
-      player->setX((128/*WIDTH*/ / 2) - 5);
+      player->setX((220 / 2) - 5);
       this->xOffset = player->getX() - playerX;
 
 
     }
     else {
 
-      this->xOffset = -153;
+      this->xOffset = -2;
       player->setX(playerX + this->xOffset);
 
     }

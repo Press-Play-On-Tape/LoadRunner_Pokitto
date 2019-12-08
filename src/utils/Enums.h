@@ -17,6 +17,7 @@
 #define HOLE_FILL_3                   24
 #define HOLE_FILL_4                   32
 
+//#define HEIGHT_LESS_TOOLBAR           56
 #define HEIGHT_LESS_TOOLBAR           56
 #define NUMBER_OF_ENEMIES             6
 #define NUMBER_OF_REENTRY_POINTS      4

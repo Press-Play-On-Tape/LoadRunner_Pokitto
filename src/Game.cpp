@@ -176,7 +176,7 @@ void Game::GameSelect() {
 
   // Brick borders ..
 
-  for (uint8_t x = 0; x < 128/*WIDTH*/; x = x + 10) {
+  for (uint8_t x = 0; x < 220; x = x + 10) {
   
     // Sprites::drawOverwrite(x, 0, levelElementImgs, 1);
     // Sprites::drawOverwrite(x, 55, levelElementImgs, 1);

@@ -820,7 +820,7 @@ void Game::movePlayerLeft() {
   player.setYDelta(0);
   level.setYOffsetDelta(0);
 
-  if (player.getX() > 60) {
+  if (player.getX() > /*60*/106) {
     
     player.setXDelta(-2);
     level.setXOffsetDelta(0);
@@ -859,7 +859,7 @@ void Game::movePlayerRight() {
   player.setYDelta(0);
   level.setYOffsetDelta(0);
 
-  if (player.getX() < 60) {
+  if (player.getX() < /*60*/106) {
 
     player.setXDelta(2);
     level.setXOffsetDelta(0);
@@ -867,7 +867,7 @@ void Game::movePlayerRight() {
   }
   else {
 
-    if (level.getXOffset() > -((level.getWidth() * 2 * GRID_SIZE) - 128/*WIDTH*/)) {
+    if (level.getXOffset() > -((level.getWidth() * 2 * GRID_SIZE) - 220)) {
 
       player.setXDelta(0);
       level.setXOffsetDelta(-2);
@@ -875,7 +875,7 @@ void Game::movePlayerRight() {
     }
     else {
 
-      if (player.getX() < 128) {
+      if (player.getX() < 220) {
 
         player.setXDelta(2);
         level.setXOffsetDelta(0);

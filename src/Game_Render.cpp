@@ -46,10 +46,10 @@ void Game::renderScreen() {
 //  arduboy.fillRect(0, 55, 128, 64, BLACK);
 //SJH Below
   PD::setColor(0);
-  PD::fillRect(0, 55, 128, 64 - 55);
+  PD::fillRect(0, 55, 220, 64 - 55);
   PD::setColor(1);
-//  arduboy.drawHorizontalDottedLine(0, 128, 56);
-  drawDottedColumn(0, 128, 56);
+//  arduboy.drawHorizontalDottedLine(0, 220, 56);
+  drawDottedColumn(0, 220, 56);
 
 
   // Draw scoreboard ..
@@ -69,10 +69,11 @@ void Game::renderLevelElements() {
 
     for (uint8_t x = 0; x < level.getWidth() * 2; x++) {
 
-      const auto tx = level.getXOffset() + (x * GRID_SIZE);
-      const auto ty = level.getYOffset() + (y * GRID_SIZE);
+      int16_t tx = level.getXOffset() + (x * GRID_SIZE);
+      // printf("%i ",tx);
+      int16_t ty = level.getYOffset() + (y * GRID_SIZE);
 
-      if (tx > -GRID_SIZE && tx < 128 && ty > -GRID_SIZE && ty < 64) {
+      if (tx > -GRID_SIZE && tx < 220 && ty > -GRID_SIZE && ty < 64) {
 
 
         LevelElement element = (LevelElement)level.getLevelData(x, y);
@@ -89,6 +90,7 @@ void Game::renderLevelElements() {
         }
 
       }
+      // printf("\n");
 
     }
 
@@ -225,7 +227,7 @@ void Game::renderArrows(bool smallArrows) {
       int16_t dx = px - enemy->getX();
       int16_t dy = py - enemy->getY();
 
-      uint16_t absDX = (dx > 0 ? absT(-level.getXOffset() - enemy->getX()) : absT(enemy->getX() + level.getXOffset() - 128/*WIDTH*/));
+      uint16_t absDX = (dx > 0 ? absT(-level.getXOffset() - enemy->getX()) : absT(enemy->getX() + level.getXOffset() - 220));
       uint16_t absDY = (dy > 0 ? absT(-level.getYOffset() - enemy->getY()) : absT(enemy->getY() + level.getYOffset() - HEIGHT_LESS_TOOLBAR));
 
       uint8_t picX = 255;
@@ -572,18 +574,18 @@ void Game::renderEntryRectangle() {
 
   if (gameState == GameState::LevelEntryAnimation || gameState == GameState::LevelExitAnimation) {
 
-    // arduboy.drawRect(introRect, introRect, 128 - (introRect * 2), 55 - (introRect * 2), BLACK);
-    // arduboy.drawHorizontalDottedLine(0, 128, introRect);
-    // arduboy.drawHorizontalDottedLine(0, 128, 54 - introRect);
+    // arduboy.drawRect(introRect, introRect, 220 - (introRect * 2), 55 - (introRect * 2), BLACK);
+    // arduboy.drawHorizontalDottedLine(0, 220, introRect);
+    // arduboy.drawHorizontalDottedLine(0, 220, 54 - introRect);
     // arduboy.drawVerticalDottedLine(0, 64, introRect);
     // arduboy.drawVerticalDottedLine(0, 64, 127 - introRect);
 
     PD::setColor(0);
-    PD::drawRect(introRect, introRect, 128 - (introRect * 2), 55 - (introRect * 2));
+    PD::drawRect(introRect, introRect, 220 - (introRect * 2), 55 - (introRect * 2));
     PD::setColor(1);
 
-    drawDottedRow(0, 128, introRect);
-    drawDottedRow(0, 128, 54 - introRect);    
+    drawDottedRow(0, 220, introRect);
+    drawDottedRow(0, 220, 54 - introRect);    
     drawDottedColumn(0, 64, introRect);
     drawDottedColumn(0, 64, 127 - introRect);
 

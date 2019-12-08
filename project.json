@@ -1772,6 +1772,18 @@
 		},
 		"/src/utils/GameCookie.h": {
 			"sdcard": false
+		},
+		"/src/images/Men_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/Men_SC.png": {
+			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.elf": {
+			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.bin": {
+			"sdcard": false
 		}
 	}
 }
