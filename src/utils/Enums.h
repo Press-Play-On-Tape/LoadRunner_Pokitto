@@ -18,7 +18,7 @@
 #define HOLE_FILL_4                   32
 
 //#define HEIGHT_LESS_TOOLBAR           56
-#define HEIGHT_LESS_TOOLBAR           56
+#define HEIGHT_LESS_TOOLBAR           168
 #define NUMBER_OF_ENEMIES             6
 #define NUMBER_OF_REENTRY_POINTS      4
 #define GRID_SIZE                     10

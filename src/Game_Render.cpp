@@ -13,9 +13,9 @@ using PD = Pokitto::Display;
 
 void Game::renderScreen() {
 
-  if (isFrameCount(12)) this->flashPlayer = !this->flashPlayer;
+  if (Utils::isFrameCount(12)) this->flashPlayer = !this->flashPlayer;
 
-  if (gameState != GameState::NextLevel && gameState != GameState::GameOver && gameState != GameState::RestartLevel) {
+  if (this->gameState != GameState::NextLevel && this->gameState != GameState::GameOver && this->gameState != GameState::RestartLevel) {
 
     renderLevelElements();
 
@@ -24,37 +24,33 @@ void Game::renderScreen() {
 
     if (gameState == GameState::LevelPlay || flashPlayer) {
 
-      boolean flip = (static_cast<int8_t>(player.getStance()) < 0);
-      //arduboy.drawCompressedMirror(player.getX(), player.getY(), men[absT(static_cast<int8_t>(player.getStance()))], WHITE, flip);
-      PD::drawBitmap(player.getX(), player.getY(), Images::Men[absT(static_cast<int8_t>(player.getStance()))], 0, flip);
+      boolean flip = (static_cast<int8_t>(this->player.getStance()) < 0);
+      PD::drawBitmap(this->player.getX(), this->player.getY(), Images::Men[absT(static_cast<int8_t>(this->player.getStance()))], 0, flip);
 
     }
 
-    renderEnemies();
-    renderArrows();
+    this->renderEnemies();
+    this->renderArrows();
 
   }
 
 
   // Draw entry rectangle ..
 
-  renderEntryRectangle();
+  this->renderEntryRectangle();
 
 
   // Draw footer ..
 
-//  arduboy.fillRect(0, 55, 128, 64, BLACK);
-//SJH Below
   PD::setColor(0);
-  PD::fillRect(0, 55, 220, 64 - 55);
+  PD::fillRect(0, 169, 220, 9);
   PD::setColor(1);
-//  arduboy.drawHorizontalDottedLine(0, 220, 56);
-  drawDottedColumn(0, 220, 56);
+  Utils::drawDottedColumn(0, 220, 170);
 
 
   // Draw scoreboard ..
 
-  renderScoreboard();
+  this->renderScoreboard();
 
 }
 
@@ -65,32 +61,27 @@ void Game::renderScreen() {
 
 void Game::renderLevelElements() {
 
-  for (uint8_t y = 0; y < level.getHeight(); y++) {
+  for (uint8_t y = 0; y < this->level.getHeight(); y++) {
 
-    for (uint8_t x = 0; x < level.getWidth() * 2; x++) {
+    for (uint8_t x = 0; x < this->level.getWidth() * 2; x++) {
 
-      int16_t tx = level.getXOffset() + (x * GRID_SIZE);
-      // printf("%i ",tx);
-      int16_t ty = level.getYOffset() + (y * GRID_SIZE);
+      int16_t tx = this->level.getXOffset() + (x * GRID_SIZE);
+      int16_t ty = this->level.getYOffset() + (y * GRID_SIZE);
 
-      if (tx > -GRID_SIZE && tx < 220 && ty > -GRID_SIZE && ty < 64) {
+      if (tx > -GRID_SIZE && tx < 220 && ty > -GRID_SIZE && ty < 176) {
 
 
-        LevelElement element = (LevelElement)level.getLevelData(x, y);
+        LevelElement element = (LevelElement)this->level.getLevelData(x, y);
 
-        if (static_cast<uint8_t>(element) > 0) 
-//          Sprites::drawOverwrite(tx, ty, levelElementImgs, static_cast<uint8_t>(element));
-          PD::drawBitmap(tx, ty, Images::levelElementImgs[static_cast<uint8_t>(element)]);
+        if (static_cast<uint8_t>(element) > 0) PD::drawBitmap(tx, ty, Images::levelElementImgs[static_cast<uint8_t>(element)]);
 
         if (element >= LevelElement::Brick_1 && element <= LevelElement::Brick_4) {
 
-//          Sprites::drawOverwrite(tx, ty - GRID_SIZE, brickDiggingImgs, static_cast<uint8_t>(element) - static_cast<uint8_t>(LevelElement::Brick_1));
           PD::drawBitmap(tx, ty - GRID_SIZE, Images::brickDiggingImgs[static_cast<uint8_t>(element) - static_cast<uint8_t>(LevelElement::Brick_1)]);
 
         }
 
       }
-      // printf("\n");
 
     }
 
@@ -107,12 +98,12 @@ void Game::renderEnemies() {
 
   for (uint8_t x = 0; x < NUMBER_OF_ENEMIES; x++) {
 
-    Enemy *enemy = &enemies[x];
+    Enemy *enemy = &this->enemies[x];
 
     if (enemy->getEnabled()) {
 
-      const auto ex = enemy->getX() + level.getXOffset();
-      const auto ey = enemy->getY() + level.getYOffset();
+      const auto ex = enemy->getX() + this->level.getXOffset();
+      const auto ey = enemy->getY() + this->level.getYOffset();
 
       auto dx = ex;
       auto dy = ey;
@@ -182,7 +173,6 @@ void Game::renderEnemies() {
 
         }
 
-//        arduboy.drawCompressedMirror(dx, dy, image, WHITE, flip);
         PD::drawBitmap(dx, dy, image, false, flip);
 
     }
@@ -203,8 +193,8 @@ void Game::renderEnemies() {
 //
 void Game::renderArrows() {
 
-  renderArrows(true);
-  renderArrows(false);
+  this->renderArrows(true);
+  this->renderArrows(false);
   
 }
 
@@ -215,8 +205,8 @@ void Game::renderArrows() {
 //
 void Game::renderArrows(bool smallArrows) {
 
-  int16_t px = player.getX() - level.getXOffset();
-  int16_t py = player.getY() - level.getYOffset();
+  int16_t px = this->player.getX() - this->level.getXOffset();
+  int16_t py = this->player.getY() - this->level.getYOffset();
 
   for (uint8_t x = 0; x < NUMBER_OF_ENEMIES; x++) {
 
@@ -574,89 +564,73 @@ void Game::renderEntryRectangle() {
 
   if (gameState == GameState::LevelEntryAnimation || gameState == GameState::LevelExitAnimation) {
 
-    // arduboy.drawRect(introRect, introRect, 220 - (introRect * 2), 55 - (introRect * 2), BLACK);
-    // arduboy.drawHorizontalDottedLine(0, 220, introRect);
-    // arduboy.drawHorizontalDottedLine(0, 220, 54 - introRect);
-    // arduboy.drawVerticalDottedLine(0, 64, introRect);
-    // arduboy.drawVerticalDottedLine(0, 64, 127 - introRect);
-
     PD::setColor(0);
-    PD::drawRect(introRect, introRect, 220 - (introRect * 2), 55 - (introRect * 2));
+    PD::drawRect(this->introRect, this->introRect, 220 - (this->introRect * 2), 168 - (this->introRect * 2));
     PD::setColor(1);
 
-    drawDottedRow(0, 220, introRect);
-    drawDottedRow(0, 220, 54 - introRect);    
-    drawDottedColumn(0, 64, introRect);
-    drawDottedColumn(0, 64, 127 - introRect);
+    Utils::drawDottedRow(0, 220, this->introRect);
+    Utils::drawDottedRow(0, 220, 168 - this->introRect);    
+    Utils::drawDottedColumn(0, 64, this->introRect);
+    Utils::drawDottedColumn(0, 64, 219 - this->introRect);
 
-    if( gameState == GameState::LevelEntryAnimation) {
+    if (gameState == GameState::LevelEntryAnimation) {
 
-      for (int8_t x = introRect - 1; x >= 0; x--) {
+      for (int8_t x = this->introRect - 1; x >= 0; x--) {
 
-//        arduboy.drawRect(x, x, 127 - (x * 2) + 1, 54 - (x * 2) + 1, BLACK);
         PD::setColor(0);
-        PD::drawRect(x, x, 127 - (x * 2) + 1, 54 - (x * 2) + 1);
+        PD::drawRect(x, x, 220 - (x * 2) + 1, 168 - (x * 2) + 1);
         PD::setColor(1);
 
       }
-      introRect--;
+      this->introRect--;
 
-      if (introRect == -1) gameState = GameState::LevelFlash;
+      if (this->introRect <= -1) gameState = GameState::LevelFlash;
 
     }
     else {
 
-      for (int8_t x = 0; x < introRect; x++) {
+      for (int8_t x = 0; x < this->introRect; x++) {
 
-//        arduboy.drawRect(x, x, 127 - (x * 2) + 1, 54 - (x * 2) + 1, BLACK);
         PD::setColor(0);
-        PD::drawRect(x, x, 127 - (x * 2) + 1, 54 - (x * 2) + 1);
+        PD::drawRect(x, x, 219 - (x * 2) + 1, 168 - (x * 2) + 1);
         PD::setColor(1);
 
       }
-      introRect++;
+      this->introRect++;
 
       // Game over, restart level or next level ?
-      if (introRect == LEVEL_ANIMATION_BANNER_WIDTH) gameState = player.getNextState();
+      if (this->introRect == LEVEL_ANIMATION_BANNER_WIDTH) gameState = player.getNextState();
 
     }
 
   }
-  else if (gameState == GameState::NextLevel || gameState == GameState::RestartLevel || gameState == GameState::GameOver) {
+  else if (this->gameState == GameState::NextLevel || this->gameState == GameState::RestartLevel || this->gameState == GameState::GameOver) {
 
-    if(gameState == GameState::RestartLevel) {
+    if (this->gameState == GameState::RestartLevel) {
 
-//      arduboy.drawCompressedMirror(42, 25, tryAgain, WHITE, false);
       PD::drawBitmap(42, 25, Images::TryAgain);
 
     }
-    else if(gameState == GameState::GameOver) {
+    else if(this->gameState == GameState::GameOver) {
 
-//      arduboy.drawCompressedMirror(43, 25, gameOver, WHITE, false);
       PD::drawBitmap(42, 25, Images::GameOver);
 
     }
     else {
 
-      uint8_t levelNumber = level.getLevelNumber();
-//      Sprites::drawOverwrite(72, 25, numbers, levelNumber / 100);
+      uint8_t levelNumber = this->level.getLevelNumber();
       PD::drawBitmap(72, 25, Images::Numbers[levelNumber / 100]);
       levelNumber = levelNumber - (levelNumber / 100) * 100;
       
-    //   Sprites::drawOverwrite(77, 25, numbers, levelNumber / 10);
-    //   Sprites::drawOverwrite(82, 25, numbers, levelNumber % 10);
       PD::drawBitmap(77, 25, Images::Numbers[levelNumber / 10]);
       PD::drawBitmap(82, 25, Images::Numbers[levelNumber % 10]);
 
-//      arduboy.drawCompressedMirror(43, 25, levelChange, WHITE, false);
       PD::drawBitmap(43, 25, Images::LevelChange);
 
     }
 
-    // arduboy.drawHorizontalDottedLine(41, 87, 22);
-    // arduboy.drawHorizontalDottedLine(41, 87, 32);
-    drawDottedRow(41, 87, 22);
-    drawDottedRow(41, 87, 32);
+    Utils::drawDottedRow(41, 87, 22);
+    Utils::drawDottedRow(41, 87, 32);
   
   }
 
@@ -671,54 +645,47 @@ void Game::renderScoreboard() {
 
   // Score ..
   {
-      uint16_t score = player.getScore();
-      uint8_t digits[6] = {};
-      extractDigits(digits, score);
       
-//      arduboy.drawCompressedMirror(0, 58, score_sc, WHITE, false);
-      PD::drawBitmap(0, 58, Images::Score);
+      uint16_t score = this->player.getScore();
+      uint8_t digits[6] = {};
+      Utils::extractDigits(digits, score);
+      
+      PD::drawBitmap(0, 170, Images::Score);
       for(uint8_t i = 0, x = 54; i < 6; ++i, x -= 5) {
-        PD::drawBitmap(x, 58, Images::Numbers[digits[i]]);
+        PD::drawBitmap(x, 170, Images::Numbers[digits[i]]);
       }
+      
   }
 
 
   // Men left ..
 
-  uint8_t menLeft = player.getMen();
-//   arduboy.drawCompressedMirror(64, 58, men_sc, WHITE, false);
-//   Sprites::drawOverwrite(82, 58, numbers, menLeft / 10);
-//   Sprites::drawOverwrite(87, 58, numbers, menLeft % 10);
-  PD::drawBitmap(64, 58, Images::Men_SC);
-  PD::drawBitmap(82, 58, Images::Numbers[menLeft / 10]);
-  PD::drawBitmap(87, 58, Images::Numbers[menLeft % 10]);
+  uint8_t menLeft = this->player.getMen();
+  PD::drawBitmap(64, 170, Images::Men_SC);
+  PD::drawBitmap(82, 170, Images::Numbers[menLeft / 10]);
+  PD::drawBitmap(87, 170, Images::Numbers[menLeft % 10]);
 
 
   // Gold or level ..
   
   if (gameState == GameState::LevelPlay) {
 
-    uint8_t goldLeft = level.getGoldLeft();
-    // arduboy.drawCompressedMirror(96, 58, gold_sc, WHITE, false);
-    // Sprites::drawOverwrite(118, 58, numbers, goldLeft / 10);
-    // Sprites::drawOverwrite(123, 58, numbers, goldLeft % 10);
-    PD::drawBitmap(96, 58, Images::Gold_SC);
-    PD::drawBitmap(118, 58, Images::Numbers[goldLeft / 10]);
-    PD::drawBitmap(123, 58, Images::Numbers[ goldLeft % 10]);
+    uint8_t goldLeft = this->level.getGoldLeft();
+    PD::drawBitmap(96, 170, Images::Gold_SC);
+    PD::drawBitmap(118, 170, Images::Numbers[goldLeft / 10]);
+    PD::drawBitmap(123, 170, Images::Numbers[ goldLeft % 10]);
 
   }
   else {
 
-    uint8_t levelNumber = level.getLevelNumber();
-//    arduboy.drawCompressedMirror(96, 58, level_sc, WHITE, false);
-    PD::drawBitmap(96, 58, Images::Level);
+    uint8_t levelNumber = this->level.getLevelNumber();
+    PD::drawBitmap(96, 170, Images::Level);
     
     const auto divT = div(levelNumber, 100);
-//    Sprites::drawOverwrite(113, 58, numbers, divT.quot);
-    PD::drawBitmap(113, 58, Images::Numbers[divT.quot]);
+    PD::drawBitmap(113, 170, Images::Numbers[divT.quot]);
     levelNumber = divT.rem;
-    PD::drawBitmap(118, 58, Images::Numbers[levelNumber / 10]);
-    PD::drawBitmap(123, 58, Images::Numbers[levelNumber % 10]);
+    PD::drawBitmap(118, 170, Images::Numbers[levelNumber / 10]);
+    PD::drawBitmap(123, 170, Images::Numbers[levelNumber % 10]);
 
   }
 

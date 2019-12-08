@@ -82,7 +82,7 @@ void Game::loop(void) {
             while (!holes.isEmpty()) holes.dequeue();
             //      level.setLevelNumber(36);
             level.loadLevel(&player, enemies); 
-            introRect = 28;
+            introRect = 88;
             gameState = GameState::LevelEntryAnimation;
             [[fallthrough]];
             
@@ -228,7 +228,7 @@ void Game::LevelPlay() {
     playerMovements(nearestX, nearestY, nearest);
 
 
-    if (isFrameCount(2)) {
+    if (Utils::isFrameCount(2)) {
 
       clearEnemyMovementPositions(enemies);
       for (uint8_t x = 0; x < NUMBER_OF_ENEMIES; x++) {
@@ -261,7 +261,7 @@ void Game::LevelPlay() {
 
     // Update player stance ..
 
-    if (isFrameCount(2)) {
+    if (Utils::isFrameCount(2)) {
 
       if ((player.getXDelta() != 0 || player.getYDelta() != 0 || level.getXOffsetDelta() != 0 || level.getYOffsetDelta() != 0)) {
 
@@ -270,7 +270,7 @@ void Game::LevelPlay() {
       }
     
     }
-    if (isFrameCount(4)) {
+    if (Utils::isFrameCount(4)) {
 
 
       // Update enemy stances ..
@@ -356,7 +356,7 @@ void Game::LevelPlay() {
 
     // Move enemies ..
 
-    if (isFrameCount(2)) {
+    if (Utils::isFrameCount(2)) {
 
       for (uint8_t x = 0; x < NUMBER_OF_ENEMIES; x++) {
 
@@ -372,7 +372,7 @@ void Game::LevelPlay() {
 
         // Are any of the enemies touching the player?
 
-        if (enemy->getEnabled() && collide(Rect {static_cast<int16_t>(enemy->getX()) + 2, static_cast<int16_t>(enemy->getY()) + 2, 6, 6}, Rect {static_cast<int16_t>(player.getX() - level.getXOffset()) + 2, static_cast<int16_t>(player.getY() - level.getYOffset()) + 2, 6, 6} )) {
+        if (enemy->getEnabled() && Utils::collide(Rect {static_cast<int16_t>(enemy->getX()) + 2, static_cast<int16_t>(enemy->getY()) + 2, 6, 6}, Rect {static_cast<int16_t>(player.getX() - level.getXOffset()) + 2, static_cast<int16_t>(player.getY() - level.getYOffset()) + 2, 6, 6} )) {
 
           playerDies();
 

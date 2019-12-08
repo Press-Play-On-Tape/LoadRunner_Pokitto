@@ -60,8 +60,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
   // Commit suicide?
 
-//  if ((pressed & A_BUTTON) && (pressed & B_BUTTON)) {
-  if (PC::buttons.pressed(BTN_A) && PC::buttons.pressed(BTN_B)) {
+  if (PC::buttons.pressed(BTN_C) || PC::buttons.repeat(BTN_C, 1)) {
       
     this->suicide++;
 
@@ -95,7 +94,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   // Burn to the left .. 
 
 //if ((justPressed & A_BUTTON) && !(justPressed & B_BUTTON)) {
-  if (PC::buttons.pressed(BTN_A) && !PC::buttons.pressed(BTN_B)) {
+  if (PC::buttons.pressed(BTN_B) && !PC::buttons.pressed(BTN_A)) {
 
     if (inCellY()) {
 
@@ -127,7 +126,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   // Burn to the right .. 
 
 //else if ((justPressed & B_BUTTON) && !(justPressed & A_BUTTON)) {
-  else if (PC::buttons.pressed(BTN_B) && !PC::buttons.pressed(BTN_A)) {
+  else if (PC::buttons.pressed(BTN_A) && !PC::buttons.pressed(BTN_B)) {
 
     if (inCellY()) {
 

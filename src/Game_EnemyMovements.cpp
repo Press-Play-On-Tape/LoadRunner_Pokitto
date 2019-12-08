@@ -222,7 +222,7 @@ boolean Game::isOccupiedByAnotherEnemy(Enemy *enemies, Enemy *enemy, int8_t xDel
     const int16_t enemyY = static_cast<int16_t>(enemy->getY()) + yDelta;
     const Rect enemyRect = { enemyX, enemyY, GRID_SIZE, GRID_SIZE };
 
-    if (collide(testRect, enemyRect)) return true;
+    if (Utils::collide(testRect, enemyRect)) return true;
 
   }
 

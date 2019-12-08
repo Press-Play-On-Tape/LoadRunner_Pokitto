@@ -1784,6 +1784,9 @@
 		},
 		"/LoadRunner_Pokitto.bin": {
 			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.bin.1.gif": {
+			"sdcard": false
 		}
 	}
 }

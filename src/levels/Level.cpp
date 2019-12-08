@@ -148,7 +148,6 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
   // Load enemies ..
 
-//  uint8_t numberOfEnemies = pgm_read_byte(&levelToLoad[dataOffset++]);
   uint8_t numberOfEnemies = levelToLoad[dataOffset++];
 
   for (uint8_t x = 0; x < NUMBER_OF_ENEMIES; x++) {
@@ -160,8 +159,6 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
     if (x < numberOfEnemies) {
 
-      // enemy->setX(pgm_read_byte(&levelToLoad[dataOffset++]) * GRID_SIZE);
-      // enemy->setY(pgm_read_byte(&levelToLoad[dataOffset++]) * GRID_SIZE);
       enemy->setX(levelToLoad[dataOffset++] * GRID_SIZE);
       enemy->setY(levelToLoad[dataOffset++] * GRID_SIZE);
       enemy->setEnabled(true);
@@ -205,7 +202,6 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
   // Load level data .. 
 
-  // uint8_t encryptionType = pgm_read_byte(&levelToLoad[dataOffset++]);
   uint8_t encryptionType = levelToLoad[dataOffset++];
   
   if (encryptionType == ENCRYPTION_TYPE_GRID) {
@@ -214,11 +210,10 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
       for (uint8_t x = 0; x < this->width; x++) {
 
-//        uint8_t data = pgm_read_byte(&levelToLoad[(y * _width) + x + dataOffset]);
         uint8_t data = levelToLoad[(y * this->width) + x + dataOffset];
 
-        if (leftValue(data) == static_cast<uint8_t>(LevelElement::Gold))            { goldLeft++;}
-        if (rightValue(data) == static_cast<uint8_t>(LevelElement::Gold))           { goldLeft++;}
+        if (Utils::leftValue(data) == static_cast<uint8_t>(LevelElement::Gold))            { goldLeft++;}
+        if (Utils::rightValue(data) == static_cast<uint8_t>(LevelElement::Gold))           { goldLeft++;}
 
         this->levelData[x][y] = data;
 
@@ -233,7 +228,6 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
     while (true) {
 
-//      uint8_t data = pgm_read_byte(&levelToLoad[dataOffset]);
       uint8_t data = levelToLoad[dataOffset];
       uint8_t block = (data & 0xE0) >> 5;
       uint8_t run = data & 0x1F;
