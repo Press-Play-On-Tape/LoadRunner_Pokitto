@@ -43,7 +43,7 @@ void Game::renderScreen() {
 
   PD::setColor(0);
   PD::fillRect(0, 169, 220, 9);
-  PD::setColor(8);
+  PD::setColor(9);
   PD::drawRow(0, 220, 162);
   PD::drawRow(0, 220, 161);
 
@@ -192,7 +192,7 @@ void Game::renderEntryRectangle() {
 
     PD::setColor(0);
     PD::drawRect(this->introRect, this->introRect, 220 - (this->introRect * 2), 160 - (this->introRect * 2));
-    PD::setColor(1);
+    PD::setColor(6);
 
     Utils::drawDottedRow(0, 220, this->introRect);
     Utils::drawDottedRow(0, 220, 160 - this->introRect);    
@@ -206,7 +206,7 @@ void Game::renderEntryRectangle() {
       PD::fillRect(0, 0, this->introRect, 160);
       PD::fillRect(220 - this->introRect + 1, 0, this->introRect, 160);
       PD::fillRect(0, 160 - this->introRect + 1, 220, this->introRect);
-      PD::setColor(1);
+      PD::setColor(6);
       this->introRect = this->introRect - 2;
 
       if (this->introRect <= -1) gameState = GameState::LevelFlash;
@@ -226,7 +226,7 @@ void Game::renderEntryRectangle() {
       PD::fillRect(0, 0, this->introRect, 160);
       PD::fillRect(220 - this->introRect + 1, 0, this->introRect, 160);
       PD::fillRect(0, 160 - this->introRect + 1, 220, this->introRect);
-      PD::setColor(1);
+      PD::setColor(6);
       this->introRect = this->introRect + 2;
 
       // Game over, restart level or next level ?

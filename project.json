@@ -3,7 +3,7 @@
 	"PNGFlags": {
 		"ALL": [
 			"transparent=15",
-			"palette=${appPath}/PokittoLib/Pokitto/POKITTO_CORE/PALETTES/palCGA.cpp"
+			"palette=${appPath}/PokittoLib/Pokitto/POKITTO_CORE/PALETTES/palPico.cpp"
 		]
 	},
 	"libs": {
@@ -3060,6 +3060,112 @@
 			"sdcard": false
 		},
 		"/src/images/ppot/Ppot_02.png": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.1.gif": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot": {},
+		"\\src\\images\\ppot\\Ppot_00.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_00.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_01.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_01.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_02.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_03.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_03.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ppot\\Ppot_02.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Level_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Level_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Level_SC_Full.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Level_SC_Full.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number0_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number0_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number1_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number2_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number3_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number2_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number3_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number4_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number5_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number4_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number5_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number6_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number6_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number7_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number7_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number1_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number8_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number8_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number9_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Number9_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Score_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Score_SC.png": {
 			"sdcard": false
 		}
 	}

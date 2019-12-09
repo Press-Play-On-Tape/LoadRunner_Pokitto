@@ -17,7 +17,7 @@ int main() {
     cookie.begin("LoadRunn", sizeof(cookie), (char*)&cookie);
 
     PC::begin();
-    //PD::loadRGBPalette(palettePico);
+    PD::loadRGBPalette(palettePico);
     PC::setFrameRate(35);
     PD::persistence = true;
     PD::invisiblecolor = 0;
