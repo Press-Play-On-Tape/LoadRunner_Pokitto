@@ -14,12 +14,13 @@ class Game {
         void setup(GameCookie *cookie);
         void loop(void);
 
-        void Intro();
-        void GameSelect();
-        void LevelPlay();
+        void intro();
+        void gameSelect();
+        void levelPlay();
         void playerDies();
-        void NextGame();
-        void CompleteGame();
+        void nextGame();
+        void completeGame();
+        void completeSeries();
 
         void clearEnemyMovementPositions(Enemy *enemies);
         void enemyMovements(Enemy *enemy);
@@ -40,8 +41,6 @@ class Game {
         void renderScreen();
         void renderLevelElements();
         void renderEnemies();
-        void renderArrows();
-        void renderArrows(bool smallArrows);
         void renderEntryRectangle();
         void renderScoreboard();
 
@@ -66,7 +65,6 @@ class Game {
         boolean canBeOccupied_Enemy(LevelElement levelElement);
         boolean canContinueToFall_Enemy(LevelElement levelElement);
         boolean canBeFallenInto_Enemy(LevelElement levelElement, Enemy *enemies, uint16_t positionX, uint16_t positionY);
-        
         
 
     private:

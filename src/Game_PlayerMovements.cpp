@@ -48,7 +48,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
   // Check to see if we have touched gold!
 
-  if (level.getLevelData(nearestX, nearestY) == LevelElement::Gold) {
+  if (this->level.getLevelData(nearestX, nearestY) == LevelElement::Gold) {
 
     this->player.setScore(player.getScore() + 25);
     this->level.setLevelData(nearestX, nearestY, LevelElement::Blank);
@@ -289,10 +289,10 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     }
     else {
 
-      rightUp = level.getLevelData((inCellX() ? nearestX + 1 : nearestX), nearestY);
-      right = level.getLevelData((inCellX() ? nearestX + 1 : nearestX), nearestY + 1);
-      rightDown = level.getLevelData((inCellX() ? nearestX + 1 : nearestX), nearestY + 2);
-      down = level.getLevelData((inCellX() ? nearestX : nearestX + 1), nearestY + 2);
+      rightUp = this->level.getLevelData((inCellX() ? nearestX + 1 : nearestX), nearestY);
+      right = this->level.getLevelData((inCellX() ? nearestX + 1 : nearestX), nearestY + 1);
+      rightDown = this->level.getLevelData((inCellX() ? nearestX + 1 : nearestX), nearestY + 2);
+      down = this->level.getLevelData((inCellX() ? nearestX : nearestX + 1), nearestY + 2);
 
       canBeOccupied_Right = canBeOccupied(right);
       canBeOccupied_RightUp = canBeOccupied(rightUp);
@@ -323,10 +323,10 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       }
       else { // !inCellX()
 
-        rightUp = level.getLevelData(nearestX, nearestY);
-        right = level.getLevelData(nearestX, nearestY);
-        rightDown = level.getLevelData(nearestX, nearestY + 1);
-        down = level.getLevelData(nearestX - 1, nearestY + 1);
+        rightUp = this->level.getLevelData(nearestX, nearestY);
+        right = this->level.getLevelData(nearestX, nearestY);
+        rightDown = this->level.getLevelData(nearestX, nearestY + 1);
+        down = this->level.getLevelData(nearestX - 1, nearestY + 1);
 
         canBeOccupied_Right = canBeOccupied(right);
         canBeOccupied_RightUp = canBeOccupied(rightUp);
@@ -390,11 +390,11 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     boolean moveLeft = true;
     boolean moveDown = false;
 
-    LevelElement current = level.getLevelData(nearestX, nearestY);
-    LevelElement leftUp = level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY - 1);
-    LevelElement left = level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
-    LevelElement leftDown = level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 1);
-    LevelElement down = level.getLevelData((inCellX() ? nearestX : nearestX + 1), nearestY + 1);
+    LevelElement current = this->level.getLevelData(nearestX, nearestY);
+    LevelElement leftUp = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY - 1);
+    LevelElement left = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
+    LevelElement leftDown = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 1);
+    LevelElement down = this->level.getLevelData((inCellX() ? nearestX : nearestX + 1), nearestY + 1);
 
     bool canBeOccupied_Left = canBeOccupied(left);
     bool canBeOccupied_LeftUp = canBeOccupied(leftUp);
@@ -408,7 +408,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         moveLeft = false;
         moveDown = false;
-        player.setStance(PlayerStance::StandingStill);
+        this->player.setStance(PlayerStance::StandingStill);
         //SJH sound.noTone();
 
       }
@@ -458,7 +458,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       }
       else if (inCell_X && canBeFallenInto(down, enemies, nearestX, nearestY + 1)) {
 
-        player.setStance(PlayerStance::Falling);
+        this->player.setStance(PlayerStance::Falling);
         //SJH sound.tones(freeFalling); 
         moveLeft = false;
         moveDown = true;
@@ -466,7 +466,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       }      
       else if (!canBeOccupied_Left && canBeStoodOn(down, enemies, nearestX, nearestY + 1)) {  
        
-        player.setStance(PlayerStance::StandingStill);
+        this->player.setStance(PlayerStance::StandingStill);
         moveLeft = false;
 
       }
@@ -489,10 +489,10 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         }
         else { // !inCellX()
 
-          leftUp = level.getLevelData(nearestX, nearestY);
-          left = level.getLevelData(nearestX, nearestY);
-          leftDown = level.getLevelData(nearestX, nearestY + 1);
-          down = level.getLevelData(nearestX + 1, nearestY + 1);
+          leftUp = this->level.getLevelData(nearestX, nearestY);
+          left = this->level.getLevelData(nearestX, nearestY);
+          leftDown = this->level.getLevelData(nearestX, nearestY + 1);
+          down = this->level.getLevelData(nearestX + 1, nearestY + 1);
      
           canBeOccupied_Left = canBeOccupied(left);
           canBeOccupied_LeftUp = canBeOccupied(leftUp);
@@ -523,10 +523,10 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     }
     else {
 
-      leftUp = level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
-      left = level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 1);
-      leftDown = level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 2);
-      down = level.getLevelData((inCellX() ? nearestX : nearestX - 1), nearestY + 2);
+      leftUp = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
+      left = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 1);
+      leftDown = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 2);
+      down = this->level.getLevelData((inCellX() ? nearestX : nearestX - 1), nearestY + 2);
 
       canBeOccupied_Left = canBeOccupied(left);
       canBeOccupied_LeftUp = canBeOccupied(leftUp);
@@ -534,7 +534,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeStoodOn(leftDown, enemies, nearestX - 1, nearestY + 1)) {
         
         updatePlayerStance(PlayerStance::Running_Left4, PlayerStance::Running_Left1);
-        player.setStance(PlayerStance::StandingStill);
+        this->player.setStance(PlayerStance::StandingStill);
         moveLeft = true;
 
       }
@@ -559,7 +559,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeFallenInto(leftDown, enemies, nearestX - 1, nearestY + 1)) {
           
-          player.setStance(PlayerStance::Falling);        
+          this->player.setStance(PlayerStance::Falling);        
           moveLeft = true;
           moveDown = false;
           //SJH sound.noTone();
@@ -580,27 +580,27 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     if (moveLeft) {
 
-      player.setY((nearestY * GRID_SIZE) + level.getYOffset());
+      this->player.setY((nearestY * GRID_SIZE) + this->level.getYOffset());
       movePlayerLeft();
 
     }
     else {
 
-      player.setXDelta(0);
-      level.setXOffsetDelta(0);
+      this->player.setXDelta(0);
+      this->level.setXOffsetDelta(0);
 
     }
 
     if (moveDown) {
 
-      player.setStance(PlayerStance::Falling);
+      this->player.setStance(PlayerStance::Falling);
       movePlayerDown();
 
     }
     else {
           
-      player.setYDelta(0);
-      level.setYOffsetDelta(0);    
+      this->player.setYDelta(0);
+      this->level.setYOffsetDelta(0);    
       
     }
 
@@ -617,8 +617,8 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     bool moveDown = true;
 
     nearestY = getNearestY(+8);
-    LevelElement up = level.getLevelData(nearestX, (inCellY() ? nearestY - 1 : nearestY));
-    LevelElement down = level.getLevelData(nearestX, (inCellY() ? nearestY + 1 : nearestY));
+    LevelElement up = this->level.getLevelData(nearestX, (inCellY() ? nearestY - 1 : nearestY));
+    LevelElement down = this->level.getLevelData(nearestX, (inCellY() ? nearestY + 1 : nearestY));
 
     switch (player.getStance()) {
 
@@ -628,7 +628,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         if (nearest == LevelElement::Rail && inCellY()) {
 
-          player.setStance(PlayerStance::Swinging_Right1);
+          this->player.setStance(PlayerStance::Swinging_Right1);
           moveDown = false;
           //SJH sound.noTone();
 
@@ -636,7 +636,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         else if (canBeStoodOn(down, enemies, nearestX, nearestY + 1)) {
 
           moveDown = false;
-          player.setStance(PlayerStance::StandingStill);
+          this->player.setStance(PlayerStance::StandingStill);
           //SJH sound.noTone();
           
         } 
@@ -668,8 +668,8 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
           if (nearest == LevelElement::Ladder && !isSolid(up)) {
 
-            player.setX((nearestX * GRID_SIZE) + level.getXOffset());
-            player.setStance(PlayerStance::Climbing_Up1);
+            this->player.setX((nearestX * GRID_SIZE) + this->level.getXOffset());
+            this->player.setStance(PlayerStance::Climbing_Up1);
             moveUp = true;
             moveDown = false;
 
@@ -698,7 +698,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     if (moveUp) {
 
-      player.setX((nearestX * GRID_SIZE) + level.getXOffset());
+      this->player.setX((nearestX * GRID_SIZE) + this->level.getXOffset());
       movePlayerUp();
 
     }
@@ -731,8 +731,8 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     boolean moveDown = true;
 
     nearestY = getNearestY(+8);
-    LevelElement current = level.getLevelData(nearestX, (inCellY() ? nearestY : nearestY - 1));
-    LevelElement down = level.getLevelData(nearestX, (inCellY() ? nearestY + 1 : nearestY));
+    LevelElement current = this->level.getLevelData(nearestX, (inCellY() ? nearestY : nearestY - 1));
+    LevelElement down = this->level.getLevelData(nearestX, (inCellY() ? nearestY + 1 : nearestY));
 
     switch (player.getStance()) {
 
@@ -740,7 +740,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         if (nearest == LevelElement::Rail && inCellY()) {
 
-          player.setStance(PlayerStance::Swinging_Right1);
+          this->player.setStance(PlayerStance::Swinging_Right1);
           moveDown = false;
           //SJH sound.noTone();
 
@@ -756,7 +756,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         else if (canBeStoodOn(down, enemies, nearestX, nearestY + 1)) {
 
           moveDown = false;
-          player.setStance(PlayerStance::StandingStill);
+          this->player.setStance(PlayerStance::StandingStill);
           //SJH sound.noTone();
 
         }          
@@ -767,22 +767,22 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         if (down == LevelElement::Ladder) {
 
-          player.setX((nearestX * GRID_SIZE) + level.getXOffset());
+          this->player.setX((nearestX * GRID_SIZE) + this->level.getXOffset());
           updatePlayerStance(PlayerStance::Climbing_Down2, PlayerStance::Climbing_Down1);
           moveDown = true;
 
         }
         else if (canBeOccupied(down)) {
 
-          if (down == LevelElement::Blank) player.setStance(PlayerStance::Falling);
-          player.setX((nearestX * GRID_SIZE) + level.getXOffset());
+          if (down == LevelElement::Blank) this->player.setStance(PlayerStance::Falling);
+          this->player.setX((nearestX * GRID_SIZE) + this->level.getXOffset());
           moveDown = true;
 
         }
         else {
 
           moveDown = false;
-          player.setStance(PlayerStance::StandingStill);
+          this->player.setStance(PlayerStance::StandingStill);
           //SJH sound.noTone();
 
         }
@@ -816,29 +816,29 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
 void Game::movePlayerLeft() {
 
-  player.setYDelta(0);
-  level.setYOffsetDelta(0);
+  this->player.setYDelta(0);
+  this->level.setYOffsetDelta(0);
 
   if (player.getX() > /*60*/106) {
     
-    player.setXDelta(-2);
-    level.setXOffsetDelta(0);
+    this->player.setXDelta(-2);
+    this->level.setXOffsetDelta(0);
 
   }
   else {
 
-    if (level.getXOffset() < 0) {
+    if (this->level.getXOffset() < 0) {
 
-      player.setXDelta(0);
-      level.setXOffsetDelta(2);
+      this->player.setXDelta(0);
+      this->level.setXOffsetDelta(2);
 
     }
     else {
 
-      if (player.getX() > 0) {
+      if (this->player.getX() > 0) {
 
-        player.setXDelta(-2);
-        level.setXOffsetDelta(0);
+        this->player.setXDelta(-2);
+        this->level.setXOffsetDelta(0);
 
       }
 
@@ -855,29 +855,29 @@ void Game::movePlayerLeft() {
 
 void Game::movePlayerRight() {
 
-  player.setYDelta(0);
-  level.setYOffsetDelta(0);
+  this->player.setYDelta(0);
+  this->level.setYOffsetDelta(0);
 
-  if (player.getX() < /*60*/106) {
+  if (this->player.getX() < /*60*/106) {
 
-    player.setXDelta(2);
-    level.setXOffsetDelta(0);
+    this->player.setXDelta(2);
+    this->level.setXOffsetDelta(0);
 
   }
   else {
 
-    if (level.getXOffset() > -((level.getWidth() * 2 * GRID_SIZE) - 220)) {
+    if (this->level.getXOffset() > -((this->level.getWidth() * 2 * GRID_SIZE) - 220)) {
 
-      player.setXDelta(0);
-      level.setXOffsetDelta(-2);
+      this->player.setXDelta(0);
+      this->level.setXOffsetDelta(-2);
 
     }
     else {
 
-      if (player.getX() < 220) {
+      if (this->player.getX() < 220) {
 
-        player.setXDelta(2);
-        level.setXOffsetDelta(0);
+        this->player.setXDelta(2);
+        this->level.setXOffsetDelta(0);
 
       }
 
@@ -894,33 +894,33 @@ void Game::movePlayerRight() {
 
 void Game::movePlayerDown() {
 
-  player.setXDelta(0);
-  level.setXOffsetDelta(0);
+  this->player.setXDelta(0);
+  this->level.setXOffsetDelta(0);
 
-  player.setYDelta(2);
-  level.setYOffsetDelta(0);
+  this->player.setYDelta(2);
+  this->level.setYOffsetDelta(0);
 
 
-  if (player.getY() < (HEIGHT_LESS_TOOLBAR / 2) - 5) {
+  if (this->player.getY() < (HEIGHT_LESS_TOOLBAR / 2) - 5) {
 
-    player.setYDelta(2);
-    level.setYOffsetDelta(0);
+    this->player.setYDelta(2);
+    this->level.setYOffsetDelta(0);
 
   }
   else {
 
-    if (level.getYOffset() > -((level.getHeight() * GRID_SIZE) - HEIGHT_LESS_TOOLBAR)) {
+    if (this->level.getYOffset() > -((this->level.getHeight() * GRID_SIZE) - HEIGHT_LESS_TOOLBAR)) {
 
-      player.setYDelta(0);
-      level.setYOffsetDelta(-2);
+      this->player.setYDelta(0);
+      this->level.setYOffsetDelta(-2);
 
     }
     else {
 
-      if (player.getY() < HEIGHT_LESS_TOOLBAR) {
+      if (this->player.getY() < HEIGHT_LESS_TOOLBAR) {
 
-        player.setYDelta(2);
-        level.setYOffsetDelta(0);
+        this->player.setYDelta(2);
+        this->level.setYOffsetDelta(0);
 
       }
 
@@ -937,29 +937,29 @@ void Game::movePlayerDown() {
 
 void Game::movePlayerUp() {
 
-  player.setXDelta(0);
-  level.setXOffsetDelta(0);
+  this->player.setXDelta(0);
+  this->level.setXOffsetDelta(0);
 
-  if (player.getY() > (HEIGHT_LESS_TOOLBAR / 2) - 5) {
+  if (this->player.getY() > (HEIGHT_LESS_TOOLBAR / 2) - 5) {
     
-    player.setYDelta(-2);
-    level.setYOffsetDelta(0);
+    this->player.setYDelta(-2);
+    this->level.setYOffsetDelta(0);
 
   }
   else {
 
-    if (level.getYOffset() < 0) {
+    if (this->level.getYOffset() < 0) {
 
-      player.setYDelta(0);
-      level.setYOffsetDelta(2);
+      this->player.setYDelta(0);
+      this->level.setYOffsetDelta(2);
 
     }
     else {
 
-      if (player.getY() > 0) {
+      if (this->player.getY() > 0) {
 
-        player.setYDelta(-2);
-        level.setYOffsetDelta(0);
+        this->player.setYDelta(-2);
+        this->level.setYOffsetDelta(0);
 
       }
 
@@ -976,7 +976,7 @@ void Game::movePlayerUp() {
 
 void Game::updatePlayerStance(PlayerStance lowerRange, PlayerStance upperRange) {
 
-  if (player.getStance() < lowerRange || player.getStance() > upperRange) player.setStance(lowerRange);
+  if (this->player.getStance() < lowerRange || this->player.getStance() > upperRange) this->player.setStance(lowerRange);
   
 }
   

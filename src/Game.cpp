@@ -14,7 +14,6 @@ void Game::setup(GameCookie *cookie) {
     
     this->cookie = cookie;
     
-    EEPROM_Utils::initEEPROM(*this->cookie, false);
     EEPROM_Utils::getSavedGameData(*this->cookie, &level, &player);
     
     this->player.setX(20);
@@ -24,30 +23,7 @@ void Game::setup(GameCookie *cookie) {
     this->player.setNextState(GameState::Intro);
     
     uint8_t gameNumber = EEPROM_Utils::getGameNumber(*this->cookie);
-    
-    // if (gameNumber < GAME_NUMBER) {
-    
-    //     if (gameNumber == 1) { gameState = GameState::CompleteGame1; }
-    //     if (gameNumber == 2) { gameState = GameState::CompleteGame2; }
-    //     if (gameNumber == 3) { gameState = GameState::CompleteGame3; }
-    
-    // }
-    
-    // if (gameNumber > GAME_NUMBER) {
-    
-    //     #if GAME_NUMBER == 4
-    //     if (gameNumber == NUMBER_OF_GAMES) {
-    //       gameState = GameState::SeriesOver;
-    //     }
-    //     else {
-    //       gameState = GameState::NextGame;
-    //     }
-    //     #else
-    //     gameState = GameState::NextGame;
-    //     #endif
-    
-    // }
-	
+    	
 }
 
 void Game::loop(void) {
@@ -57,69 +33,56 @@ void Game::loop(void) {
     
     switch (gameState) {
         
-        #if GAME_NUMBER == 1
-        
         case GameState::Intro:
             //SJH if (!sound.playing()) sound.tones(score);
-            Intro();
+            intro();
             break;
         
         case GameState::GameSelect:
-            GameSelect();
+            gameSelect();
             break;
-            
-        #else
-        
-        case GameState::GameSelect:
-            //SJH if (!sound.playing()) sound.tones(score);
-            GameSelect();
-            break;
-        
-        #endif
         
         case GameState::LevelInit:
             //SJH sound.noTone();
-            while (!holes.isEmpty()) holes.dequeue();
+            while (!this->holes.isEmpty()) this->holes.dequeue();
             //      level.setLevelNumber(36);
-            level.loadLevel(&player, enemies); 
-            introRect = 88;
-            gameState = GameState::LevelEntryAnimation;
+            this->level.loadLevel(&player, enemies); 
+            this->introRect = 88;
+            this->gameState = GameState::LevelEntryAnimation;
             [[fallthrough]];
             
         case GameState::LevelEntryAnimation:
         case GameState::LevelFlash:
         case GameState::LevelPlay:
-            LevelPlay();
+            levelPlay();
             break;
         
         case GameState::LevelExitInit:
-            introRect = 0;
-            gameState = GameState::LevelExitAnimation;
+            this->introRect = 0;
+            this->gameState = GameState::LevelExitAnimation;
             [[fallthrough]];
         
         case GameState::LevelExitAnimation:
         case GameState::GameOver:
         case GameState::RestartLevel:
-            LevelPlay();
+            levelPlay();
             break;
         
         case GameState::NextLevel:
             EEPROM_Utils::saveGameData(*this->cookie, &this->level, &this->player);
-            LevelPlay();
+            levelPlay();
             break;
         
         case GameState::CompleteGame1 ... GameState::CompleteGame3:
-            CompleteGame();
+            completeGame();
             break;
         
-        #if GAME_NUMBER == 4
         case GameState::SeriesOver:
-            CompleteSeries();
+            completeSeries();
             break;
-        #endif
         
         case GameState::NextGame:
-            NextGame();
+            nextGame();
             break;
         
         default: break;
@@ -129,25 +92,21 @@ void Game::loop(void) {
 }
 
 
-
-
 // --------------------------------------------------------------------------------------
 //  Display intro banner ..
 //
-void Game::Intro() {
+void Game::intro() {
 
-//  arduboy.drawCompressedMirror(0, 4, banner, WHITE, false);
   PD::drawBitmap(0, 4, Images::Banner, false, false);
   if (PC::buttons.pressed(BTN_A))  { this->gameState = GameState::GameSelect; }
 
 }
 
 
-
 // --------------------------------------------------------------------------------------
 //  Display intro banner ..
 //
-void Game::GameSelect() {
+void Game::gameSelect() {
 
   bool firstTime = EEPROM_Utils::getMen(*this->cookie) == 5 && EEPROM_Utils::getLevelNumber(*this->cookie) == 1;
 
@@ -157,19 +116,17 @@ void Game::GameSelect() {
 
   if (firstTime) {
 
-    selectorY = 24 + (menuSelect * 5);
+    selectorY = 24 + (this->menuSelect * 5);
 
   }
   else {
 
     menuOptionY = 19;
     menuOptionImg = Images::MenuOption;
-    selectorY= 19 + (menuSelect * 10);
+    selectorY= 19 + (this->menuSelect * 10);
 
   }
 
-//   arduboy.drawCompressedMirror(38, menuOptionY, menuOptionImg, WHITE, false);
-//   arduboy.drawCompressedMirror(31, selectorY, menuArrow, WHITE, false);
   PD::drawBitmap(38, menuOptionY, menuOptionImg);
   PD::drawBitmap(31, selectorY, Images::Arrow);
 
@@ -178,8 +135,6 @@ void Game::GameSelect() {
 
   for (uint8_t x = 0; x < 220; x = x + 10) {
   
-    // Sprites::drawOverwrite(x, 0, levelElementImgs, 1);
-    // Sprites::drawOverwrite(x, 55, levelElementImgs, 1);
     PD::drawBitmap(x, 0, Images::levelElementImgs[1]);
     PD::drawBitmap(x, 55, Images::levelElementImgs[1]);
 
@@ -190,17 +145,23 @@ void Game::GameSelect() {
 
   if (!firstTime) {
 
-    // if ((buttons & UP_BUTTON) && menuSelect > 0)     { menuSelect--; }
-    // if ((buttons & DOWN_BUTTON) && menuSelect < 1)   { menuSelect++; }
-    if (PC::buttons.pressed(BTN_UP) && menuSelect > 0)     { menuSelect--; }
-    if (PC::buttons.pressed(BTN_DOWN) && menuSelect < 1)   { menuSelect++; }
+    if (PC::buttons.pressed(BTN_UP) && this->menuSelect > 0)     { this->menuSelect--; }
+    if (PC::buttons.pressed(BTN_DOWN) && this->menuSelect < 1)   { this->menuSelect++; }
 
   }
 
   if (PC::buttons.pressed(BTN_A)) {
     
-    if (menuSelect == 0) { EEPROM_Utils::getSavedGameData(*this->cookie, &this->level, &this->player); gameState = GameState::LevelInit; }
-    if (menuSelect == 1) { EEPROM_Utils::initEEPROM(*this->cookie, true); EEPROM_Utils::getSavedGameData(*this->cookie, &this->level, &this->player); gameState = GameState::LevelInit; }
+    if (this->menuSelect == 0) { 
+      EEPROM_Utils::getSavedGameData(*this->cookie, &this->level, &this->player); 
+      this->gameState = GameState::LevelInit; 
+    }
+
+    if (this->menuSelect == 1) { 
+      EEPROM_Utils::initEEPROM(*this->cookie); 
+      EEPROM_Utils::getSavedGameData(*this->cookie, &this->level, &this->player); 
+      this->gameState = GameState::LevelInit; 
+    }
      
   }
 
@@ -212,7 +173,7 @@ void Game::GameSelect() {
 //
 //  If 'play' is false, play is halted and the player flashes waiting on a keypress.
 //
-void Game::LevelPlay() {
+void Game::levelPlay() {
 
   uint8_t nearestX = getNearestX(0);
   uint8_t nearestY = getNearestY(0);
@@ -220,7 +181,7 @@ void Game::LevelPlay() {
 
   if (gameState == GameState::LevelPlay) {
 
-    LevelElement nearest = level.getLevelData(nearestX, nearestY);
+    LevelElement nearest = this->level.getLevelData(nearestX, nearestY);
 
 
     // Detect next movements for player and enemies ..
@@ -255,7 +216,7 @@ void Game::LevelPlay() {
 
   // Update the player and enemy stance, positions, etc ..
 
-  if (gameState == GameState::LevelPlay) {
+  if (this->gameState == GameState::LevelPlay) {
 
 
 
@@ -263,9 +224,9 @@ void Game::LevelPlay() {
 
     if (Utils::isFrameCount(2)) {
 
-      if ((player.getXDelta() != 0 || player.getYDelta() != 0 || level.getXOffsetDelta() != 0 || level.getYOffsetDelta() != 0)) {
+      if ((this->player.getXDelta() != 0 || this->player.getYDelta() != 0 || this->level.getXOffsetDelta() != 0 || this->level.getYOffsetDelta() != 0)) {
 
-        player.setStance(getNextStance(player.getStance()));
+        this->player.setStance(getNextStance(this->player.getStance()));
 
       }
     
@@ -310,23 +271,23 @@ void Game::LevelPlay() {
 
     // Move player ..
 
-    player.setX(player.getX() + player.getXDelta());
-    player.setY(player.getY() + player.getYDelta());
-    level.setXOffset(level.getXOffset() + level.getXOffsetDelta());
-    level.setYOffset(level.getYOffset() + level.getYOffsetDelta());
+    this->player.setX(this->player.getX() + this->player.getXDelta());
+    this->player.setY(this->player.getY() + this->player.getYDelta());
+    this->level.setXOffset(this->level.getXOffset() + this->level.getXOffsetDelta());
+    this->level.setYOffset(this->level.getYOffset() + this->level.getYOffsetDelta());
 
 
     // If the player has gone off the top of the screen .. level over!
 
-    LevelElement current = level.getLevelData(getNearestX(0), getNearestY(0));
+    LevelElement current = this->level.getLevelData(getNearestX(0), getNearestY(0));
 
     if (player.getY() <= 1 && current == LevelElement::Ladder) {
 
-      uint8_t levelNumber = level.getLevelNumber() + 1;
-      player.incrementMen();
+      uint8_t levelNumber = this->level.getLevelNumber() + 1;
+      this->player.incrementMen();
 
-      gameState = GameState::LevelExitInit;
-      level.setLevelNumber(levelNumber);
+      this->gameState = GameState::LevelExitInit;
+      this->level.setLevelNumber(levelNumber);
       EEPROM_Utils::saveLevelNumber(*this->cookie, this->level.getLevelNumber());
 
       if (levelNumber > LEVEL_OFFSET + LEVEL_COUNT) {
@@ -335,18 +296,18 @@ void Game::LevelPlay() {
 
           EEPROM_Utils::setGameNumber(*this->cookie, EEPROM_Utils::getGameNumber(*this->cookie) + 1);
           EEPROM_Utils::saveGameData(*this->cookie, &level, &player);
-          player.setNextState(GameState::NextGame);
+          this->player.setNextState(GameState::NextGame);
 
         }
         else {
 
-          player.setNextState(GameState::SeriesOver);
+          this->player.setNextState(GameState::SeriesOver);
 
         }
 
       }
       else {
-        player.setNextState(GameState::NextLevel);
+        this->player.setNextState(GameState::NextLevel);
       }
 
       //SJH sound.tones(levelComplete); 
@@ -372,7 +333,10 @@ void Game::LevelPlay() {
 
         // Are any of the enemies touching the player?
 
-        if (enemy->getEnabled() && Utils::collide(Rect {static_cast<int16_t>(enemy->getX()) + 2, static_cast<int16_t>(enemy->getY()) + 2, 6, 6}, Rect {static_cast<int16_t>(player.getX() - level.getXOffset()) + 2, static_cast<int16_t>(player.getY() - level.getYOffset()) + 2, 6, 6} )) {
+        if (enemy->getEnabled() && Utils::collide(
+            Rect {static_cast<int16_t>(enemy->getX()) + 2, static_cast<int16_t>(enemy->getY()) + 2, 6, 6}, 
+            Rect {static_cast<int16_t>(this->player.getX() - level.getXOffset()) + 2, static_cast<int16_t>(this->player.getY() - this->level.getYOffset()) + 2, 6, 6} 
+            )) {
 
           playerDies();
 
@@ -383,17 +347,17 @@ void Game::LevelPlay() {
 
       // Update level details ..
       
-      for (uint8_t y = 0; y < level.getHeight(); y++) {
+      for (uint8_t y = 0; y < this->level.getHeight(); y++) {
 
-        for (uint8_t x = 0; x < level.getWidth() * 2; x++) {
+        for (uint8_t x = 0; x < this->level.getWidth() * 2; x++) {
 
-          LevelElement element = (LevelElement)level.getLevelData(x, y);
+          LevelElement element = (LevelElement)this->level.getLevelData(x, y);
           
           switch (element) {
 
             case LevelElement::Brick_1 ... LevelElement::Brick_4:
               element++;
-              level.setLevelData(x, y, element);
+              this->level.setLevelData(x, y, element);
               break;
 
             default:
@@ -410,11 +374,11 @@ void Game::LevelPlay() {
 
     // Do any holes need to be filled in ?
 
-    if (!holes.isEmpty()) {
+    if (!this->holes.isEmpty()) {
 
-      for (uint8_t x = 0; x < holes.getCount(); x++) {
+      for (uint8_t x = 0; x < this->holes.getCount(); x++) {
 
-        Hole &hole = holes.operator[](x);
+        Hole &hole = this->holes.operator[](x);
 
         if (hole.countDown > 0) {
 
@@ -423,19 +387,19 @@ void Game::LevelPlay() {
           switch (hole.countDown) {
 
             case HOLE_FILL_4:        
-              level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_1);
+              this->level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_1);
               break;
 
             case HOLE_FILL_3:
-              level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_2);
+              this->level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_2);
               break;
 
             case HOLE_FILL_2:
-              level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_3);
+              this->level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_3);
               break;
 
             case HOLE_FILL_1:
-              level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_4);
+              this->level.setLevelData(hole.x, hole.y, LevelElement::Brick_Close_4);
               break;
 
             case 1:
@@ -449,7 +413,7 @@ void Game::LevelPlay() {
 
                 if (enemy->getEnabled() && (hole.x * GRID_SIZE) == enemy->getX() && (hole.y * GRID_SIZE) == enemy->getY()) {
 
-                  LevelPoint reentryPoint = level.getNextReentryPoint();
+                  LevelPoint reentryPoint = this->level.getNextReentryPoint();
                   enemy->setX(reentryPoint.x * GRID_SIZE);
                   enemy->setY(reentryPoint.y * GRID_SIZE);
                   enemy->setStance( PlayerStance::Rebirth_1);
@@ -470,7 +434,7 @@ void Game::LevelPlay() {
 
               }
 
-              level.setLevelData(hole.x, hole.y, LevelElement::Brick);
+              this->level.setLevelData(hole.x, hole.y, LevelElement::Brick);
               break;
 
             default: break;
@@ -486,13 +450,13 @@ void Game::LevelPlay() {
 
       while (true) {
         
-        Hole &hole = holes.peek();
+        Hole &hole = this->holes.peek();
 
         if (hole.countDown == 1) {
 
-          holes.dequeue();
+          this->holes.dequeue();
 
-          if (holes.isEmpty()) { break; }
+          if (this->holes.isEmpty()) { break; }
 
         }
         else {
@@ -518,36 +482,36 @@ void Game::LevelPlay() {
   
         //if (arduboy.everyXFrames(2)) {
 
-          switch (levelCount) {
+          switch (this->levelCount) {
 
             case 0 ... 40:
             
-              levelCount++;
+              this->levelCount++;
               break;
 
             case 41 ... 45:
 
               //SJH arduboy.setRGBled(0,0,64);
-              levelCount++;
+              this->levelCount++;
               break;
 
             case 46 ... 50:
 
               //SJH arduboy.setRGBled(0,0,0);
-              levelCount++;
+              this->levelCount++;
               break;
                     
             default:
 
-              uint8_t levelNumber = level.getLevelNumber();
+              uint8_t levelNumber = this->level.getLevelNumber();
 
 //              if (justPressed & UP_BUTTON && levelNumber < LEVEL_OFFSET + LEVEL_COUNT) {
               if (PC::buttons.pressed(BTN_UP) && levelNumber < LEVEL_OFFSET + LEVEL_COUNT) {
-                level.setLevelNumber(levelNumber + 1);
+                this->level.setLevelNumber(levelNumber + 1);
               }
 //              else if ((justPressed & DOWN_BUTTON) && levelNumber > LEVEL_OFFSET + 1) {
               else if (PC::buttons.pressed(BTN_DOWN) && levelNumber > LEVEL_OFFSET + 1) {
-                level.setLevelNumber(levelNumber - 1);
+                this->level.setLevelNumber(levelNumber - 1);
               }
 
               break;
@@ -559,7 +523,7 @@ void Game::LevelPlay() {
       }
       else {
 
-        switch (levelCount) {
+        switch (this->levelCount) {
 
           case 0:
             break;
@@ -570,15 +534,15 @@ void Game::LevelPlay() {
 
           default:
 
-            if (levelCount >= 40) {
+            if (this->levelCount >= 40) {
 
-              gameState = GameState::LevelInit;
-              levelCount = 0;
+              this->gameState = GameState::LevelInit;
+              this->levelCount = 0;
 
             }
             else {
 
-              levelCount = 0;
+              this->levelCount = 0;
 
             }
 
@@ -591,7 +555,7 @@ void Game::LevelPlay() {
     }
     else {
 
-      levelCount = 0;
+      this->levelCount = 0;
 
     }
     #endif
@@ -599,7 +563,6 @@ void Game::LevelPlay() {
 
     // We are not playing so wait for a key press to continue the game ..
 
-//    if (justPressed > 0) { 
     if (PC::buttons.pressed(BTN_LEFT) || PC::buttons.pressed(BTN_RIGHT) || PC::buttons.pressed(BTN_UP) || PC::buttons.pressed(BTN_DOWN) || PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
 
       switch (gameState) {
@@ -609,24 +572,20 @@ void Game::LevelPlay() {
 
         case GameState::NextLevel:
         case GameState::RestartLevel:
-          gameState = GameState::LevelInit;  
+         this->gameState = GameState::LevelInit;  
           break;
 
         case GameState::GameOver:
-          #if GAME_NUMBER == 1
-          gameState = GameState::Intro;  
-          #else
-          gameState = GameState::GameSelect;  
-          #endif
+          this->gameState = GameState::Intro;  
           break;
 
         case GameState::LevelExitAnimation:
-          gameState = player.getNextState();
+          this->gameState = this->player.getNextState();
           break;
 
         default:
         //SJH arduboy.clearButtonState();
-          gameState = GameState::LevelPlay;
+          this->gameState = GameState::LevelPlay;
           break;
 
       }  
@@ -638,11 +597,9 @@ void Game::LevelPlay() {
 
   // Show level clear indicator?
 
-  if (suicide == 0 && levelCount == 0) {
-    //SJH arduboy.setRGBled(0, (level.getGoldLeft() == 0 && gameState == GameState::LevelPlay ? 32 : 0), 0);
+  if (this->suicide == 0 && this->levelCount == 0) {
+    //SJH arduboy.setRGBled(0, (this->level.getGoldLeft() == 0 && this->gameState == GameState::LevelPlay ? 32 : 0), 0);
   }
-
-  //arduboy.display(CLEAR_BUFFER);
 
 }
 
@@ -652,19 +609,19 @@ void Game::LevelPlay() {
 //
 void Game::playerDies() {
 
-  uint8_t menLeft = player.getMen() - 1;
+  uint8_t menLeft = this->player.getMen() - 1;
 
-  player.setMen(menLeft);
-  gameState = GameState::LevelExitInit;
+  this->player.setMen(menLeft);
+  this->gameState = GameState::LevelExitInit;
 
   if (menLeft > 0) {
 
-    player.setNextState(GameState::RestartLevel);
+    this->player.setNextState(GameState::RestartLevel);
 
   }
   else {
 
-    player.setNextState(GameState::GameOver);
+    this->player.setNextState(GameState::GameOver);
 
   }
 
@@ -677,9 +634,8 @@ void Game::playerDies() {
 // --------------------------------------------------------------------------------------
 //  Display 'Next Game' banner ..
 //
-void Game::NextGame() {
+void Game::nextGame() {
 
-//  arduboy.drawCompressedMirror(20, 23, loadNextGame, WHITE, false);
   PD::drawBitmap(20, 23, Images::LoadNextGame);
 
 }
@@ -688,7 +644,7 @@ void Game::NextGame() {
 // --------------------------------------------------------------------------------------
 //  Display 'complete game' banner ..
 //
-void Game::CompleteGame() {
+void Game::completeGame() {
 
   uint8_t level = static_cast<uint8_t>(gameState) - static_cast<uint8_t>(GameState::CompleteGame1) + 1;
   PD::drawBitmap(19, 20, Images::CompleteGame);
@@ -703,11 +659,8 @@ void Game::CompleteGame() {
 // --------------------------------------------------------------------------------------
 //  Display 'victory' banner ..
 //
-#if GAME_NUMBER == 4
-void CompleteSeries() {
+void Game::completeSeries() {
 
-//  arduboy.drawCompressedMirror(29, 24, victory, WHITE, false);
-  PD::drawBitmap(29, 24, Images::victory);
+  PD::drawBitmap(29, 24, Images::Victory);
 
 }
-#endif

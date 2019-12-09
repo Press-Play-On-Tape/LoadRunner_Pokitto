@@ -1787,6 +1787,930 @@
 		},
 		"/LoadRunner_Pokitto.bin.1.gif": {
 			"sdcard": false
+		},
+		"\\main.cpp": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.elf": {
+			"sdcard": false
+		},
+		"\\LICENSE": {
+			"sdcard": false
+		},
+		"\\My_settings.h": {
+			"sdcard": false
+		},
+		"\\project.json": {
+			"sdcard": false
+		},
+		"\\src": {},
+		"\\src\\characters": {},
+		"\\src\\Game.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game.h": {
+			"sdcard": false
+		},
+		"\\src\\Game_EnemyMovements.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_PlayerMovements.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Render.cpp": {
+			"sdcard": false
+		},
+		"\\src\\Game_Utils.cpp": {
+			"sdcard": false
+		},
+		"\\src\\levels": {},
+		"\\src\\images": {},
+		"\\src\\utils": {},
+		"\\src\\characters\\Enemy.cpp": {
+			"sdcard": false
+		},
+		"\\src\\characters\\Enemy.h": {
+			"sdcard": false
+		},
+		"\\src\\characters\\Player.cpp": {
+			"sdcard": false
+		},
+		"\\src\\characters\\Player.h": {
+			"sdcard": false
+		},
+		"\\src\\levels\\Level.cpp": {
+			"sdcard": false
+		},
+		"\\src\\levels\\Level.h": {
+			"sdcard": false
+		},
+		"\\src\\levels\\Levels.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows": {},
+		"\\src\\images\\Banner.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Banner.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Banner2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete": {},
+		"\\src\\images\\Banner2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\GameOver.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Gold_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\GameOver.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Images.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Gold_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Level.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Level.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\LevelChange.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\LevelChange.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements": {},
+		"\\src\\images\\MenuOption.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man": {},
+		"\\src\\images\\MenuOption2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOption.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOption2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOptionHide.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOptionHide.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOptionShow.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOptionShow.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOptionStart.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\MenuOptionStart.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Men_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers": {},
+		"\\src\\images\\Score.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Men_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Score.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\TryAgain.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\TryAgain.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Victory.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\Victory.png": {
+			"sdcard": false
+		},
+		"\\src\\utils\\EEPROM_Utils.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Enums.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\GameCookie.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Queue.h": {
+			"sdcard": false
+		},
+		"\\src\\utils\\Utils.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\Arrow.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\Arrow.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBL_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBL_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBM.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBM.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBM_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBM_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBR_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowBR_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowML.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowML.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowML_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowML_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowMR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowMR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowMR_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowMR_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTL.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTL.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTL_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTL_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTM.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTM.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTM_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTM_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTR.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTR.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTR_Small.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\arrows\\ArrowTR_Small.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGame3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGameBlank.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGameBlank.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGameBlank2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\CompleteGameBlank2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\LoadNextGame.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\complete\\LoadNextGame.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Blank.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Blank.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_1 copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_1_Debri.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_1_Debri.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_2 copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_2_Debri.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_3 copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_2_Debri.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_4 copy.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_3_Debri.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_3_Debri.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_4_Debri.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_4_Debri.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\FallThrough.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Brick_Close_4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\FallThrough.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Gold.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Gold.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Ladder.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Ladder.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\LevelLadder.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\LevelLadder.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Rail.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Solid.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Rail.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\levelElements\\Solid.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man12Burn.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man12Burn.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man13Rebirth.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man14.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man13Rebirth.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man14.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man15.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man15.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man\\Man9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number4.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number4.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\numbers\\Number9.png": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\New folder": {},
+		"\\src\\images\\scoreboard": {},
+		"\\src\\images\\scoreboard\\Gold_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Gold_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Men_SC.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Men_SC.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Score.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Score.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Level.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\scoreboard\\Level.png": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus": {},
+		"\\src\\images\\menus\\GameOver.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\GameOver.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\LevelChange.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\LevelChange.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\MenuOption.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\MenuOption.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\MenuOption2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\MenuOption2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\MenuOptionStart.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\MenuOptionStart.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\TryAgain.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\TryAgain.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\Victory.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\Victory.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy": {},
+		"\\src\\images\\man - Copy\\Man0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man12Burn.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man12Burn.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man13Rebirth.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man13Rebirth.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man14.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man14.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man15.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man15.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\man - Copy\\Man9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy": {},
+		"\\src\\images\\enemy\\Man0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man12Burn.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man12Burn.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man13Rebirth.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man13Rebirth.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man15.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man14.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man14.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man15.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Man9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy0.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy1.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy3.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy2.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy5.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy6.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy7.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy8.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy9.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy11.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy12Burn.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy13Rebirth.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy14.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy15.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy0.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy1.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy3.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy5.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy2.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy6.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy7.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy8.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy9.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy11.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy12Burn.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy13Rebirth.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy14.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\enemy\\Enemy15.h": {
+			"sdcard": false
 		}
 	}
 }

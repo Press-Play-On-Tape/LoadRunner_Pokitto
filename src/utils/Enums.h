@@ -3,13 +3,7 @@
 #include <stdint.h>
 #include "Utils.h"
 
-#define _TWO_ARROW_SIZES
 #define CHANGE_LEVELS
-
-#define ARROW_SMALL_DIST_X_LEFT       20
-#define ARROW_SMALL_DIST_X_RIGHT      10
-#define ARROW_SMALL_DIST_Y_TOP        20
-#define ARROW_SMALL_DIST_Y_BOTTOM     10
 
 #define HOLE_REFILL_TIME              220
 #define HOLE_FILL_1                   8

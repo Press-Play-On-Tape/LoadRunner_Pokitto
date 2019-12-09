@@ -8,38 +8,38 @@ using PD = Pokitto::Display;
 
 uint8_t Game::getNearestX(int8_t margin) {
 
-  return (player.getX() - level.getXOffset() + margin) / GRID_SIZE;
+  return (this->player.getX() - this->level.getXOffset() + margin) / GRID_SIZE;
   
 }
 
 uint8_t Game::getNearestY(int8_t margin) {
 
-  return (player.getY() - level.getYOffset() + margin) / GRID_SIZE;
+  return (this->player.getY() - this->level.getYOffset() + margin) / GRID_SIZE;
   
 }
 
 boolean Game::inCellX() {
 
-  return ((player.getX() - level.getXOffset()) % GRID_SIZE == 0);
+  return ((this->player.getX() - this->level.getXOffset()) % GRID_SIZE == 0);
 
 }
 
 boolean Game::inCellX(uint8_t margin) {
 
-  uint8_t rem = (player.getX() - level.getXOffset()) % GRID_SIZE;
+  uint8_t rem = (this->player.getX() - this->level.getXOffset()) % GRID_SIZE;
   return (rem > (GRID_SIZE / 2) ? GRID_SIZE - rem : rem) <= margin;
 
 }
 
 boolean Game::inCellY() {
 
-  return ((player.getY() - level.getYOffset()) % GRID_SIZE == 0);
+  return ((this->player.getY() - this->level.getYOffset()) % GRID_SIZE == 0);
 
 }
 
 boolean Game::inCellY(uint8_t margin) {
 
-  uint8_t rem = (player.getY() - level.getYOffset()) % GRID_SIZE;
+  uint8_t rem = (this->player.getY() - this->level.getYOffset()) % GRID_SIZE;
   return ((rem > (GRID_SIZE / 2) ? GRID_SIZE - rem : rem) <= margin);
 
 }

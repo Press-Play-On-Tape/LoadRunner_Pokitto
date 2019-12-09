@@ -17,7 +17,7 @@ int main() {
     cookie.begin("LoadRunn", sizeof(cookie), (char*)&cookie);
 
     PC::begin();
-    PC::setFrameRate(30);
+    PC::setFrameRate(35);
     PD::persistence = true;
     PD::invisiblecolor = 0;
 

@@ -38,8 +38,8 @@ void Game::enemyMovements(Enemy *enemy) {
   uint8_t enemyX = enemy->getX() / GRID_SIZE;
   uint8_t enemyY = enemy->getY() / GRID_SIZE;
 
-  LevelElement current = level.getLevelData(enemyX, enemyY);
-  LevelElement down = level.getLevelData(enemyX, enemyY + 1);
+  LevelElement current = this->level.getLevelData(enemyX, enemyY);
+  LevelElement down = this->level.getLevelData(enemyX, enemyY + 1);
 
 
   // Check to see if the enemy has touched gold!
@@ -49,7 +49,7 @@ void Game::enemyMovements(Enemy *enemy) {
     if (random(0, ENEMY_GOLD_PICKUP_THRESHOLD) == 0) {
 
       enemy->setGoldCountdown(random(ENEMY_GOLD_HOLD_MINIMUM, ENEMY_GOLD_HOLD_MAXIMUM));
-      level.setLevelData(enemyX, enemyY, LevelElement::Blank);
+      this->level.setLevelData(enemyX, enemyY, LevelElement::Blank);
 
     }
 
@@ -87,10 +87,10 @@ void Game::enemyMovements(Enemy *enemy) {
 
       // If the enemy has gold, then make it available to pickup ..
 
-      if (enemy->getGoldCountdown() > 0 && level.getLevelData(enemyX, enemyY - 1) == LevelElement::Blank) {
+      if (enemy->getGoldCountdown() > 0 && this->level.getLevelData(enemyX, enemyY - 1) == LevelElement::Blank) {
 
         enemy->setGoldCountdown(0);
-        level.setLevelData(enemyX, enemyY - 1, LevelElement::Gold);
+        this->level.setLevelData(enemyX, enemyY - 1, LevelElement::Gold);
 
       }
         
@@ -106,15 +106,15 @@ void Game::enemyMovements(Enemy *enemy) {
 
       Direction direction = Direction::Up;
 
-      LevelElement up =         level.getLevelData(enemyX, enemyY - 1);
-      LevelElement right =      level.getLevelData(enemyX + 1, enemyY);
-      LevelElement rightDown =  level.getLevelData(enemyX + 1, enemyY + 1);
-      LevelElement leftDown =   level.getLevelData(enemyX - 1, enemyY + 1);
-      LevelElement left =       level.getLevelData(enemyX - 1, enemyY);
-//      LevelElement down =       level.getLevelData(enemyX, enemyY + 1);
+      LevelElement up =         this->level.getLevelData(enemyX, enemyY - 1);
+      LevelElement right =      this->level.getLevelData(enemyX + 1, enemyY);
+      LevelElement rightDown =  this->level.getLevelData(enemyX + 1, enemyY + 1);
+      LevelElement leftDown =   this->level.getLevelData(enemyX - 1, enemyY + 1);
+      LevelElement left =       this->level.getLevelData(enemyX - 1, enemyY);
+//      LevelElement down =       this->level.getLevelData(enemyX, enemyY + 1);
 
-      int16_t xDiff = enemy->getX() - (player.getX() - level.getXOffset());
-      int16_t yDiff = enemy->getY() - (player.getY() - level.getYOffset());
+      int16_t xDiff = enemy->getX() - (this->player.getX() - this->level.getXOffset());
+      int16_t yDiff = enemy->getY() - (this->player.getY() - this->level.getYOffset());
 
 
       if (enemy->getDirectionCountdown() > 0) {
@@ -144,7 +144,7 @@ void Game::enemyMovements(Enemy *enemy) {
 
         if (enemy->getGoldCountdown() == 0) {
 
-          level.setLevelData(enemyX, enemyY, LevelElement::Gold);
+          this->level.setLevelData(enemyX, enemyY, LevelElement::Gold);
 
         }
 
@@ -468,12 +468,12 @@ void Game::setDirectionAfterHoleEscape(Enemy *enemy) {
   uint8_t enemyX = enemy->getX() / GRID_SIZE;
   uint8_t enemyY = enemy->getY() / GRID_SIZE;
 
-  LevelElement left       = level.getLevelData(enemyX - 1, enemyY);
-  LevelElement leftDown   = level.getLevelData(enemyX - 1, enemyY + 1);
-  LevelElement right      = level.getLevelData(enemyX + 1, enemyY);
-  LevelElement rightDown  = level.getLevelData(enemyX + 1, enemyY + 1);
+  LevelElement left       = this->level.getLevelData(enemyX - 1, enemyY);
+  LevelElement leftDown   = this->level.getLevelData(enemyX - 1, enemyY + 1);
+  LevelElement right      = this->level.getLevelData(enemyX + 1, enemyY);
+  LevelElement rightDown  = this->level.getLevelData(enemyX + 1, enemyY + 1);
 
-  if (static_cast<int16_t>(enemy->getX()) > (static_cast<int16_t>(player.getX()) - level.getXOffset())) {
+  if (static_cast<int16_t>(enemy->getX()) > (static_cast<int16_t>(this->player.getX()) - this->level.getXOffset())) {
 
     if (canBeOccupied_Enemy(left) && canBeStoodOn_Enemy(leftDown)) {
     

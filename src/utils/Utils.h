@@ -15,8 +15,7 @@ struct Rect {
 };
 
 namespace Utils {
-    
-    
+        
     static inline bool collide(Rect rect1, Rect rect2) {
         return !(rect2.x                >= rect1.x + rect1.width  ||
                  rect2.x + rect2.width  <= rect1.x                ||

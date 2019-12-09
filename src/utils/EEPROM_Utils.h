@@ -9,7 +9,7 @@ class EEPROM_Utils {
         
         EEPROM_Utils() {};
         
-        static void initEEPROM(GameCookie &cookie, bool forceClear);
+        static void initEEPROM(GameCookie &cookie);
         static uint8_t getGameNumber(GameCookie &cookie);
         static uint8_t getLevelNumber(GameCookie &cookie);
         static uint8_t getMen(GameCookie &cookie);
@@ -25,33 +25,29 @@ class EEPROM_Utils {
 /* ----------------------------------------------------------------------------
  *   Is the EEPROM initialised?
  */
-void EEPROM_Utils::initEEPROM(GameCookie &cookie, bool forceClear) {
-
-    if (forceClear) { 
+void EEPROM_Utils::initEEPROM(GameCookie &cookie) {
+    
+    if (GAME_NUMBER == 1) {
         
-        if (GAME_NUMBER == 1) {
-            
-            cookie.gameNumber = 1;
-            cookie.levelNumber = 1;
-            cookie.menLeft = 5;
+        cookie.gameNumber = 1;
+        cookie.levelNumber = 1;
+        cookie.menLeft = 5;
 
-            cookie.gameNumberOrig = 1;
-            cookie.levelNumberOrig = 1;
-            cookie.menLeftOrig = 5;
-            cookie.scoreOrig = 0;
-
-        }
-        else {
-
-            cookie.gameNumber = cookie.gameNumberOrig;        
-            cookie.levelNumber = cookie.levelNumberOrig;        
-            cookie.menLeft = cookie.menLeftOrig;        
-
-        }
-
-        cookie.saveCookie();
+        cookie.gameNumberOrig = 1;
+        cookie.levelNumberOrig = 1;
+        cookie.menLeftOrig = 5;
+        cookie.scoreOrig = 0;
 
     }
+    else {
+
+        cookie.gameNumber = cookie.gameNumberOrig;        
+        cookie.levelNumber = cookie.levelNumberOrig;        
+        cookie.menLeft = cookie.menLeftOrig;        
+
+    }
+
+    cookie.saveCookie();
 
 }
 
