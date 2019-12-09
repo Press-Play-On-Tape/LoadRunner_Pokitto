@@ -43,8 +43,9 @@ void Game::renderScreen() {
 
   PD::setColor(0);
   PD::fillRect(0, 169, 220, 9);
-  PD::setColor(1);
-  Utils::drawDottedColumn(0, 220, 170);
+  PD::setColor(8);
+  PD::drawRow(0, 220, 162);
+  PD::drawRow(0, 220, 161);
 
 
   // Draw scoreboard ..
@@ -106,14 +107,14 @@ void Game::renderEnemies() {
 
       auto dx = ex;
       auto dy = ey;
-      uint8_t const * image = Images::Man0;
+      uint8_t const * image = Images::Enemy0;
       bool flip = false;
 
       switch (enemy->getEscapeHole()) {
 
         case EscapeHole::None:
           flip = (static_cast<int8_t>(enemy->getStance()) < 0);
-          image = Images::Men[absT(static_cast<int8_t>(enemy->getStance()))];
+          image = Images::Enemy[absT(static_cast<int8_t>(enemy->getStance()))];
           break;
 
         case EscapeHole::Wait1 ... EscapeHole::WaitMax:
@@ -135,28 +136,28 @@ void Game::renderEnemies() {
 
         case EscapeHole::MoveUp9 ... EscapeHole::MoveUp10:
           dy = ey - 2;
-          image = Images::Man0; //SJH man_LaddderLeft;
+          image = Images::Enemy5;
           break;
 
         case EscapeHole::MoveUp7 ... EscapeHole::MoveUp8:
           dy = ey - 4;
-          image = Images::Man1; //SJH man_LaddderRight;
+          image = Images::Enemy6;
           break;
 
         case EscapeHole::MoveUp5 ... EscapeHole::MoveUp6:
           dy = ey - 6;
-          image = Images::Man0; //SJH man_LaddderLeft;
+          image = Images::Enemy5;
           break;
 
         case EscapeHole::MoveUp3 ... EscapeHole::MoveUp4:
           dy = ey - 8;
-          image = Images::Man1; //SJH man_LadderRight;
+          image = Images::Enemy6;
           break;
 
         case EscapeHole::MoveUp1 ... EscapeHole::MoveUp2:
 
           dy = ey - 10;
-          image = Images::Man0; //SJH man_LaddderLeft;
+          image = Images::Enemy5;
 
           enemy->setY(enemy->getY() - 10);
           enemy->setEscapeHole(EscapeHole::None);
@@ -190,41 +191,46 @@ void Game::renderEntryRectangle() {
   if (gameState == GameState::LevelEntryAnimation || gameState == GameState::LevelExitAnimation) {
 
     PD::setColor(0);
-    PD::drawRect(this->introRect, this->introRect, 220 - (this->introRect * 2), 168 - (this->introRect * 2));
+    PD::drawRect(this->introRect, this->introRect, 220 - (this->introRect * 2), 160 - (this->introRect * 2));
     PD::setColor(1);
 
     Utils::drawDottedRow(0, 220, this->introRect);
-    Utils::drawDottedRow(0, 220, 168 - this->introRect);    
-    Utils::drawDottedColumn(0, 64, this->introRect);
-    Utils::drawDottedColumn(0, 64, 219 - this->introRect);
+    Utils::drawDottedRow(0, 220, 160 - this->introRect);    
+    Utils::drawDottedColumn(this->introRect, 0, 160);
+    Utils::drawDottedColumn(220 - this->introRect, 0, 160);
 
     if (gameState == GameState::LevelEntryAnimation) {
 
-      for (int8_t x = this->introRect - 1; x >= 0; x--) {
-
-        PD::setColor(0);
-        PD::drawRect(x, x, 220 - (x * 2) + 1, 168 - (x * 2) + 1);
-        PD::setColor(1);
-
-      }
-      this->introRect--;
+      PD::setColor(0);
+      PD::fillRect(0, 0, 220, this->introRect - 1);
+      PD::fillRect(0, 0, this->introRect, 160);
+      PD::fillRect(220 - this->introRect + 1, 0, this->introRect, 160);
+      PD::fillRect(0, 160 - this->introRect + 1, 220, this->introRect);
+      PD::setColor(1);
+      this->introRect = this->introRect - 2;
 
       if (this->introRect <= -1) gameState = GameState::LevelFlash;
 
     }
     else {
 
-      for (int8_t x = 0; x < this->introRect; x++) {
+      // for (int8_t x = 0; x < this->introRect; x++) {
 
-        PD::setColor(0);
-        PD::drawRect(x, x, 219 - (x * 2) + 1, 168 - (x * 2) + 1);
-        PD::setColor(1);
+      //   PD::setColor(0);
+      //   PD::drawRect(x, x, 220 - (x * 2), 160 - (x * 2));
+      //   PD::setColor(1);
 
-      }
-      this->introRect++;
+      // }
+      PD::setColor(0);
+      PD::fillRect(0, 0, 220, this->introRect - 1);
+      PD::fillRect(0, 0, this->introRect, 160);
+      PD::fillRect(220 - this->introRect + 1, 0, this->introRect, 160);
+      PD::fillRect(0, 160 - this->introRect + 1, 220, this->introRect);
+      PD::setColor(1);
+      this->introRect = this->introRect + 2;
 
       // Game over, restart level or next level ?
-      if (this->introRect == LEVEL_ANIMATION_BANNER_WIDTH) gameState = this->player.getNextState();
+      if (this->introRect >= LEVEL_ANIMATION_BANNER_WIDTH) gameState = this->player.getNextState();
 
     }
 
@@ -275,9 +281,9 @@ void Game::renderScoreboard() {
       uint8_t digits[6] = {};
       Utils::extractDigits(digits, score);
       
-      PD::drawBitmap(0, 170, Images::Score);
-      for(uint8_t i = 0, x = 54; i < 6; ++i, x -= 5) {
-        PD::drawBitmap(x, 170, Images::Numbers[digits[i]]);
+      PD::drawBitmap(0, 166, Images::Score_SC);
+      for(uint8_t i = 0, x = 93; i < 6; ++i, x -= 9) {
+        PD::drawBitmap(x, 166, Images::Numbers_SC[digits[i]]);
       }
       
   }
@@ -286,31 +292,31 @@ void Game::renderScoreboard() {
   // Men left ..
 
   uint8_t menLeft = this->player.getMen();
-  PD::drawBitmap(64, 170, Images::Men_SC);
-  PD::drawBitmap(82, 170, Images::Numbers[menLeft / 10]);
-  PD::drawBitmap(87, 170, Images::Numbers[menLeft % 10]);
+  PD::drawBitmap(109, 166, Images::Men_SC);
+  PD::drawBitmap(139, 166, Images::Numbers_SC[menLeft / 10]);
+  PD::drawBitmap(148, 166, Images::Numbers_SC[menLeft % 10]);
 
 
-  // Gold or level ..
+  // // Gold or level ..
   
   if (gameState == GameState::LevelPlay) {
 
     uint8_t goldLeft = this->level.getGoldLeft();
-    PD::drawBitmap(96, 170, Images::Gold_SC);
-    PD::drawBitmap(118, 170, Images::Numbers[goldLeft / 10]);
-    PD::drawBitmap(123, 170, Images::Numbers[ goldLeft % 10]);
+    PD::drawBitmap(164, 166, Images::Gold_SC);
+    PD::drawBitmap(203, 166, Images::Numbers_SC[goldLeft / 10]);
+    PD::drawBitmap(212, 166, Images::Numbers_SC[ goldLeft % 10]);
 
   }
   else {
 
     uint8_t levelNumber = this->level.getLevelNumber();
-    PD::drawBitmap(96, 170, Images::Level);
+    if (this->levelShow) PD::drawBitmap(164, 166, Images::Level_SC);
     
     const auto divT = div(levelNumber, 100);
-    PD::drawBitmap(113, 170, Images::Numbers[divT.quot]);
+    PD::drawBitmap(194, 166, Images::Numbers_SC[divT.quot]);
     levelNumber = divT.rem;
-    PD::drawBitmap(118, 170, Images::Numbers[levelNumber / 10]);
-    PD::drawBitmap(123, 170, Images::Numbers[levelNumber % 10]);
+    PD::drawBitmap(203, 166, Images::Numbers_SC[levelNumber / 10]);
+    PD::drawBitmap(212, 166, Images::Numbers_SC[levelNumber % 10]);
 
   }
 

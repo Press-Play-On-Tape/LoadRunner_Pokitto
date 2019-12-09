@@ -11,7 +11,6 @@
 #define HOLE_FILL_3                   24
 #define HOLE_FILL_4                   32
 
-//#define HEIGHT_LESS_TOOLBAR           56
 #define HEIGHT_LESS_TOOLBAR           168
 #define NUMBER_OF_ENEMIES             6
 #define NUMBER_OF_REENTRY_POINTS      4
@@ -23,7 +22,7 @@
 #define ENEMY_GOLD_HOLD_MAXIMUM       30
 #define ENEMY_GOLD_DROP_VALUE         15
 
-#define LEVEL_ANIMATION_BANNER_WIDTH  28
+#define LEVEL_ANIMATION_BANNER_WIDTH  77
 
 
 /* ----------------------------------------------------------------------------
@@ -37,6 +36,7 @@ template<typename T> T absT(const T & v) {
 
 enum class GameState : uint8_t {
 
+  Splash,
   Intro,
   GameSelect,
   LevelInit,

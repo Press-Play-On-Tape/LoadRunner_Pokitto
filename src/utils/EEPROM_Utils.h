@@ -17,7 +17,6 @@ class EEPROM_Utils {
         
         static void getSavedGameData(GameCookie &cookie, Level *level, Player *player);
         static void saveGameData(GameCookie &cookie, Level *level, Player *player);
-        static void setGameNumber(GameCookie &cookie, uint8_t val);
 
 };
 
@@ -27,25 +26,14 @@ class EEPROM_Utils {
  */
 void EEPROM_Utils::initEEPROM(GameCookie &cookie) {
     
-    if (GAME_NUMBER == 1) {
-        
-        cookie.gameNumber = 1;
-        cookie.levelNumber = 1;
-        cookie.menLeft = 5;
+    cookie.gameNumber = 1;
+    cookie.levelNumber = 1;
+    cookie.menLeft = 5;
 
-        cookie.gameNumberOrig = 1;
-        cookie.levelNumberOrig = 1;
-        cookie.menLeftOrig = 5;
-        cookie.scoreOrig = 0;
-
-    }
-    else {
-
-        cookie.gameNumber = cookie.gameNumberOrig;        
-        cookie.levelNumber = cookie.levelNumberOrig;        
-        cookie.menLeft = cookie.menLeftOrig;        
-
-    }
+    // cookie.gameNumberOrig = 1;
+    // cookie.levelNumberOrig = 1;
+    // cookie.menLeftOrig = 5;
+    // cookie.scoreOrig = 0;
 
     cookie.saveCookie();
 
@@ -121,19 +109,6 @@ void EEPROM_Utils::saveGameData(GameCookie &cookie, Level *level, Player *player
     uint16_t score = player->getScore();
     cookie.score = score;
     cookie.scoreOrig = score;
-
-    cookie.saveCookie();
-
-}
-
-
-/* -----------------------------------------------------------------------------
- *   Save game number.
- */
-void EEPROM_Utils::setGameNumber(GameCookie &cookie, uint8_t val) {
-
-    cookie.gameNumber = val;
-    cookie.gameNumberOrig = val;
 
     cookie.saveCookie();
 

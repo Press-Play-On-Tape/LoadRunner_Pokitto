@@ -33,6 +33,11 @@ void Game::loop(void) {
     
     switch (gameState) {
         
+        case GameState::Splash:
+            //SJH if (!sound.playing()) sound.tones(score);
+            splash();
+            break;
+        
         case GameState::Intro:
             //SJH if (!sound.playing()) sound.tones(score);
             intro();
@@ -43,11 +48,12 @@ void Game::loop(void) {
             break;
         
         case GameState::LevelInit:
+            this->levelShow = true;
             //SJH sound.noTone();
             while (!this->holes.isEmpty()) this->holes.dequeue();
             //      level.setLevelNumber(36);
             this->level.loadLevel(&player, enemies); 
-            this->introRect = 88;
+            this->introRect = 77;
             this->gameState = GameState::LevelEntryAnimation;
             [[fallthrough]];
             
@@ -89,6 +95,29 @@ void Game::loop(void) {
     
     }
 	
+}
+
+
+// --------------------------------------------------------------------------------------
+//  Display intro banner ..
+//
+void Game::splash() {
+    
+    if (Utils::isFrameCount(12)) {
+     
+        this->counter++;
+        
+        if (this->counter == 4) {
+            
+            this->counter = 0;
+            
+        }
+        
+    }
+    
+    PD::drawBitmap(38, 48, Images::Ppot[counter]);
+    if (PC::buttons.pressed(BTN_A))  { this->gameState = GameState::Intro; }
+
 }
 
 
@@ -290,20 +319,9 @@ void Game::levelPlay() {
       this->level.setLevelNumber(levelNumber);
       EEPROM_Utils::saveLevelNumber(*this->cookie, this->level.getLevelNumber());
 
-      if (levelNumber > LEVEL_OFFSET + LEVEL_COUNT) {
+      if (levelNumber > LEVEL_COUNT) {
 
-        if (EEPROM_Utils::getGameNumber(*this->cookie) < NUMBER_OF_GAMES) {
-
-          EEPROM_Utils::setGameNumber(*this->cookie, EEPROM_Utils::getGameNumber(*this->cookie) + 1);
-          EEPROM_Utils::saveGameData(*this->cookie, &level, &player);
-          this->player.setNextState(GameState::NextGame);
-
-        }
-        else {
-
-          this->player.setNextState(GameState::SeriesOver);
-
-        }
+        this->player.setNextState(GameState::SeriesOver);
 
       }
       else {
@@ -475,29 +493,27 @@ void Game::levelPlay() {
 
     // Change level?
 
-    #ifdef CHANGE_LEVELS
     if (gameState == GameState::LevelFlash) {
 
-      if (PC::buttons.pressed(BTN_B) || PC::buttons.repeat(BTN_B, 1)) {
-  
-        //if (arduboy.everyXFrames(2)) {
+      if (PC::buttons.pressed(BTN_C) || PC::buttons.repeat(BTN_C, 1)) {
 
-          switch (this->levelCount) {
+          switch (levelCount) {
 
             case 0 ... 40:
             
               this->levelCount++;
+              this->levelShow = true;
               break;
 
             case 41 ... 45:
 
-              //SJH arduboy.setRGBled(0,0,64);
+              this->levelShow = false;
               this->levelCount++;
               break;
 
             case 46 ... 50:
 
-              //SJH arduboy.setRGBled(0,0,0);
+              this->levelShow = true;
               this->levelCount++;
               break;
                     
@@ -505,20 +521,16 @@ void Game::levelPlay() {
 
               uint8_t levelNumber = this->level.getLevelNumber();
 
-//              if (justPressed & UP_BUTTON && levelNumber < LEVEL_OFFSET + LEVEL_COUNT) {
-              if (PC::buttons.pressed(BTN_UP) && levelNumber < LEVEL_OFFSET + LEVEL_COUNT) {
+              if (PC::buttons.pressed(BTN_UP) && levelNumber < LEVEL_COUNT) {
                 this->level.setLevelNumber(levelNumber + 1);
               }
-//              else if ((justPressed & DOWN_BUTTON) && levelNumber > LEVEL_OFFSET + 1) {
-              else if (PC::buttons.pressed(BTN_DOWN) && levelNumber > LEVEL_OFFSET + 1) {
+              else if (PC::buttons.pressed(BTN_DOWN) && levelNumber > 1) {
                 this->level.setLevelNumber(levelNumber - 1);
               }
 
               break;
 
           }
-
-          //SJH justPressed = 0;
 
       }
       else {
@@ -529,7 +541,8 @@ void Game::levelPlay() {
             break;
 
           case 1 ... 50:
-            //SJH justPressed = 4;
+            this->levelCount = 0;
+            this->levelShow = true;
             break;
 
           default:
@@ -553,17 +566,11 @@ void Game::levelPlay() {
       }
 
     }
-    else {
-
-      this->levelCount = 0;
-
-    }
-    #endif
-
+  
 
     // We are not playing so wait for a key press to continue the game ..
 
-    if (PC::buttons.pressed(BTN_LEFT) || PC::buttons.pressed(BTN_RIGHT) || PC::buttons.pressed(BTN_UP) || PC::buttons.pressed(BTN_DOWN) || PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
+    if (this->levelCount == 0 && (PC::buttons.pressed(BTN_LEFT) || PC::buttons.pressed(BTN_RIGHT) || PC::buttons.pressed(BTN_UP) || PC::buttons.pressed(BTN_DOWN) || PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B))) {
 
       switch (gameState) {
 
@@ -572,7 +579,7 @@ void Game::levelPlay() {
 
         case GameState::NextLevel:
         case GameState::RestartLevel:
-         this->gameState = GameState::LevelInit;  
+        this->gameState = GameState::LevelInit;  
           break;
 
         case GameState::GameOver:

@@ -4,10 +4,8 @@
 // #include "../utils/Enums.h"
 
 #define GAME_NUMBER 1
-#define NUMBER_OF_GAMES 4
 
-#define LEVEL_COUNT     160
-#define LEVEL_OFFSET    0
+#define LEVEL_COUNT     155
 
 const uint8_t level0[] = {
 0x0E, 0x0E, 

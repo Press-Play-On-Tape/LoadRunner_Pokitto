@@ -2,6 +2,7 @@
 	"lastBuffer": "main.cpp",
 	"PNGFlags": {
 		"ALL": [
+			"transparent=15",
 			"palette=${appPath}/PokittoLib/Pokitto/POKITTO_CORE/PALETTES/palCGA.cpp"
 		]
 	},
@@ -2710,6 +2711,355 @@
 			"sdcard": false
 		},
 		"\\src\\images\\enemy\\Enemy15.h": {
+			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.bin.1.h": {
+			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.bin.1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy": {},
+		"/src/images/menus": {},
+		"/src/images/scoreboard": {},
+		"/src/images/enemy/Enemy0.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy0.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy1.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy1.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy11.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy11.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy12Burn.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy12Burn.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy13Rebirth.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy14.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy13Rebirth.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy14.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy15.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy15.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy2.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy3.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy2.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy3.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy5.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy6.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy6.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy5.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy7.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy7.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy9.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy8.h": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy9.png": {
+			"sdcard": false
+		},
+		"/src/images/enemy/Enemy8.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/GameOver.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/GameOver.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/LevelChange.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/LevelChange.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/MenuOption.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/MenuOption.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/MenuOption2.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/MenuOption2.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/MenuOptionStart.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/MenuOptionStart.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/TryAgain.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/TryAgain.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Victory.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Victory.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Gold_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Gold_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Men_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Men_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Score.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Score.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Score_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_1.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_9.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_7.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_8.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_4.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_6.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number0.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number9.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number8.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number7.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number6.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number5.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number4.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number3.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number2.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number1.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Score_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number0.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number5.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number4.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number3.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number2.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number1.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number9.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number8.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number6.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number7.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number_SC0.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number1_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number2_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number3_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number0_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number4_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number5_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number6_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number7_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number8_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number9_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number1_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number3_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number4_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number0_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number6_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number7_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number2_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number8_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number9_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Number5_SC.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level_SC copy.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level_SC_Full.png": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Level_SC_Full.h": {
+			"sdcard": false
+		},
+		"/src/images/scoreboard/Score_SC copy.png": {
+			"sdcard": false
+		},
+		"/src/images/ppot": {},
+		"/src/images/ppot/Ppot_00.png": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_00.h": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_01.png": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_02.h": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_01.h": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_03.h": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_03.png": {
+			"sdcard": false
+		},
+		"/src/images/ppot/Ppot_02.png": {
 			"sdcard": false
 		}
 	}

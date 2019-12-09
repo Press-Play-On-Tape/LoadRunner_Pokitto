@@ -14,6 +14,7 @@ class Game {
         void setup(GameCookie *cookie);
         void loop(void);
 
+        void splash();
         void intro();
         void gameSelect();
         void levelPlay();
@@ -75,10 +76,10 @@ class Game {
         Level level;
         GameCookie *cookie;
     
-        
         bool flashPlayer = false;
+        bool levelShow = true;
         
-        GameState gameState = GameState::Intro;
+        GameState gameState = GameState::Splash;
         int8_t bannerStripe = -30;
         int8_t introRect = 0;
         Queue<Hole, 20> holes;
@@ -87,7 +88,8 @@ class Game {
         uint8_t levelCount = 0;
         uint8_t menuSelect = 0;
         #ifdef INC_LEVEL_SELECTOR
-        uint8_t menuLevelSelect = LEVEL_OFFSET + 1;
+        uint8_t menuLevelSelect = 1;
         #endif
+        uint8_t counter;
 
 };

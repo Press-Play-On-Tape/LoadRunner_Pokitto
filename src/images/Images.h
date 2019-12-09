@@ -19,6 +19,22 @@ namespace Images {
         Number0, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9,
     };
 
+  
+    #include "scoreboard/Number0_SC.h"
+    #include "scoreboard/Number1_SC.h"
+    #include "scoreboard/Number2_SC.h"
+    #include "scoreboard/Number3_SC.h"
+    #include "scoreboard/Number4_SC.h"
+    #include "scoreboard/Number5_SC.h"
+    #include "scoreboard/Number6_SC.h"
+    #include "scoreboard/Number7_SC.h"
+    #include "scoreboard/Number8_SC.h"
+    #include "scoreboard/Number9_SC.h"
+
+    const uint8_t* const Numbers_SC[] = { 
+        Number0_SC, Number1_SC, Number2_SC, Number3_SC, Number4_SC, Number5_SC, Number6_SC, Number7_SC, Number8_SC, Number9_SC,
+    };
+
     #include "man/Man0.h"
     #include "man/Man1.h"
     #include "man/Man2.h"
@@ -35,8 +51,7 @@ namespace Images {
     #include "man/Man15.h"
 
     const uint8_t* const Men[] = { 
-//SJH        man0, man1, man2, man3, man2, man_LaddderLeft, man_LaddderRight, man7, man8, man7, man9, man11, man12, man13Rebirth, man14, man15
-        Man0, Man1, Man2, Man3, Man2, Man2, Man2, Man7, Man8, Man7, Man9, Man11, Man12Burn, Man13Rebirth, Man14, Man15
+        Man0, Man1, Man2, Man3, Man2, Man5, Man6, Man7, Man8, Man7, Man9, Man11, Man12Burn, Man13Rebirth, Man14, Man15
     };
 
     #include "enemy/Enemy0.h"
@@ -55,8 +70,7 @@ namespace Images {
     #include "enemy/Enemy15.h"
 
     const uint8_t* const Enemy[] = { 
-//SJH        man0, man1, man2, man3, man2, man_LaddderLeft, man_LaddderRight, man7, man8, man7, man9, man11, man12, man13Rebirth, man14, man15
-        Enemy0, Enemy1, Enemy2, Enemy3, Enemy2, Enemy2, Enemy2, Enemy7, Enemy8, Enemy7, Enemy9, Enemy11, Enemy12Burn, Enemy13Rebirth, Enemy14, Enemy15
+        Enemy0, Enemy1, Enemy2, Enemy3, Enemy2, Enemy5, Enemy6, Enemy7, Enemy8, Enemy7, Enemy9, Enemy11, Enemy12Burn, Enemy13Rebirth, Enemy14, Enemy15
     };
   
     #include "levelElements/Blank.h"
@@ -96,9 +110,9 @@ namespace Images {
     #include "complete/CompleteGameBlank2.h"
     #include "complete/LoadNextGame.h"
 
-    #include "scoreboard/Score.h"
+    #include "scoreboard/Score_SC.h"
     #include "scoreboard/Men_SC.h"
-    #include "scoreboard/Level.h"
+    #include "scoreboard/Level_SC.h"
     #include "scoreboard/Gold_SC.h"
     
     #include "menus/GameOver.h"
@@ -128,4 +142,14 @@ namespace Images {
     #include "arrows/ArrowML_Small.h"
     #include "arrows/ArrowMR_Small.h"
         
+    #include "ppot/Ppot_00.h"
+    #include "ppot/Ppot_01.h"
+    #include "ppot/Ppot_02.h"
+    #include "ppot/Ppot_03.h"
+
+    const uint8_t * const Ppot[] = { 
+        
+        Ppot_00, Ppot_01, Ppot_02, Ppot_03,
+        
+    };
 }

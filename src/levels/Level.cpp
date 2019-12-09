@@ -81,7 +81,7 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
   uint16_t dataOffset = 0;
   uint8_t goldLeft = 0;
 
-  const uint8_t *levelToLoad = levels[this->levelNumber - LEVEL_OFFSET];
+  const uint8_t *levelToLoad = levels[this->levelNumber];
   player->setStance(PlayerStance::Running_Right1);
 
 
@@ -123,7 +123,6 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
   // Determine player's Y Pos and level offset ..
 
   if (playerY < (HEIGHT_LESS_TOOLBAR / 2) - 5) {
-
     this->yOffset = 0;
     player->setY(playerY);
 
@@ -138,7 +137,7 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
     }
     else {
 
-      this->yOffset = -(this->height * GRID_SIZE) + HEIGHT_LESS_TOOLBAR;
+      this->yOffset = -2;
       player->setY(playerY + this->yOffset);
 
     }
