@@ -126,7 +126,7 @@ void Game::splash() {
 //
 void Game::intro() {
 
-  PD::drawBitmap(0, 4, Images::Banner, false, false);
+  PD::drawBitmap(0, 0, Images::Banner, false, false);
   if (PC::buttons.pressed(BTN_A))  { this->gameState = GameState::GameSelect; }
 
 }
