@@ -247,7 +247,7 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
     case Direction::Up     ... Direction::RightUp:
       {
         bool canBeOccupied = canBeOccupiedBasic_Enemy(up);
-        bool occupiedByAnotherEnemy = !isOccupiedByAnotherEnemy(enemies, enemy, 0, -GRID_SIZE);
+        bool occupiedByAnotherEnemy = !isOccupiedByAnotherEnemy(this->enemies, enemy, 0, -GRID_SIZE);
 
         if ( current == LevelElement::Ladder && canBeOccupied && occupiedByAnotherEnemy) {
 
@@ -262,9 +262,9 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
     case Direction::RightUp2 ... Direction::RightDown1:
       {
-        bool notOccupiedByAnotherEnemy_Right = !isOccupiedByAnotherEnemy(enemies, enemy, GRID_SIZE, 0);
-        bool canBeFallenInto_Down = canBeFallenInto_Enemy(down, enemies, enemyX, enemyY + 1);
-        bool canBeFallenInto_RightDown = canBeFallenInto_Enemy(rightDown, enemies, enemyX + 1, enemyY + 1);
+        bool notOccupiedByAnotherEnemy_Right = !isOccupiedByAnotherEnemy(this->enemies, enemy, GRID_SIZE, 0);
+        bool canBeFallenInto_Down = canBeFallenInto_Enemy(down, this->enemies, enemyX, enemyY + 1);
+        bool canBeFallenInto_RightDown = canBeFallenInto_Enemy(rightDown, this->enemies, enemyX + 1, enemyY + 1);
         bool canBeOccupied_Right = canBeOccupied_Enemy(right);
         bool canBeStoodOn_RightDown = canBeStoodOn_Enemy(rightDown);
 
@@ -337,8 +337,8 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
     case Direction::RightDown ... Direction::LeftDown:
       {
-        bool notOccupiedByAnotherEnemy_Right = !isOccupiedByAnotherEnemy(enemies, enemy, 0, GRID_SIZE);
-        bool canBeFallenInto_Down = canBeFallenInto_Enemy(down, enemies, enemyX, enemyY + 1);
+        bool notOccupiedByAnotherEnemy_Right = !isOccupiedByAnotherEnemy(this->enemies, enemy, 0, GRID_SIZE);
+        bool canBeFallenInto_Down = canBeFallenInto_Enemy(down, this->enemies, enemyX, enemyY + 1);
 
         if (down == LevelElement::Ladder && notOccupiedByAnotherEnemy_Right) {
 
@@ -377,9 +377,9 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
     case Direction::LeftDown2 ... Direction::LeftUp1:
       {
 
-        bool notOccupiedByAnotherEnemy_Left = !isOccupiedByAnotherEnemy(enemies, enemy, -GRID_SIZE, 0);
-        bool canBeFallenInto_Down = canBeFallenInto_Enemy(down, enemies, enemyX, enemyY + 1);
-        bool canBeFallenInto_LeftDown = canBeFallenInto_Enemy(leftDown, enemies, enemyX - 1, enemyY + 1);
+        bool notOccupiedByAnotherEnemy_Left = !isOccupiedByAnotherEnemy(this->enemies, enemy, -GRID_SIZE, 0);
+        bool canBeFallenInto_Down = canBeFallenInto_Enemy(down, this->enemies, enemyX, enemyY + 1);
+        bool canBeFallenInto_LeftDown = canBeFallenInto_Enemy(leftDown, this->enemies, enemyX - 1, enemyY + 1);
         bool canBeOccupied_Left = canBeOccupied_Enemy(left);
         bool canBeStoodOn_LeftDown = canBeStoodOn_Enemy(leftDown);
 

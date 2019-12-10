@@ -3,6 +3,10 @@
 namespace Images {
 
     #include "Banner.h"
+    #include "StartGame.h"
+    #include "ResumeGame.h"
+    #include "RestartGame.h"
+    #include "Arrow_Title.h"
     
     #include "numbers/Number0.h"
     #include "numbers/Number1.h"

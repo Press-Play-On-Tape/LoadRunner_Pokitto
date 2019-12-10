@@ -3170,6 +3170,30 @@
 		},
 		"\\src\\images\\3d67c3cf6901987eb991e03775ef4048d96d8114.png": {
 			"sdcard": false
+		},
+		"\\src\\images\\Arrow_Title.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\ResumeGame.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\RestartGame.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\StartGame.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\Arrow_Title.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\ResumeGame.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\RestartGame.h": {
+			"sdcard": false
+		},
+		"\\src\\images\\StartGame.h": {
+			"sdcard": false
 		}
 	}
 }

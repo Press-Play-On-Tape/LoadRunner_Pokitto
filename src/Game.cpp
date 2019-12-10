@@ -43,9 +43,9 @@ void Game::loop(void) {
             intro();
             break;
         
-        case GameState::GameSelect:
-            gameSelect();
-            break;
+        // case GameState::GameSelect:
+        //     gameSelect();
+        //     break;
         
         case GameState::LevelInit:
             this->levelShow = true;
@@ -127,55 +127,34 @@ void Game::splash() {
 void Game::intro() {
 
   PD::drawBitmap(0, 0, Images::Banner, false, false);
-  if (PC::buttons.pressed(BTN_A))  { this->gameState = GameState::GameSelect; }
 
-}
-
-
-// --------------------------------------------------------------------------------------
-//  Display intro banner ..
-//
-void Game::gameSelect() {
 
   bool firstTime = EEPROM_Utils::getMen(*this->cookie) == 5 && EEPROM_Utils::getLevelNumber(*this->cookie) == 1;
 
   uint8_t menuOptionY = 24;
-  uint8_t selectorY = 24;
   uint8_t const * menuOptionImg = Images::MenuOptionStart;
 
   if (firstTime) {
 
-    selectorY = 24 + (this->menuSelect * 5);
+    PD::drawBitmap(10, 165, Images::StartGame);
 
   }
   else {
 
-    menuOptionY = 19;
-    menuOptionImg = Images::MenuOption;
-    selectorY= 19 + (this->menuSelect * 10);
+    PD::drawBitmap(10, 165, Images::ResumeGame);
+    PD::drawBitmap(120, 165, Images::RestartGame);
 
   }
 
-  PD::drawBitmap(38, menuOptionY, menuOptionImg);
-  PD::drawBitmap(31, selectorY, Images::Arrow);
-
-
-  // Brick borders ..
-
-  for (uint8_t x = 0; x < 220; x = x + 10) {
-  
-    PD::drawBitmap(x, 0, Images::levelElementImgs[1]);
-    PD::drawBitmap(x, 55, Images::levelElementImgs[1]);
-
-  }
+  PD::drawBitmap(this->menuSelect == 0 ? 3 : 113, 165, Images::Arrow_Title);
 
 
   // Handle buttons ..
 
   if (!firstTime) {
 
-    if (PC::buttons.pressed(BTN_UP) && this->menuSelect > 0)     { this->menuSelect--; }
-    if (PC::buttons.pressed(BTN_DOWN) && this->menuSelect < 1)   { this->menuSelect++; }
+    if (PC::buttons.pressed(BTN_LEFT) && this->menuSelect > 0)    { this->menuSelect--; }
+    if (PC::buttons.pressed(BTN_RIGHT) && this->menuSelect < 1)   { this->menuSelect++; }
 
   }
 

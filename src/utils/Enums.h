@@ -38,7 +38,7 @@ enum class GameState : uint8_t {
 
   Splash,
   Intro,
-  GameSelect,
+//  GameSelect,
   LevelInit,
   LevelEntryAnimation,
   LevelFlash,
