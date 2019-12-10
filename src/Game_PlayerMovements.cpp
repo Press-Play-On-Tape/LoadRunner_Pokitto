@@ -64,10 +64,10 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       
     this->suicide++;
 
-    switch (suicide) {
+    switch (this->suicide) {
 
       case 21 ... 60:
-//SJH        arduboy.setRGBled(128 - (suicide * 2), 0, 0);
+//SJH        arduboy.setRGBled(128 - (this->suicide * 2), 0, 0);
         break;
 
       case 61:
@@ -112,7 +112,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         Hole hole = {static_cast<uint8_t>(nearestX - 1), static_cast<uint8_t>(nearestY + 1), HOLE_REFILL_TIME};
         this->holes.enqueue(hole);
 
-        //SJH arduboy.pollButtons();
+        PC::buttons.pollButtons();
         //SJH sound.tones(digAHole);
         return;
 
@@ -144,7 +144,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         Hole hole = {static_cast<uint8_t>(nearestX + 1), static_cast<uint8_t>(nearestY + 1), HOLE_REFILL_TIME};
         this->holes.enqueue(hole);
 
-        //SJH arduboy.pollButtons();
+        PC::buttons.pollButtons();
         //SJH sound.tones(digAHole);
         return;
 
@@ -172,7 +172,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     bool canBeOccupied_Right = canBeOccupied(right);
     bool canBeOccupied_RightUp = canBeOccupied(rightUp);
-    bool canBeStoodOn_XY1 = canBeStoodOn(down, enemies, nearestX, nearestY + 1);
+    bool canBeStoodOn_XY1 = canBeStoodOn(down, this->enemies, nearestX, nearestY + 1);
     bool inCell_X = inCellX();
     bool inCell_Y = inCellY();
 
@@ -231,7 +231,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         }
 
       }
-      else if (inCell_X && canBeFallenInto(down, enemies, nearestX, nearestY + 1)) {
+      else if (inCell_X && canBeFallenInto(down, this->enemies, nearestX, nearestY + 1)) {
 
         this->player.setStance(PlayerStance::Falling);
         moveRight = false;
@@ -264,13 +264,13 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         }
         else { // !inCellX()
 
-          if (canBeOccupied_Right && canBeStoodOn(rightDown, enemies, nearestX + 1, nearestY + 1)) {
+          if (canBeOccupied_Right && canBeStoodOn(rightDown, this->enemies, nearestX + 1, nearestY + 1)) {
 
             updatePlayerStance(PlayerStance::Running_Right1, PlayerStance::Running_Right4);
             moveRight = true;
 
           }
-          else if (canBeFallenInto(rightDown, enemies, nearestX + 1, nearestY + 1)) {
+          else if (canBeFallenInto(rightDown, this->enemies, nearestX + 1, nearestY + 1)) {
 
             updatePlayerStance(PlayerStance::Running_Right1, PlayerStance::Running_Right4);
             moveRight = true;
@@ -297,7 +297,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       canBeOccupied_Right = canBeOccupied(right);
       canBeOccupied_RightUp = canBeOccupied(rightUp);
 
-      if (canBeOccupied_RightUp && canBeOccupied_Right && canBeStoodOn(rightDown, enemies, nearestX + 1, nearestY + 1)) {
+      if (canBeOccupied_RightUp && canBeOccupied_Right && canBeStoodOn(rightDown, this->enemies, nearestX + 1, nearestY + 1)) {
         
         updatePlayerStance(PlayerStance::Running_Right1, PlayerStance::Running_Right4);
         this->player.setStance(PlayerStance::StandingStill);
@@ -306,7 +306,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       }
       else if (inCell_X) {
 
-        if (canBeOccupied_RightUp && canBeOccupied_Right && canBeFallenInto(rightDown, enemies, nearestX + 1, nearestY + 1)) {
+        if (canBeOccupied_RightUp && canBeOccupied_Right && canBeFallenInto(rightDown, this->enemies, nearestX + 1, nearestY + 1)) {
           
           updatePlayerStance(PlayerStance::Climbing_Up1, PlayerStance::Climbing_Up2);
           moveRight = true;
@@ -331,7 +331,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         canBeOccupied_Right = canBeOccupied(right);
         canBeOccupied_RightUp = canBeOccupied(rightUp);
 
-        if (canBeOccupied_RightUp && canBeOccupied_Right && canBeFallenInto(rightDown, enemies, nearestX + 1, nearestY + 1)) {
+        if (canBeOccupied_RightUp && canBeOccupied_Right && canBeFallenInto(rightDown, this->enemies, nearestX + 1, nearestY + 1)) {
           
           this->player.setStance(PlayerStance::Falling);        
           moveRight = true;
@@ -398,7 +398,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     bool canBeOccupied_Left = canBeOccupied(left);
     bool canBeOccupied_LeftUp = canBeOccupied(leftUp);
-    bool canBeStoodOn_XY1 = canBeStoodOn(down, enemies, nearestX, nearestY + 1);
+    bool canBeStoodOn_XY1 = canBeStoodOn(down, this->enemies, nearestX, nearestY + 1);
     bool inCell_X = inCellX();
     bool inCell_Y = inCellY();
 
@@ -456,7 +456,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         }
 
       }
-      else if (inCell_X && canBeFallenInto(down, enemies, nearestX, nearestY + 1)) {
+      else if (inCell_X && canBeFallenInto(down, this->enemies, nearestX, nearestY + 1)) {
 
         this->player.setStance(PlayerStance::Falling);
         //SJH sound.tones(freeFalling); 
@@ -464,7 +464,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         moveDown = true;
 
       }      
-      else if (!canBeOccupied_Left && canBeStoodOn(down, enemies, nearestX, nearestY + 1)) {  
+      else if (!canBeOccupied_Left && canBeStoodOn(down, this->enemies, nearestX, nearestY + 1)) {  
        
         this->player.setStance(PlayerStance::StandingStill);
         moveLeft = false;
@@ -496,15 +496,15 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
      
           canBeOccupied_Left = canBeOccupied(left);
           canBeOccupied_LeftUp = canBeOccupied(leftUp);
-          canBeStoodOn_XY1 = canBeStoodOn(down, enemies, nearestX, nearestY + 1);
+          canBeStoodOn_XY1 = canBeStoodOn(down, this->enemies, nearestX, nearestY + 1);
 
-          if (canBeOccupied_Left && canBeStoodOn(leftDown, enemies, nearestX - 1, nearestY + 1)) {
+          if (canBeOccupied_Left && canBeStoodOn(leftDown, this->enemies, nearestX - 1, nearestY + 1)) {
 
             updatePlayerStance(PlayerStance::Running_Left4, PlayerStance::Running_Left1);
             moveLeft = true;
 
           }
-          else if (canBeFallenInto(leftDown, enemies, nearestX - 1, nearestY + 1)) {
+          else if (canBeFallenInto(leftDown, this->enemies, nearestX - 1, nearestY + 1)) {
 
             updatePlayerStance(PlayerStance::Running_Left4, PlayerStance::Running_Left1);
             moveLeft = true;
@@ -523,7 +523,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     }
     else {
 
-      leftUp = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
+      leftUp = this->getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
       left = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 1);
       leftDown = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 2);
       down = this->level.getLevelData((inCellX() ? nearestX : nearestX - 1), nearestY + 2);
@@ -531,7 +531,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       canBeOccupied_Left = canBeOccupied(left);
       canBeOccupied_LeftUp = canBeOccupied(leftUp);
       
-      if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeStoodOn(leftDown, enemies, nearestX - 1, nearestY + 1)) {
+      if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeStoodOn(leftDown, this->enemies, nearestX - 1, nearestY + 1)) {
         
         updatePlayerStance(PlayerStance::Running_Left4, PlayerStance::Running_Left1);
         this->player.setStance(PlayerStance::StandingStill);
@@ -540,7 +540,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       }
       else if (inCell_X) {
 
-        if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeFallenInto(leftDown, enemies, nearestX - 1, nearestY + 1)) {
+        if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeFallenInto(leftDown, this->enemies, nearestX - 1, nearestY + 1)) {
           
           updatePlayerStance(PlayerStance::Climbing_Up1, PlayerStance::Climbing_Up2);
           moveLeft = true;
@@ -557,7 +557,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       }
       else { // !inCellX()
 
-        if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeFallenInto(leftDown, enemies, nearestX - 1, nearestY + 1)) {
+        if (canBeOccupied_LeftUp && canBeOccupied_Left && canBeFallenInto(leftDown, this->enemies, nearestX - 1, nearestY + 1)) {
           
           this->player.setStance(PlayerStance::Falling);        
           moveLeft = true;
@@ -633,7 +633,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
           //SJH sound.noTone();
 
         }
-        else if (canBeStoodOn(down, enemies, nearestX, nearestY + 1)) {
+        else if (canBeStoodOn(down, this->enemies, nearestX, nearestY + 1)) {
 
           moveDown = false;
           this->player.setStance(PlayerStance::StandingStill);
@@ -753,7 +753,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         }
 
-        else if (canBeStoodOn(down, enemies, nearestX, nearestY + 1)) {
+        else if (canBeStoodOn(down, this->enemies, nearestX, nearestY + 1)) {
 
           moveDown = false;
           this->player.setStance(PlayerStance::StandingStill);
