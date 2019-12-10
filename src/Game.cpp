@@ -42,11 +42,7 @@ void Game::loop(void) {
             //SJH if (!sound.playing()) sound.tones(score);
             intro();
             break;
-        
-        // case GameState::GameSelect:
-        //     gameSelect();
-        //     break;
-        
+
         case GameState::LevelInit:
             this->levelShow = true;
             //SJH sound.noTone();
@@ -78,19 +74,11 @@ void Game::loop(void) {
             EEPROM_Utils::saveGameData(*this->cookie, &this->level, &this->player);
             levelPlay();
             break;
-        
-        // case GameState::CompleteGame1 ... GameState::CompleteGame3:
-        //     completeGame();
-        //     break;
-        
+
         case GameState::SeriesOver:
             completeSeries();
             break;
-        
-        // case GameState::NextGame:
-        //     nextGame();
-        //     break;
-        
+
         default: break;
     
     }
@@ -132,6 +120,7 @@ void Game::intro() {
 
   if (firstTime) {
 
+    this->menuSelect = 0;
     PD::drawBitmap(10, 165, Images::StartGame);
 
   }

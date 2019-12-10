@@ -214,13 +214,6 @@ void Game::renderEntryRectangle() {
     }
     else {
 
-      // for (int8_t x = 0; x < this->introRect; x++) {
-
-      //   PD::setColor(0);
-      //   PD::drawRect(x, x, 220 - (x * 2), 160 - (x * 2));
-      //   PD::setColor(1);
-
-      // }
       PD::setColor(0);
       PD::fillRect(0, 0, 220, this->introRect - 1);
       PD::fillRect(0, 0, this->introRect, 160);
