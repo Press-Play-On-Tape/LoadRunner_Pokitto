@@ -3194,6 +3194,163 @@
 		},
 		"\\src\\images\\StartGame.h": {
 			"sdcard": false
+		},
+		"/src/images/Arrow_Title.h": {
+			"sdcard": false
+		},
+		"/src/images/Arrow_Title.png": {
+			"sdcard": false
+		},
+		"/src/images/RestartGame.png": {
+			"sdcard": false
+		},
+		"/src/images/RestartGame.h": {
+			"sdcard": false
+		},
+		"/src/images/ResumeGame.h": {
+			"sdcard": false
+		},
+		"/src/images/ResumeGame.png": {
+			"sdcard": false
+		},
+		"/src/images/StartGame.h": {
+			"sdcard": false
+		},
+		"/src/images/StartGame.png": {
+			"sdcard": false
+		},
+		"/src/images/GameOver copy.png": {
+			"sdcard": false
+		},
+		"/src/images/seques": {},
+		"/src/images/seques/Level_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number0_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number1_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number2_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number3_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number4_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number5_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number8_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number9_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number6_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number7_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number9_SC copy.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Number71SC.png": {
+			"sdcard": false
+		},
+		"/src/images/seques/Level_SC_Full.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Level_SC_Full.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Level_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number0_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number1_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number3_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number4_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number2_SC.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Level_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number0_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number1_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number2_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number3_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number4_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number5_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number6_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number7_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number8_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number9_Seque.png": {
+			"sdcard": false
+		},
+		"/src/images/menus/Level_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number0_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number1_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number2_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number3_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number4_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number5_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number6_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number7_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number8_Seque.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Number9_Seque.h": {
+			"sdcard": false
 		}
 	}
 }

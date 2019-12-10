@@ -79,17 +79,17 @@ void Game::loop(void) {
             levelPlay();
             break;
         
-        case GameState::CompleteGame1 ... GameState::CompleteGame3:
-            completeGame();
-            break;
+        // case GameState::CompleteGame1 ... GameState::CompleteGame3:
+        //     completeGame();
+        //     break;
         
         case GameState::SeriesOver:
             completeSeries();
             break;
         
-        case GameState::NextGame:
-            nextGame();
-            break;
+        // case GameState::NextGame:
+        //     nextGame();
+        //     break;
         
         default: break;
     
@@ -128,11 +128,7 @@ void Game::intro() {
 
   PD::drawBitmap(0, 0, Images::Banner, false, false);
 
-
   bool firstTime = EEPROM_Utils::getMen(*this->cookie) == 5 && EEPROM_Utils::getLevelNumber(*this->cookie) == 1;
-
-  uint8_t menuOptionY = 24;
-  uint8_t const * menuOptionImg = Images::MenuOptionStart;
 
   if (firstTime) {
 
@@ -478,19 +474,19 @@ void Game::levelPlay() {
 
           switch (levelCount) {
 
-            case 0 ... 40:
+            case 0 ... 30:
             
               this->levelCount++;
               this->levelShow = true;
               break;
 
-            case 41 ... 45:
+            case 31 ... 35:
 
               this->levelShow = false;
               this->levelCount++;
               break;
 
-            case 46 ... 50:
+            case 36 ... 40:
 
               this->levelShow = true;
               this->levelCount++;
@@ -506,6 +502,12 @@ void Game::levelPlay() {
               else if (PC::buttons.pressed(BTN_DOWN) && levelNumber > 1) {
                 this->level.setLevelNumber(levelNumber - 1);
               }
+              else if (PC::buttons.repeat(BTN_UP, 20) && levelNumber < LEVEL_COUNT - 10) {
+                this->level.setLevelNumber(levelNumber + 10);
+              }
+              else if (PC::buttons.repeat(BTN_DOWN, 20) && levelNumber > 10) {
+                this->level.setLevelNumber(levelNumber - 10);
+              }
 
               break;
 
@@ -519,7 +521,7 @@ void Game::levelPlay() {
           case 0:
             break;
 
-          case 1 ... 50:
+          case 1 ... 40:
             this->levelCount = 0;
             this->levelShow = true;
             break;
@@ -553,8 +555,8 @@ void Game::levelPlay() {
 
       switch (gameState) {
 
-        case GameState::NextGame:
-          break;
+        // case GameState::NextGame:
+        //   break;
 
         case GameState::NextLevel:
         case GameState::RestartLevel:
@@ -630,15 +632,15 @@ void Game::nextGame() {
 // --------------------------------------------------------------------------------------
 //  Display 'complete game' banner ..
 //
-void Game::completeGame() {
+// void Game::completeGame() {
 
-  uint8_t level = static_cast<uint8_t>(gameState) - static_cast<uint8_t>(GameState::CompleteGame1) + 1;
-  PD::drawBitmap(19, 20, Images::CompleteGame);
-  if (level == 1) PD::drawBitmap(71, 35, Images::CompleteGame1);
-  if (level == 2) PD::drawBitmap(71, 35, Images::CompleteGame2);
-  if (level == 3) PD::drawBitmap(71, 35, Images::CompleteGame3);
+//   uint8_t level = static_cast<uint8_t>(gameState) - static_cast<uint8_t>(GameState::CompleteGame1) + 1;
+//   PD::drawBitmap(19, 20, Images::CompleteGame);
+//   if (level == 1) PD::drawBitmap(71, 35, Images::CompleteGame1);
+//   if (level == 2) PD::drawBitmap(71, 35, Images::CompleteGame2);
+//   if (level == 3) PD::drawBitmap(71, 35, Images::CompleteGame3);
 
-}
+// }
 
 
 

@@ -23,7 +23,22 @@ namespace Images {
         Number0, Number1, Number2, Number3, Number4, Number5, Number6, Number7, Number8, Number9,
     };
 
-  
+    #include "menus/Level_Seque.h"
+    #include "menus/Number0_Seque.h"
+    #include "menus/Number1_Seque.h"
+    #include "menus/Number2_Seque.h"
+    #include "menus/Number3_Seque.h"
+    #include "menus/Number4_Seque.h"
+    #include "menus/Number5_Seque.h"
+    #include "menus/Number6_Seque.h"
+    #include "menus/Number7_Seque.h"
+    #include "menus/Number8_Seque.h"
+    #include "menus/Number9_Seque.h"
+
+    const uint8_t* const Numbers_Seque[] = { 
+        Number0_Seque, Number1_Seque, Number2_Seque, Number3_Seque, Number4_Seque, Number5_Seque, Number6_Seque, Number7_Seque, Number8_Seque, Number9_Seque
+    };
+
     #include "scoreboard/Number0_SC.h"
     #include "scoreboard/Number1_SC.h"
     #include "scoreboard/Number2_SC.h"
@@ -120,10 +135,6 @@ namespace Images {
     #include "scoreboard/Gold_SC.h"
     
     #include "menus/GameOver.h"
-    #include "menus/LevelChange.h"
-    #include "menus/MenuOption.h"
-    #include "menus/MenuOption2.h"
-    #include "menus/MenuOptionStart.h"
     #include "menus/TryAgain.h"
     #include "menus/Victory.h"
 

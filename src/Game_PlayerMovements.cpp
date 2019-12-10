@@ -523,7 +523,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
     }
     else {
 
-      leftUp = this->getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
+      leftUp = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY);
       left = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 1);
       leftDown = this->level.getLevelData((inCellX() ? nearestX - 1 : nearestX), nearestY + 2);
       down = this->level.getLevelData((inCellX() ? nearestX : nearestX - 1), nearestY + 2);

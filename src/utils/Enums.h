@@ -48,10 +48,10 @@ enum class GameState : uint8_t {
   GameOver,
   NextLevel,
   RestartLevel,
-  CompleteGame1,
-  CompleteGame2,
-  CompleteGame3,
-  NextGame,
+  // CompleteGame1,
+  // CompleteGame2,
+  // CompleteGame3,
+  // NextGame,
   SeriesOver
 
 };

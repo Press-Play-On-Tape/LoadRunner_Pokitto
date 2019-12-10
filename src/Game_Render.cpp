@@ -239,29 +239,37 @@ void Game::renderEntryRectangle() {
 
     if (this->gameState == GameState::RestartLevel) {
 
-      PD::drawBitmap(42, 25, Images::TryAgain);
+      PD::drawBitmap(26, 70, Images::TryAgain);
+
+      PD::setColor(5);
+      Utils::drawDottedRow(28, 192, 66);
+      Utils::drawDottedRow(28, 192, 93);
 
     }
     else if(this->gameState == GameState::GameOver) {
 
-      PD::drawBitmap(42, 25, Images::GameOver);
+      PD::drawBitmap(26, 70, Images::GameOver);
+
+      PD::setColor(5);
+      Utils::drawDottedRow(24, 196, 66);
+      Utils::drawDottedRow(24, 196, 93);
 
     }
     else {
 
+      PD::drawBitmap(28, 70, Images::Level_Seque);
       uint8_t levelNumber = this->level.getLevelNumber();
-      PD::drawBitmap(72, 25, Images::Numbers[levelNumber / 100]);
+      PD::drawBitmap(133, 70, Images::Numbers_Seque[levelNumber / 100]);
       levelNumber = levelNumber - (levelNumber / 100) * 100;
       
-      PD::drawBitmap(77, 25, Images::Numbers[levelNumber / 10]);
-      PD::drawBitmap(82, 25, Images::Numbers[levelNumber % 10]);
+      PD::drawBitmap(153, 70, Images::Numbers_Seque[levelNumber / 10]);
+      PD::drawBitmap(173, 70, Images::Numbers_Seque[levelNumber % 10]);
 
-      PD::drawBitmap(43, 25, Images::LevelChange);
+      PD::setColor(5);
+      Utils::drawDottedRow(26, 195, 66);
+      Utils::drawDottedRow(26, 195, 93);
 
     }
-
-    Utils::drawDottedRow(41, 87, 22);
-    Utils::drawDottedRow(41, 87, 32);
   
   }
 
