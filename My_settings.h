@@ -1,1 +1,2 @@
 #define PROJ_SCREENMODE 15
+#define PROJ_ENABLE_SYNTH 1

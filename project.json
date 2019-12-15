@@ -3363,6 +3363,15 @@
 		"/Banner and Icons for POP": {},
 		"/Banner and Icons for POP/LodeRunner_Banner.png": {
 			"sdcard": false
+		},
+		"/Banner and Icons for POP/LodeRunner_Banner.h": {
+			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.bin.2.png": {
+			"sdcard": false
+		},
+		"/LoadRunner_Pokitto.bin.2.h": {
+			"sdcard": false
 		}
 	}
 }

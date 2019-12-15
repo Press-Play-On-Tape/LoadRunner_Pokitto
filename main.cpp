@@ -6,7 +6,7 @@
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-//using PS = Pokitto::Sound;
+using PS = Pokitto::Sound;
 
 Game game;
 GameCookie cookie;
@@ -32,6 +32,9 @@ int main() {
     
         if (!PC::update()) continue;
         game.loop();
+        
+        
+        PS::playTone(0, 23000, 12, 2000);
        //PS::playSFX(Sounds::sfx_3_jump, Sounds::sfx_3_jump_length);
     }
     

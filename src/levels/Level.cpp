@@ -425,7 +425,7 @@ void Level::setLevelData(const uint8_t x, const uint8_t y, const LevelElement le
 // -----------------------------------------------------------------------------------------------
 //  Update the level when the last gold is collected ..
 //
-void Level::pickupGold() {
+bool Level::pickupGold() {
 
   if (this->goldLeft > 0) this->goldLeft--;
 
@@ -441,6 +441,10 @@ void Level::pickupGold() {
 
     }
 
+    return true;
+
   }
+
+  return false;
 
 }

@@ -87,9 +87,7 @@ class Game {
         uint8_t suicide = 0;
         uint8_t levelCount = 0;
         uint8_t menuSelect = 0;
-        #ifdef INC_LEVEL_SELECTOR
-        uint8_t menuLevelSelect = 1;
-        #endif
         uint8_t counter;
+        bool goldFlash;
 
 };

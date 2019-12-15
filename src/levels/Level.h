@@ -17,8 +17,8 @@ class Level {
     Level() {};
         
     LevelElement getLevelData(const uint8_t x, const uint8_t y);
-    void loadLevel(Player *player, Enemy enemies[]);
-    void pickupGold();
+    void loadLevel(Player *player, Enemy enemies[]);                // Load level into memory.
+    bool pickupGold();                                              // Returns true if last gold piece has been picked up.
 
     uint8_t getHeight();
     uint8_t getWidth();

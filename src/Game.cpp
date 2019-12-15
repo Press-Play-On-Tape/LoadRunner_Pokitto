@@ -51,6 +51,7 @@ void Game::loop(void) {
             this->level.loadLevel(&player, enemies); 
             this->introRect = 77;
             this->gameState = GameState::LevelEntryAnimation;
+            this->goldFlash = false;
             [[fallthrough]];
             
         case GameState::LevelEntryAnimation:

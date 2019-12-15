@@ -52,7 +52,11 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     this->player.setScore(player.getScore() + 25);
     this->level.setLevelData(nearestX, nearestY, LevelElement::Blank);
-    this->level.pickupGold();
+    bool lastPiece = this->level.pickupGold();
+
+    if (lastPiece) {
+      this->goldFlash = true;
+    }
     //SJH sound.tones(pickUpGold);
 
   }

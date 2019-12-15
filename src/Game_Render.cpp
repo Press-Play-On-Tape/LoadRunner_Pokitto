@@ -15,6 +15,7 @@ void Game::renderScreen() {
 
   if (Utils::isFrameCount(12)) this->flashPlayer = !this->flashPlayer;
 
+
   if (this->gameState != GameState::NextLevel && this->gameState != GameState::GameOver && this->gameState != GameState::RestartLevel) {
 
     renderLevelElements();
@@ -41,8 +42,6 @@ void Game::renderScreen() {
 
   // Draw footer ..
 
-  PD::setColor(0);
-  PD::fillRect(0, 169, 220, 9);
   PD::setColor(9);
   PD::drawRow(0, 220, 162);
   PD::drawRow(0, 220, 161);
@@ -60,7 +59,7 @@ void Game::renderScreen() {
 // ------------------------------------------------------------------------------------------
 
 void Game::renderLevelElements() {
-//printf("%i, %i\n", this->level.getXOffset(), this->level.getYOffset());
+
   for (uint8_t y = 0; y < this->level.getHeight(); y++) {
 
     for (uint8_t x = 0; x < this->level.getWidth() * 2; x++) {
@@ -69,7 +68,6 @@ void Game::renderLevelElements() {
       int16_t ty = this->level.getYOffset() + (y * GRID_SIZE);
 
       if (tx > -GRID_SIZE && tx < 220 && ty > -GRID_SIZE && ty < 176) {
-
 
         LevelElement element = (LevelElement)this->level.getLevelData(x, y);
 
@@ -303,9 +301,12 @@ void Game::renderScoreboard() {
   if (gameState == GameState::LevelPlay) {
 
     uint8_t goldLeft = this->level.getGoldLeft();
-    PD::drawBitmap(164, 166, Images::Gold_SC);
-    PD::drawBitmap(203, 166, Images::Numbers_SC[goldLeft / 10]);
-    PD::drawBitmap(212, 166, Images::Numbers_SC[ goldLeft % 10]);
+
+    if (!this->goldFlash || (this->goldFlash && this->flashPlayer)) {
+        PD::drawBitmap(164, 166, Images::Gold_SC);
+        PD::drawBitmap(203, 166, Images::Numbers_SC[goldLeft / 10]);
+        PD::drawBitmap(212, 166, Images::Numbers_SC[ goldLeft % 10]);
+    }
 
   }
   else {
