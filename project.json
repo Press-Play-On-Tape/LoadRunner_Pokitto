@@ -3351,6 +3351,18 @@
 		},
 		"/src/images/menus/Number9_Seque.h": {
 			"sdcard": false
+		},
+		"/src/untitled folder": {},
+		"/src/sounds": {},
+		"/src/sounds/Game.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Sounds.h": {
+			"sdcard": false
+		},
+		"/Banner and Icons for POP": {},
+		"/Banner and Icons for POP/LodeRunner_Banner.png": {
+			"sdcard": false
 		}
 	}
 }

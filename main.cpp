@@ -2,9 +2,11 @@
 #include "PokittoCookie.h"
 #include "src/Game.h"
 #include "src/utils/GameCookie.h"
+#include "src/sounds/Sounds.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
+//using PS = Pokitto::Sound;
 
 Game game;
 GameCookie cookie;
@@ -18,19 +20,19 @@ int main() {
 
     PC::begin();
     PD::loadRGBPalette(palettePico);
-    PC::setFrameRate(35);
+    PC::setFrameRate(40);
     PD::persistence = true;
     PD::invisiblecolor = 0;
-
+    //PS::ampEnable(true);
+    
     game.setup(&cookie);
     PD::setFont(font5x7);
 
     while (PC::isRunning()) {
     
-    if (!PC::update()) continue;
-    
+        if (!PC::update()) continue;
         game.loop();
-    
+       //PS::playSFX(Sounds::sfx_3_jump, Sounds::sfx_3_jump_length);
     }
     
     return 0;

@@ -77,47 +77,64 @@ LevelPoint Level::getNextReentryPoint() {
 //  Load level data ..
 //
 void Level::loadLevel(Player *player, Enemy enemies[]) {
+    
+#ifdef DEBUG_LEVEL 
+printf("-------------\n");
+#endif
 
-  uint16_t dataOffset = 0;
-  uint8_t goldLeft = 0;
+    uint16_t dataOffset = 0;
+    uint8_t goldLeft = 0;
+    
+    const uint8_t *levelToLoad = levels[this->levelNumber];
+    player->setStance(PlayerStance::Running_Right1);
+    
+    
+    // Load player starting position ..
+    
+    uint16_t playerX = levelToLoad[dataOffset++] * GRID_SIZE;
+    uint16_t playerY = levelToLoad[dataOffset++] * GRID_SIZE;
 
-  const uint8_t *levelToLoad = levels[this->levelNumber];
-  player->setStance(PlayerStance::Running_Right1);
+#ifdef DEBUG_LEVEL 
+printf("Player start: %i, %i = %i, %i\n", playerX / GRID_SIZE, playerY / GRID_SIZE,  playerX, playerY);
+#endif   
 
-
-  // Load player starting position ..
-
-//   uint16_t  playerX = pgm_read_byte(&levelToLoad[dataOffset++]) * GRID_SIZE;
-//   uint16_t  playerY = pgm_read_byte(&levelToLoad[dataOffset++]) * GRID_SIZE;
-  uint16_t playerX = levelToLoad[dataOffset++] * GRID_SIZE;
-  uint16_t playerY = levelToLoad[dataOffset++] * GRID_SIZE;
-
-
-  // Determine player's X Pos and level offset ..
-
-  if (playerX < (220 / 2) - 5) {
-
-    this->xOffset = 0;
-    player->setX(playerX);
-
-  }
-  else {
-
-    if (playerX >= (220 / 2) - 5 && playerX <= (this->width * GRID_SIZE * 2) - 220) {
-
-      player->setX((220 / 2) - 5);
-      this->xOffset = player->getX() - playerX;
-
+    
+    // Determine player's X Pos and level offset ..
+    
+    if (playerX < (220 / 2) - 5) {
+        this->xOffset = 0;
+        player->setX(playerX);
+        
+#ifdef DEBUG_LEVEL 
+printf("(A) Offset: %i\n", 0);
+#endif
 
     }
     else {
+    
+        //    if (playerX >= (220 / 2) - 5 && playerX <= (this->width * GRID_SIZE * 2) - 220) {
+        if (playerX >= 105 && playerX <= 165) {
+            //   player->setX((220 / 2) - 5);
+            this->xOffset = (105 - playerX) / 2;
+            player->setX(playerX + this->xOffset);
+            
+#ifdef DEBUG_LEVEL 
+printf("(B) Offset: %i + %i = %i\n", playerX, this->xOffset, playerX + this->xOffset);
+#endif
 
-      this->xOffset = -2;
-      player->setX(playerX + this->xOffset);
+        }
+        else {
 
+            this->xOffset = -60;
+            player->setX(playerX + this->xOffset);
+            
+#ifdef DEBUG_LEVEL 
+printf("(C) Offset: %i + %i = %i\n", playerX, this->xOffset, playerX + this->xOffset);
+#endif
+        
+        }
+    
     }
-
-  }
 
 
   // Determine player's Y Pos and level offset ..
@@ -149,6 +166,10 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
 
   uint8_t numberOfEnemies = levelToLoad[dataOffset++];
 
+#ifdef DEBUG_LEVEL 
+printf("Number of enemies: %i ", numberOfEnemies);
+#endif
+
   for (uint8_t x = 0; x < NUMBER_OF_ENEMIES; x++) {
 
     Enemy *enemy = &enemies[x];
@@ -161,48 +182,83 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
       enemy->setX(levelToLoad[dataOffset++] * GRID_SIZE);
       enemy->setY(levelToLoad[dataOffset++] * GRID_SIZE);
       enemy->setEnabled(true);
+      
+#ifdef DEBUG_LEVEL 
+printf("%i,%i  ", enemy->getX() / GRID_SIZE, enemy->getY() / GRID_SIZE);
+#endif
 
     }
     else {
 
       enemy->setEnabled(false);
 
+#ifdef DEBUG_LEVEL 
+printf("disabled ");
+#endif
+
     }
 
   }
 
+#ifdef DEBUG_LEVEL 
+printf("\n");
+#endif
+
 
   // Load level ladder points ..
 
-//  _levelLadderElementCount = pgm_read_byte(&levelToLoad[dataOffset++]);
   this->levelLadderElementCount = levelToLoad[dataOffset++];
+
+#ifdef DEBUG_LEVEL 
+printf("Number of ladders: %i ", levelLadderElementCount);
+#endif
 
   for (uint8_t x = 0; x < this->levelLadderElementCount; x++) {
 
-    // _levelLadder[x].x = pgm_read_byte(&levelToLoad[dataOffset++]);
-    // _levelLadder[x].y = pgm_read_byte(&levelToLoad[dataOffset++]);
     this->levelLadder[x].x = levelToLoad[dataOffset++];
     this->levelLadder[x].y = levelToLoad[dataOffset++];
 
+#ifdef DEBUG_LEVEL 
+printf("%i,%i  ", this->levelLadder[x].x, this->levelLadder[x].y);
+#endif
+
   }
+
+#ifdef DEBUG_LEVEL 
+printf("\n");
+#endif
 
 
   // Load reentry points ..
 
+#ifdef DEBUG_LEVEL 
+printf("Number of reentry: %i ", NUMBER_OF_REENTRY_POINTS);
+#endif
+
   for (uint8_t x = 0; x < NUMBER_OF_REENTRY_POINTS; x++) {
 
-    // _reentryPoint[x].x = pgm_read_byte(&levelToLoad[dataOffset++]);
-    // _reentryPoint[x].y = pgm_read_byte(&levelToLoad[dataOffset++]);
     this->reentryPoint[x].x = levelToLoad[dataOffset++];
     this->reentryPoint[x].y = levelToLoad[dataOffset++];
 
+#ifdef DEBUG_LEVEL 
+printf("%i,%i  ", this->reentryPoint[x].x, this->reentryPoint[x].y);
+#endif
+
   }
+
+#ifdef DEBUG_LEVEL 
+printf("\n");
+#endif
 
 
   // Load level data .. 
 
   uint8_t encryptionType = levelToLoad[dataOffset++];
-  
+
+#ifdef DEBUG_LEVEL 
+printf("Encryption Type: %i\n", encryptionType);
+#endif
+
   if (encryptionType == ENCRYPTION_TYPE_GRID) {
 
     for (uint8_t y = 0; y < this->height; y++) {
@@ -231,6 +287,10 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
       uint8_t block = (data & 0xE0) >> 5;
       uint8_t run = data & 0x1F;
 
+#ifdef DEBUG_LEVEL 
+printf("B: %i, R: %i, ", block, run);
+#endif
+
       if (block == static_cast<uint8_t>(LevelElement::Gold))            { goldLeft = goldLeft + run;}
 
       if (run > 0) {
@@ -257,6 +317,12 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
             uint8_t col = cursor / this->height;
             uint8_t row = cursor % this->height;
 
+#ifdef DEBUG_LEVEL 
+if (x==0) {
+    printf("Col: %i, Row: %i\n", col, row);
+}
+#endif
+
             if (col % 2 == 0) {
               this->levelData[col / 2][row] = (this->levelData[col / 2][row] & 0x0f) | (block << 4);
             } 
@@ -282,6 +348,32 @@ void Level::loadLevel(Player *player, Enemy enemies[]) {
   }
 
   this->goldLeft = goldLeft;
+  
+
+
+    // Echo level data ..
+    
+    for (uint8_t y = 0; y < this->height; y++) {
+        
+        for (uint8_t x = 0; x < this->width; x++) {
+            
+#ifdef DEBUG_LEVEL 
+if (this->levelData[x][y] < 16) printf("0");
+printf("%x ", this->levelData[x][y]);
+#endif
+
+        }
+
+#ifdef DEBUG_LEVEL 
+printf("\n");
+#endif
+
+    }
+
+#ifdef DEBUG_LEVEL 
+printf("\n");
+#endif
+
 
 }
 

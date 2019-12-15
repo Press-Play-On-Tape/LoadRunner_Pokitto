@@ -491,11 +491,11 @@ void Game::levelPlay() {
               else if (PC::buttons.pressed(BTN_DOWN) && levelNumber > 1) {
                 this->level.setLevelNumber(levelNumber - 1);
               }
-              else if (PC::buttons.repeat(BTN_UP, 20) && levelNumber < LEVEL_COUNT - 10) {
-                this->level.setLevelNumber(levelNumber + 10);
+              else if (PC::buttons.repeat(BTN_UP, 15) && ((levelNumber / 10) * 10) < LEVEL_COUNT - 10) {
+                this->level.setLevelNumber(((levelNumber / 10) * 10) + 10);
               }
-              else if (PC::buttons.repeat(BTN_DOWN, 20) && levelNumber > 10) {
-                this->level.setLevelNumber(levelNumber - 10);
+              else if (PC::buttons.repeat(BTN_DOWN, 15) && ((levelNumber/10) * 10) > 10) {
+                this->level.setLevelNumber(((levelNumber / 10) * 10) - 10);
               }
 
               break;

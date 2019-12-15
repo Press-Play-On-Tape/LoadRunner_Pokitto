@@ -60,7 +60,7 @@ void Game::renderScreen() {
 // ------------------------------------------------------------------------------------------
 
 void Game::renderLevelElements() {
-
+//printf("%i, %i\n", this->level.getXOffset(), this->level.getYOffset());
   for (uint8_t y = 0; y < this->level.getHeight(); y++) {
 
     for (uint8_t x = 0; x < this->level.getWidth() * 2; x++) {
