@@ -51,6 +51,15 @@ void Game::renderScreen() {
 
   this->renderScoreboard();
 
+
+  // Paused?
+
+  if (this->pause) {
+      PD::invisiblecolor = 15;
+      PD::drawBitmap(61, 65, Images::Pause);
+      PD::invisiblecolor = 0;
+  }
+
 }
 
 

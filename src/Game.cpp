@@ -52,6 +52,7 @@ void Game::loop(void) {
             this->introRect = 77;
             this->gameState = GameState::LevelEntryAnimation;
             this->goldFlash = false;
+            this->pause = false;
             [[fallthrough]];
             
         case GameState::LevelEntryAnimation:
@@ -173,7 +174,24 @@ void Game::levelPlay() {
   uint8_t nearestY = getNearestY(0);
 
 
-  if (gameState == GameState::LevelPlay) {
+  // If the game is paused, do not move players or enemy ..
+
+  if (this->pause) {
+
+    if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
+      PC::buttons.pollButtons();
+      this->pause = false;
+    } 
+
+    renderScreen();
+    return;
+
+  }
+
+
+  // Play on!
+
+  if (gameState == GameState::LevelPlay && !this->pause) {
 
     LevelElement nearest = this->level.getLevelData(nearestX, nearestY);
 

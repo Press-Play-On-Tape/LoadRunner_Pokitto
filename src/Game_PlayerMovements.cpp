@@ -70,13 +70,8 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     switch (this->suicide) {
 
-      case 21 ... 60:
-//SJH        arduboy.setRGBled(128 - (this->suicide * 2), 0, 0);
-        break;
-
       case 61:
         this->suicide = 0;
-//SJH        arduboy.setRGBled(0, 0, 0);
         playerDies();
         return;
 
@@ -85,10 +80,15 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   }
   else {
 
-    if (this->suicide > 0) {
-    
-//SJH      arduboy.setRGBled(0, 0, 0);
-      this->suicide = 0;
+    switch (this->suicide) {
+
+      case 0:
+        break;
+
+      case 1 ... 60:
+        this->pause = true;
+        this->suicide = 0;
+        break;
 
     }
     

@@ -137,6 +137,7 @@ namespace Images {
     #include "menus/GameOver.h"
     #include "menus/TryAgain.h"
     #include "menus/Victory.h"
+    #include "menus/Pause.h"
 
     #include "arrows/Arrow.h"
     #include "arrows/ArrowTL.h"

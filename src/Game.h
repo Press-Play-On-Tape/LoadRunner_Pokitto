@@ -88,6 +88,8 @@ class Game {
         uint8_t levelCount = 0;
         uint8_t menuSelect = 0;
         uint8_t counter;
+
         bool goldFlash;
+        bool pause;
 
 };

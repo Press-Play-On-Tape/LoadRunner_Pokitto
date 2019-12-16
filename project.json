@@ -3449,6 +3449,15 @@
 		},
 		"\\src\\images\\menus\\Number9_Seque.png": {
 			"sdcard": false
+		},
+		"\\src\\images\\menus\\GameOver - Copy.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\Pause.png": {
+			"sdcard": false
+		},
+		"\\src\\images\\menus\\Pause.h": {
+			"sdcard": false
 		}
 	}
 }
