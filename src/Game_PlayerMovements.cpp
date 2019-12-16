@@ -28,9 +28,6 @@ void Game::stopPlayer() {
 
 void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement nearest) {
 
-//   uint8_t justPressed =   arduboy.justPressedButtons();
-//   uint8_t pressed =       arduboy.pressedButtons();
-
 
   // Stop the players running ahead ..
 
@@ -97,7 +94,6 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
   // Burn to the left .. 
 
-//if ((justPressed & A_BUTTON) && !(justPressed & B_BUTTON)) {
   if (PC::buttons.pressed(BTN_B) && !PC::buttons.pressed(BTN_A)) {
 
     if (inCellY()) {
@@ -129,7 +125,6 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
   // Burn to the right .. 
 
-//else if ((justPressed & B_BUTTON) && !(justPressed & A_BUTTON)) {
   else if (PC::buttons.pressed(BTN_A) && !PC::buttons.pressed(BTN_B)) {
 
     if (inCellY()) {
@@ -162,7 +157,6 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   // ------------------------------------------------------------------------------------------
   //  Right
   
-//  if (pressed & RIGHT_BUTTON) {
   if (PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1)) {
 
     bool moveRight = true;
@@ -388,7 +382,6 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   // ------------------------------------------------------------------------------------------
   //  Left
   
-//else if (pressed & LEFT_BUTTON) {
   else if (PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1)) {
 
     boolean moveLeft = true;
@@ -614,7 +607,6 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   // ------------------------------------------------------------------------------------------
   //  Up
 
-//else if (pressed & UP_BUTTON) {
   else if (PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1)) {
 
     bool moveUp = true;
@@ -727,7 +719,6 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
   // ------------------------------------------------------------------------------------------
   //  Down
 
-//  else if ((pressed & DOWN_BUTTON) || ( !(pressed & RIGHT_BUTTON) && !(pressed & LEFT_BUTTON) && !(pressed & UP_BUTTON) && (player.getYDelta() == 2 || level.getYOffsetDelta() == -2) )) {
   else if (PC::buttons.pressed(BTN_DOWN) || PC::buttons.repeat(BTN_DOWN, 1) || 
           ( !(PC::buttons.pressed(BTN_RIGHT) || PC::buttons.repeat(BTN_RIGHT, 1)) && !(PC::buttons.pressed(BTN_LEFT) || PC::buttons.repeat(BTN_LEFT, 1)) && !(PC::buttons.pressed(BTN_UP) || PC::buttons.repeat(BTN_UP, 1)) && 
           (this->player.getYDelta() == 2 || this->level.getYOffsetDelta() == -2) )) {
