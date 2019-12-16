@@ -181,6 +181,7 @@ void Game::levelPlay() {
     if (PC::buttons.pressed(BTN_A) || PC::buttons.pressed(BTN_B)) {
       PC::buttons.pollButtons();
       this->pause = false;
+      this->suicide = 0;
     } 
 
     renderScreen();
