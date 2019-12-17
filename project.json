@@ -3458,6 +3458,24 @@
 		},
 		"\\src\\images\\menus\\Pause.h": {
 			"sdcard": false
+		},
+		"\\LodeRunner_Pokitto.bin": {
+			"sdcard": false
+		},
+		"\\LodeRunner_Pokitto.pop": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.2.png": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.3.png": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.4.png": {
+			"sdcard": false
+		},
+		"\\LoadRunner_Pokitto.bin.5.png": {
+			"sdcard": false
 		}
 	}
 }
