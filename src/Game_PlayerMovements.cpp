@@ -3,10 +3,11 @@
 
 #include "characters/Enemy.h"
 #include "characters/Player.h"
+#include "src/sounds/Sounds.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
-
+using PS = Pokitto::Sound;
 
 // ------------------------------------------------------------------------------------------
 //  Stop player movement ..
@@ -113,6 +114,8 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         this->holes.enqueue(hole);
 
         PC::buttons.pollButtons();
+        PS::playSFX(Sounds::sfx_goldFinish, Sounds::sfx_goldFinish_length);
+
         //SJH sound.tones(digAHole);
         return;
 
@@ -144,6 +147,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         this->holes.enqueue(hole);
 
         PC::buttons.pollButtons();
+        PS::playSFX(Sounds::sfx_goldFinish, Sounds::sfx_goldFinish_length);
         //SJH sound.tones(digAHole);
         return;
 

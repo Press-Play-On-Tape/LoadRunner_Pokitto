@@ -3476,6 +3476,88 @@
 		},
 		"\\LoadRunner_Pokitto.bin.5.png": {
 			"sdcard": false
+		},
+		"/LodeRunner_Pokitto.pop": {
+			"sdcard": false
+		},
+		"/LodeRunner_Pokitto.bin": {
+			"sdcard": false
+		},
+		"/src/Sound Files": {},
+		"/src/Sound Files/RawToBin.js": {
+			"sdcard": false
+		},
+		"/src/Sound Files/born.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/dig.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/dig.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/dead.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/down.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/ending.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/dig.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/getGold.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/goldFinish.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/pass.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreBell.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreCount.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreEnding.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/test-node.js": {
+			"sdcard": false
+		},
+		"/src/Sound Files/trap.mp3": {
+			"sdcard": false
+		},
+		"/src/sounds/dig.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Pause.h": {
+			"sdcard": false
+		},
+		"/src/images/menus/Pause.png": {
+			"sdcard": false
+		},
+		"/src/Sound Files/goldFinish.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/goldFinish.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/goldFinish copy.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/goldFinish.raw": {
+			"sdcard": false
+		},
+		"/src/sounds/goldFinish.h": {
+			"sdcard": false
 		}
 	}
 }

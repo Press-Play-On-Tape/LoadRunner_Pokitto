@@ -5,9 +5,11 @@
 #include "images/Images.h"
 #include "utils/Utils.h"
 #include "utils/EEPROM_Utils.h"
+#include "src/sounds/Sounds.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
+using PS = Pokitto::Sound;
 
 
 void Game::setup(GameCookie *cookie) { 

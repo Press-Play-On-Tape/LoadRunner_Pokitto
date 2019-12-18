@@ -23,19 +23,17 @@ int main() {
     PC::setFrameRate(40);
     PD::persistence = true;
     PD::invisiblecolor = 0;
-    //PS::ampEnable(true);
+    PS::ampEnable(true);
     
     game.setup(&cookie);
     PD::setFont(font5x7);
+
 
     while (PC::isRunning()) {
     
         if (!PC::update()) continue;
         game.loop();
-        
-        
-        PS::playTone(0, 23000, 12, 2000);
-       //PS::playSFX(Sounds::sfx_3_jump, Sounds::sfx_3_jump_length);
+
     }
     
     return 0;
