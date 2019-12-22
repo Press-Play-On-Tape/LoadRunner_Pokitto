@@ -4,9 +4,11 @@
 #include "characters/Enemy.h"
 #include "characters/Player.h"
 #include "utils/Utils.h"
+#include "src/sounds/Sounds.h"
 
 using PC = Pokitto::Core;
 using PD = Pokitto::Display;
+using PS = Pokitto::Sound;
 
 
 // ------------------------------------------------------------------------------------------
@@ -41,8 +43,7 @@ void Game::enemyMovements(Enemy *enemy) {
   LevelElement current = this->level.getLevelData(enemyX, enemyY);
   LevelElement down = this->level.getLevelData(enemyX, enemyY + 1);
   
-  //if (enemyY == 14) printf("%i, %i ", enemyX, enemyY);
-
+  
   // Check to see if the enemy has touched gold!
 
   if (current == LevelElement::Gold && enemy->getGoldCountdown() == 0) {
@@ -72,7 +73,6 @@ void Game::enemyMovements(Enemy *enemy) {
   if (stance == PlayerStance::Falling) {
 
     if (current < LevelElement::Brick_1 && current > LevelElement::Brick_Close_4 && canContinueToFall_Enemy(down)) {
-        //if (enemyY >= 13) printf(", falling\n");
         return;
     }
   
@@ -119,8 +119,6 @@ void Game::enemyMovements(Enemy *enemy) {
 
       int16_t xDiff = enemy->getX() - (this->player.getX() - this->level.getXOffset());
       int16_t yDiff = enemy->getY() - (this->player.getY() - this->level.getYOffset());
-  
-  //if (enemyY == 14) printf(", diff: %i, %i", xDiff, yDiff);
 
 
       if (enemy->getDirectionCountdown() > 0) {
@@ -128,22 +126,18 @@ void Game::enemyMovements(Enemy *enemy) {
 
         // Can the enemy move in the preferred direction ?
 
-  //if (enemyY == 14) printf(", prefDir: %i, ", (uint8_t) enemy->getPreferredDirection());
         bool preferredHasMoved = attemptToMove(enemy, enemyX, enemyY, enemy->getPreferredDirection(), current, up, right, rightDown, down, leftDown, left, false);
         enemy->decrementDirectionCountdown();
         if (preferredHasMoved) {
-  //if (enemyY == 14) printf(", preferredHasMoved = true\n");
             return;
         }
         direction = enemy->getDirection();
-  //if (enemyY == 14) printf(", dirA: %i\n", (uint8_t)direction);
 
       }
       else {
 
         direction = getDirection_16Directions(xDiff, yDiff);
         enemy->setPreferredDirection(getDirection_4Directions(direction));
-  //if (enemyY == 14) printf(", dirB: %i\n", (uint8_t)direction);
 
       }
 
@@ -306,7 +300,9 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
         else if (canBeFallenInto_Down) {
 
-          enemy->setStance(PlayerStance::Falling);
+          if (enemy->getStance() != PlayerStance::Falling) {
+            enemy->setStance(PlayerStance::Falling);
+          }
           move(enemy, 0, 2, randomMoves);
           
 
@@ -316,7 +312,7 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
             case LevelElement::Brick_1 ... LevelElement::Brick_Close_4:
               enemy->setEscapeHole(EscapeHole::WaitMax);
-              //SJH sound.tones(enemyFallsIn);
+              PS::playSFX(Sounds::sfx_trap, Sounds::sfx_trap_length);
               break;
             
             default:  break;
@@ -362,7 +358,9 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
         else if (canBeFallenInto_Down && notOccupiedByAnotherEnemy_Right) {
 
-          enemy->setStance(PlayerStance::Falling);
+          if (enemy->getStance() != PlayerStance::Falling) {
+            enemy->setStance(PlayerStance::Falling);
+          }          
           move(enemy, 0, 2, randomMoves);
 
 
@@ -421,7 +419,9 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
         else if (canBeFallenInto_Down) {
 
-          enemy->setStance(PlayerStance::Falling);
+          if (enemy->getStance() != PlayerStance::Falling) {
+            enemy->setStance(PlayerStance::Falling);
+          } 
           move(enemy, 0, 2, randomMoves);
           
 
@@ -431,7 +431,7 @@ boolean Game::attemptToMove(Enemy *enemy, uint8_t enemyX, uint8_t enemyY,
 
             case LevelElement::Brick_1 ... LevelElement::Brick_Close_4:
               enemy->setEscapeHole(EscapeHole::WaitMax);
-              //SJH sound.tones(enemyFallsIn);
+              PS::playSFX(Sounds::sfx_trap, Sounds::sfx_trap_length);
               break;
             
             default:  break;

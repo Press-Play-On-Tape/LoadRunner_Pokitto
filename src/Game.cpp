@@ -47,9 +47,8 @@ void Game::loop(void) {
 
         case GameState::LevelInit:
             this->levelShow = true;
-            //SJH sound.noTone();
+            PS::playSFX(nullptr, 0);
             while (!this->holes.isEmpty()) this->holes.dequeue();
-            //      level.setLevelNumber(36);
             this->level.loadLevel(&player, enemies); 
             this->introRect = 77;
             this->gameState = GameState::LevelEntryAnimation;
@@ -263,6 +262,11 @@ void Game::levelPlay() {
             case PlayerStance::Rebirth_1 ... PlayerStance::Rebirth_3:
               
               enemy->setStance(getNextStance(stance));
+              if (enemy->getStance() == PlayerStance::Rebirth_2) {
+                        
+                PS::playSFX(Sounds::sfx_born, Sounds::sfx_born_length);
+
+              }
               break;
 
             default:
@@ -303,6 +307,7 @@ void Game::levelPlay() {
 
       this->gameState = GameState::LevelExitInit;
       this->level.setLevelNumber(levelNumber);
+      PS::playSFX(Sounds::sfx_pass, Sounds::sfx_pass_length);
       EEPROM_Utils::saveLevelNumber(*this->cookie, this->level.getLevelNumber());
 
       if (levelNumber > LEVEL_COUNT) {
@@ -624,7 +629,7 @@ void Game::playerDies() {
 
   }
 
-  //SJH sound.tones(dead); 
+  PS::playSFX(Sounds::sfx_dead, Sounds::sfx_dead_length);
 
 }
 

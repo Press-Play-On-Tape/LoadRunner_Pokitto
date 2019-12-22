@@ -9,6 +9,7 @@ using PC = Pokitto::Core;
 using PD = Pokitto::Display;
 using PS = Pokitto::Sound;
 
+
 // ------------------------------------------------------------------------------------------
 //  Stop player movement ..
 // ------------------------------------------------------------------------------------------
@@ -54,8 +55,11 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     if (lastPiece) {
       this->goldFlash = true;
+      PS::playSFX(Sounds::sfx_goldFinish, Sounds::sfx_goldFinish_length);
     }
-    //SJH sound.tones(pickUpGold);
+    else {
+      PS::playSFX(Sounds::sfx_getGold, Sounds::sfx_getGold_length);
+    }
 
   }
 
@@ -114,9 +118,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         this->holes.enqueue(hole);
 
         PC::buttons.pollButtons();
-        PS::playSFX(Sounds::sfx_goldFinish, Sounds::sfx_goldFinish_length);
-
-        //SJH sound.tones(digAHole);
+        PS::playSFX(Sounds::sfx_dig, Sounds::sfx_dig_length);
         return;
 
       }
@@ -147,8 +149,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         this->holes.enqueue(hole);
 
         PC::buttons.pollButtons();
-        PS::playSFX(Sounds::sfx_goldFinish, Sounds::sfx_goldFinish_length);
-        //SJH sound.tones(digAHole);
+        PS::playSFX(Sounds::sfx_dig, Sounds::sfx_dig_length);
         return;
 
       }
@@ -185,7 +186,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         moveRight = false;
         moveDown = false;
         this->player.setStance(PlayerStance::StandingStill);
-        //SJH sound.noTone();
+        PS::playSFX(nullptr, 0);
 
       }
       
@@ -193,7 +194,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         updatePlayerStance(PlayerStance::Swinging_Right1, PlayerStance::Swinging_Right2);
         moveRight = true;
-        //SJH sound.noTone();
+        PS::playSFX(nullptr, 0);
 
       }
 
@@ -238,7 +239,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         this->player.setStance(PlayerStance::Falling);
         moveRight = false;
         moveDown = true;
-        //SJH sound.tones(freeFalling);   
+        PS::playSFX(Sounds::sfx_trap, Sounds::sfx_trap_length);
 
       }
       else if (!canBeOccupied(right) && canBeStoodOn_XY1) {  
@@ -313,7 +314,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
           updatePlayerStance(PlayerStance::Climbing_Up1, PlayerStance::Climbing_Up2);
           moveRight = true;
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
         else {
@@ -338,7 +339,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
           this->player.setStance(PlayerStance::Falling);        
           moveRight = true;
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
         else {
@@ -369,7 +370,10 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     if (moveDown) {
 
-      this->player.setStance(PlayerStance::Falling);
+      if (this->player.getStance() != PlayerStance::Falling) {
+        this->player.setStance(PlayerStance::Falling);
+        PS::playSFX(Sounds::sfx_fall, Sounds::sfx_fall_length); 
+      } 
       movePlayerDown();
 
     }
@@ -410,7 +414,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         moveLeft = false;
         moveDown = false;
         this->player.setStance(PlayerStance::StandingStill);
-        //SJH sound.noTone();
+        PS::playSFX(nullptr, 0);
 
       }
       
@@ -418,7 +422,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
         updatePlayerStance(PlayerStance::Swinging_Left4, PlayerStance::Swinging_Left1);
         moveLeft = true;
-        //SJH sound.noTone();
+        PS::playSFX(nullptr, 0);
 
       }
 
@@ -460,7 +464,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
       else if (inCell_X && canBeFallenInto(down, this->enemies, nearestX, nearestY + 1)) {
 
         this->player.setStance(PlayerStance::Falling);
-        //SJH sound.tones(freeFalling); 
+        PS::playSFX(Sounds::sfx_fall, Sounds::sfx_fall_length); 
         moveLeft = false;
         moveDown = true;
 
@@ -546,7 +550,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
           updatePlayerStance(PlayerStance::Climbing_Up1, PlayerStance::Climbing_Up2);
           moveLeft = true;
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
         else {
@@ -563,8 +567,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
           this->player.setStance(PlayerStance::Falling);        
           moveLeft = true;
           moveDown = false;
-          //SJH sound.noTone();
-
+          PS::playSFX(nullptr, 0);
         }
         else {
 
@@ -594,7 +597,11 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
     if (moveDown) {
 
-      this->player.setStance(PlayerStance::Falling);
+      if (this->player.getStance() != PlayerStance::Falling) {
+        this->player.setStance(PlayerStance::Falling);
+        PS::playSFX(Sounds::sfx_fall, Sounds::sfx_fall_length); 
+      } 
+
       movePlayerDown();
 
     }
@@ -630,14 +637,14 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
           this->player.setStance(PlayerStance::Swinging_Right1);
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
         else if (canBeStoodOn(down, this->enemies, nearestX, nearestY + 1)) {
 
           moveDown = false;
           this->player.setStance(PlayerStance::StandingStill);
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
           
         } 
 
@@ -649,7 +656,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
           moveUp = false;
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
         else {
@@ -662,7 +669,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
       default:
 
-        //SJH sound.noTone();
+        PS::playSFX(nullptr, 0);
 
         if (inCellX(4)) {
 
@@ -741,14 +748,14 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
           this->player.setStance(PlayerStance::Swinging_Right1);
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
 
         else if (inCellY() && current >= LevelElement::Brick_Close_1 && current <= LevelElement::Brick_Close_4) {
 
           moveDown = false;
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
 
@@ -756,7 +763,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
           moveDown = false;
           this->player.setStance(PlayerStance::StandingStill);
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }          
 
@@ -773,7 +780,13 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
         }
         else if (canBeOccupied(down)) {
 
-          if (down == LevelElement::Blank) this->player.setStance(PlayerStance::Falling);
+
+          if (down == LevelElement::Blank) {
+            if (this->player.getStance() != PlayerStance::Falling) {
+              this->player.setStance(PlayerStance::Falling);
+              PS::playSFX(Sounds::sfx_fall, Sounds::sfx_fall_length); 
+            } 
+          }
           this->player.setX((nearestX * GRID_SIZE) + this->level.getXOffset());
           moveDown = true;
 
@@ -782,7 +795,7 @@ void Game::playerMovements(uint8_t nearestX, uint8_t nearestY, LevelElement near
 
           moveDown = false;
           this->player.setStance(PlayerStance::StandingStill);
-          //SJH sound.noTone();
+          PS::playSFX(nullptr, 0);
 
         }
         
