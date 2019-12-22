@@ -3918,6 +3918,9 @@
 		},
 		"/src/Sound Files/Fall_11025.h": {
 			"sdcard": false
+		},
+		"/LodeRunner_Pokitto.elf": {
+			"sdcard": false
 		}
 	}
 }
