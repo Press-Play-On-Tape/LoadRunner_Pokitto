@@ -3688,7 +3688,223 @@
 		"/src/Sound Files/getGold_11025.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/getGold_8000.raw": {
+		"/src/Sound Files/born.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/dead.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/down.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/ending.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/pass.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/pass0.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreBell.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreCount.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreCount0.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreEnding.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/trap.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/born.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/dead.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/down.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/ending.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/getGold.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/pass.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreBell.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreCount.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/scoreEnding.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/trap.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Born.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Dead.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Dig.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Down.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Ending.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Fall.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/GetGold.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/GoldFinish.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Pass.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/ScoreBell.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/ScoreCount.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/ScoreEnding.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Trap.h": {
+			"sdcard": false
+		},
+		"/src/sounds/untitled folder": {},
+		"/src/sounds/11025": {},
+		"/src/sounds/8000": {},
+		"/src/sounds/8000/Born.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/Dead.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/Dig.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/Down.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/Ending.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/Fall.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/GoldFinish.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/GetGold.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/Pass.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/ScoreBell.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/ScoreCount.h": {
+			"sdcard": false
+		},
+		"/src/sounds/8000/ScoreEnding.h": {
+			"sdcard": false
+		},
+		"/src/sounds/11025/Born_11025.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Born.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Dig.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Dead.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Down.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Ending.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Fall.h": {
+			"sdcard": false
+		},
+		"/src/sounds/GetGold.h": {
+			"sdcard": false
+		},
+		"/src/sounds/GoldFinish.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Pass.h": {
+			"sdcard": false
+		},
+		"/src/sounds/ScoreBell.h": {
+			"sdcard": false
+		},
+		"/src/sounds/ScoreEnding.h": {
+			"sdcard": false
+		},
+		"/src/sounds/ScoreCount.h": {
+			"sdcard": false
+		},
+		"/src/sounds/Trap.h": {
+			"sdcard": false
+		},
+		"/src/getGold_11025.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall_simplified.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/NoOverwritePromptkpTnYU": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall_simplified0.mp3": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall0.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/NoOverwritePromptkALlgH": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall_110250.raw": {
+			"sdcard": false
+		},
+		"/src/Sound Files/fall_11025.h": {
+			"sdcard": false
+		},
+		"/src/Sound Files/Fall_11025.h": {
+			"sdcard": false
+		},
+		"/LodeRunner_Pokitto.elf": {
 			"sdcard": false
 		},
 		"/src/Sound Files/born_8000.raw": {
@@ -3709,13 +3925,13 @@
 		"/src/Sound Files/fall_8000.raw": {
 			"sdcard": false
 		},
+		"/src/Sound Files/getGold_8000.raw": {
+			"sdcard": false
+		},
 		"/src/Sound Files/goldFinish_8000.raw": {
 			"sdcard": false
 		},
 		"/src/Sound Files/pass_8000.raw": {
-			"sdcard": false
-		},
-		"/src/Sound Files/pass_80000.raw": {
 			"sdcard": false
 		},
 		"/src/Sound Files/scoreBell_8000.raw": {
@@ -3724,202 +3940,49 @@
 		"/src/Sound Files/scoreCount_8000.raw": {
 			"sdcard": false
 		},
-		"/src/Sound Files/scoreCount_80000.raw": {
-			"sdcard": false
-		},
 		"/src/Sound Files/scoreEnding_8000.raw": {
 			"sdcard": false
 		},
 		"/src/Sound Files/trap_8000.raw": {
 			"sdcard": false
 		},
-		"/src/Sound Files/born_8000.h": {
+		"/src/sounds/born_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/dead_8000.h": {
+		"/src/sounds/dead_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/dig_8000.h": {
+		"/src/sounds/dig_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/down_8000.h": {
+		"/src/sounds/down_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/ending_8000.h": {
+		"/src/sounds/ending_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/fall_8000.h": {
+		"/src/sounds/fall_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/getGold_8000.h": {
+		"/src/sounds/getGold_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/goldFinish_8000.h": {
+		"/src/sounds/goldFinish_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/pass_8000.h": {
+		"/src/sounds/pass_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/scoreBell_8000.h": {
+		"/src/sounds/scoreBell_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/scoreCount_8000.h": {
+		"/src/sounds/scoreEnding_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/scoreEnding_8000.h": {
+		"/src/sounds/trap_8000.h": {
 			"sdcard": false
 		},
-		"/src/Sound Files/trap_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Born_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Dead_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Dig_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Down_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Ending_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Fall_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/GetGold_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/GoldFinish_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Pass_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/ScoreBell_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/ScoreCount_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/ScoreEnding_8000.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Trap_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/untitled folder": {},
-		"/src/sounds/11025": {},
-		"/src/sounds/8000": {},
-		"/src/sounds/8000/Born_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/Dead_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/Dig_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/Down_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/Ending_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/Fall_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/GoldFinish_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/GetGold_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/Pass_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/ScoreBell_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/ScoreCount_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/8000/ScoreEnding_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/11025/Born_11025.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Born_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Dig_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Dead_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Down_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Ending_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Fall_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/GetGold_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/GoldFinish_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Pass_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/ScoreBell_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/ScoreEnding_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/ScoreCount_8000.h": {
-			"sdcard": false
-		},
-		"/src/sounds/Trap_8000.h": {
-			"sdcard": false
-		},
-		"/src/getGold_11025.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/fall_simplified.mp3": {
-			"sdcard": false
-		},
-		"/src/Sound Files/NoOverwritePromptkpTnYU": {
-			"sdcard": false
-		},
-		"/src/Sound Files/fall_simplified0.mp3": {
-			"sdcard": false
-		},
-		"/src/Sound Files/fall_80000.raw": {
-			"sdcard": false
-		},
-		"/src/Sound Files/NoOverwritePromptkALlgH": {
-			"sdcard": false
-		},
-		"/src/Sound Files/fall_110250.raw": {
-			"sdcard": false
-		},
-		"/src/Sound Files/fall_11025.h": {
-			"sdcard": false
-		},
-		"/src/Sound Files/Fall_11025.h": {
-			"sdcard": false
-		},
-		"/LodeRunner_Pokitto.elf": {
+		"/src/sounds/scoreCount_8000.h": {
 			"sdcard": false
 		}
 	}
